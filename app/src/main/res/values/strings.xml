@@ -83,6 +83,8 @@
     <string name="tit">Filtro de Comprobantes</string>
     <string name="FilEmp">Empresa:</string>
     <string name="FilEmple">Empleado</string>
+    <string name="ic_guardar">Guardar</string>
+    <string name="ic_borrar">Eliminar</string>
 
     <!--cargar_datos_ventana-->
     <string name="dialog_btn_yes">Aceptar</string>

@@ -7,9 +7,9 @@
     <item
             android:id="@+id/btnDelete"
             android:icon="@drawable/ic_delete"
-            android:title="@string/ic_filtrar"/>
+            android:title="@string/ic_borrar"/>
     <item
             android:id="@+id/btnSave"
             android:icon="@drawable/ic_save"
-            android:title="@string/ic_send"/>
+            android:title="@string/ic_guardar"/>
 </menu>
