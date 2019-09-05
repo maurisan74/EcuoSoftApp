@@ -27,11 +27,10 @@ class SaveFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val interpolator = OvershootInterpolator()
-        var isOpenMenu = false
-        val traslationY = 100f
-        val sharedPreferences = this.getActivity()?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-        val editor = sharedPreferences!!.edit()
+//        val interpolator = OvershootInterpolator()
+//        var isOpenMenu = false
+//        val traslationY = 100f
+
         val v = inflater.inflate(R.layout.fragment_save, container, false)
 //        val fabFabMain: FloatingActionButton = v.findViewById(R.id.btnFabMain)
 //        val fabBack: FloatingActionButton = v.findViewById(R.id.btnBack)
@@ -140,149 +139,151 @@ class SaveFragment : Fragment() {
             }
         }
         bottomNavigationSave.setOnNavigationItemSelectedListener { item ->
-            //            activity!!.vibrate(50)
-//            if (item.itemId == R.id.btnBack) {
-//                activity?.supportFragmentManager!!.beginTransaction()
-//                    .replace(R.id.frlayout, CompFragment())
-//                    .addToBackStack(null)
-//                    .commit()
-////            val action = SaveFragmentDirections.actionSaveFragmentToCompFragment()
-////            Navigation.findNavController(view!!).navigate(action)
+            activity!!.vibrate(50)
+            val sharedPreferences = this.getActivity()?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+            val editor = sharedPreferences!!.edit()
+            if (item.itemId == R.id.btnBack) {
+                activity?.supportFragmentManager!!.beginTransaction()
+                    .replace(R.id.frlayout, CompFragment())
+                    .addToBackStack(null)
+                    .commit()
+//            val action = SaveFragmentDirections.actionSaveFragmentToCompFragment()
+//            Navigation.findNavController(view!!).navigate(action)
+            }
+
+            if (item.itemId == R.id.btnDelete) {
+                etUsuario.text!!.clear()
+                tvClave.text!!.clear()
+                tvServer.text!!.clear()
+                when (serverSel) {
+                    "a" -> {
+                        editor?.putString("a", "")
+                        editor?.putString("b", "")
+                        editor?.putString("c", "")
+                        editor?.putString("x", "")
+                    }
+                    "b" -> {
+                        editor?.putString("d", "")
+                        editor?.putString("e", "")
+                        editor?.putString("f", "")
+                        editor?.putString("y", "")
+                    }
+                    "c"-> {
+                        editor?.putString("g", "")
+                        editor?.putString("h", "")
+                        editor?.putString("i", "")
+                        editor?.putString("z", "")
+                    }
+                }
+                editor?.apply()
+                editor.commit()
+                context!!.Msje("!Datos eliminados¡")
+            }
+
+            if (item.itemId == R.id.btnSave) {
+                var server=""
+                var us=""
+                var cl=""
+                var usurioOK=false
+                var claveOK=false
+                var serverOK=false
+
+                if (etUsuario.text!!.isEmpty() or etUsuario.text!!.isBlank()) {
+                    etUsuario.error="Usuario Incorrecto"
+                    etUsuario.requestFocus()
+                    etUsuario.hint="Usuario Incorrecto"
+                }else{
+                    us = etUsuario.text.toString().trim()
+                    usurioOK=true
+                }
+
+                if (tvClave.text!!.isEmpty() or tvClave.text!!.isBlank()) {
+                    tvClave.error="Clave Incorrecta"
+                    tvClave.requestFocus()
+                    tvClave.hint="Clave Incorrecta"
+                }else{
+                    cl=tvClave.text.toString().trim()
+                    claveOK=true
+                }
+
+                if (tvServer.text!!.isEmpty() or tvServer.text!!.isBlank()) {
+                    tvServer.error="Email No Valido"
+                    tvServer.requestFocus()
+                    tvServer.hint="Email no válido"
+                }else{
+                    server=tvServer.text.toString().trim()
+                    serverOK=true
+                }
+//            val control=activity!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+//            if (control.getString("x", "")=="" && control.getString("y", "")=="" && control.getString("z", "")=="") {
+//                AlertDialog.Builder(activity!!)
+//                    .setCancelable(false)
+//                    //.setTitle("Alert Dialog")
+//                    .setMessage("¿Desea que este servidor sea predeterminado?")
+//                    //.setIcon(android.R.drawable.ic_dialog_alert)
+//                    .setNegativeButton("NO", DialogInterface.OnClickListener { dialog, which ->
+//                        datoCargado=""
+//                    }).setPositiveButton("SI", DialogInterface.OnClickListener
+//                    { dialog, which ->
+//                        cPredeterminado.isChecked=true
+//                        datoCargado="OK"
+//                    }).create().show()
 //            }
 
-//            if (item.itemId == R.id.btnDelete) {
-//                etUsuario.text!!.clear()
-//                tvClave.text!!.clear()
-//                tvServer.text!!.clear()
-//                when (serverSel) {
-//                    "a" -> {
-//                        editor?.putString("a", "")
-//                        editor?.putString("b", "")
-//                        editor?.putString("c", "")
-//                        editor?.putString("x", "")
-//                    }
-//                    "b" -> {
-//                        editor?.putString("d", "")
-//                        editor?.putString("e", "")
-//                        editor?.putString("f", "")
-//                        editor?.putString("y", "")
-//                    }
-//                    "c"-> {
-//                        editor?.putString("g", "")
-//                        editor?.putString("h", "")
-//                        editor?.putString("i", "")
-//                        editor?.putString("z", "")
-//                    }
-//                }
-//                editor?.apply()
-//                editor.commit()
-//                context!!.Msje("!Datos eliminados¡")
-//            }
+                if(cPredeterminado.isChecked){
+                    datoCargado="OK"
+                }else{
+                    datoCargado=""
+                }
+                if (serverOK && usurioOK && claveOK ){
+                    when (serverSel) {
+                        "a" -> {
+                            editor?.putString("a", server)
+                            editor?.putString("b", us)
+                            editor?.putString("c", cl)
+                            editor?.putString("x", datoCargado)
+                            editor?.putString("y", "")
+                            editor?.putString("z", "")
+                        }
+                        "b" -> {
+                            editor?.putString("d", server)
+                            editor?.putString("e", us)
+                            editor?.putString("f", cl)
+                            editor?.putString("y", datoCargado)
+                            editor?.putString("x", "")
+                            editor?.putString("z", "")
+                        }
+                        "c"-> {
+                            editor?.putString("g", server)
+                            editor?.putString("h", us)
+                            editor?.putString("i", cl)
+                            editor?.putString("z", datoCargado)
+                            editor?.putString("y", "")
+                            editor?.putString("x", "")
+                        }
+                    }
+                    editor?.apply()
+                    editor.commit()
+                    context!!.Msje("!Datos Registrados¡")
 
-//            if (item.itemId == R.id.btnSave) {
-//                var server=""
-//                var us=""
-//                var cl=""
-//                var usurioOK=false
-//                var claveOK=false
-//                var serverOK=false
-//
-//                if (etUsuario.text!!.isEmpty() or etUsuario.text!!.isBlank()) {
-//                    etUsuario.error="Usuario Incorrecto"
-//                    etUsuario.requestFocus()
-//                    etUsuario.hint="Usuario Incorrecto"
-//                }else{
-//                    us = etUsuario.text.toString().trim()
-//                    usurioOK=true
-//                }
-//
-//                if (tvClave.text!!.isEmpty() or tvClave.text!!.isBlank()) {
-//                    tvClave.error="Clave Incorrecta"
-//                    tvClave.requestFocus()
-//                    tvClave.hint="Clave Incorrecta"
-//                }else{
-//                    cl=tvClave.text.toString().trim()
-//                    claveOK=true
-//                }
-//
-//                if (tvServer.text!!.isEmpty() or tvServer.text!!.isBlank()) {
-//                    tvServer.error="Email No Valido"
-//                    tvServer.requestFocus()
-//                    tvServer.hint="Email no válido"
-//                }else{
-//                    server=tvServer.text.toString().trim()
-//                    serverOK=true
-//                }
-////            val control=activity!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-////            if (control.getString("x", "")=="" && control.getString("y", "")=="" && control.getString("z", "")=="") {
-////                AlertDialog.Builder(activity!!)
-////                    .setCancelable(false)
-////                    //.setTitle("Alert Dialog")
-////                    .setMessage("¿Desea que este servidor sea predeterminado?")
-////                    //.setIcon(android.R.drawable.ic_dialog_alert)
-////                    .setNegativeButton("NO", DialogInterface.OnClickListener { dialog, which ->
-////                        datoCargado=""
-////                    }).setPositiveButton("SI", DialogInterface.OnClickListener
-////                    { dialog, which ->
-////                        cPredeterminado.isChecked=true
-////                        datoCargado="OK"
-////                    }).create().show()
-////            }
-//
-//                if(cPredeterminado.isChecked){
-//                    datoCargado="OK"
-//                }else{
-//                    datoCargado=""
-//                }
-//                if (serverOK && usurioOK && claveOK ){
-//                    when (serverSel) {
-//                        "a" -> {
-//                            editor?.putString("a", server)
-//                            editor?.putString("b", us)
-//                            editor?.putString("c", cl)
-//                            editor?.putString("x", datoCargado)
-//                            editor?.putString("y", "")
-//                            editor?.putString("z", "")
-//                        }
-//                        "b" -> {
-//                            editor?.putString("d", server)
-//                            editor?.putString("e", us)
-//                            editor?.putString("f", cl)
-//                            editor?.putString("y", datoCargado)
-//                            editor?.putString("x", "")
-//                            editor?.putString("z", "")
-//                        }
-//                        "c"-> {
-//                            editor?.putString("g", server)
-//                            editor?.putString("h", us)
-//                            editor?.putString("i", cl)
-//                            editor?.putString("z", datoCargado)
-//                            editor?.putString("y", "")
-//                            editor?.putString("x", "")
+//                    val bac = object  : Thread(){
+//                        override fun run(){
+//                            try {
+//                                sleep(3500)
+//                                activity?.supportFragmentManager?.beginTransaction()
+//                                    ?.replace(R.id.fragment, HomeFragment())
+//                                    ?.addToBackStack(null)
+//                                    ?.commit()
+//                                //vuelve atras un fragmento
+//                                //activity?.supportFragmentManager?.popBackStack()
+//                            } catch (e : Exception){
+//                                e.printStackTrace()
+//                            }
 //                        }
 //                    }
-//                    editor?.apply()
-//                    editor.commit()
-//                    context!!.Msje("!Datos Registrados¡")
-//
-////                    val bac = object  : Thread(){
-////                        override fun run(){
-////                            try {
-////                                sleep(3500)
-////                                activity?.supportFragmentManager?.beginTransaction()
-////                                    ?.replace(R.id.fragment, HomeFragment())
-////                                    ?.addToBackStack(null)
-////                                    ?.commit()
-////                                //vuelve atras un fragmento
-////                                //activity?.supportFragmentManager?.popBackStack()
-////                            } catch (e : Exception){
-////                                e.printStackTrace()
-////                            }
-////                        }
-////                    }
-////                    bac.start()
-//                }
-//            }
+//                    bac.start()
+                }
+            }
             true
         }
     }
