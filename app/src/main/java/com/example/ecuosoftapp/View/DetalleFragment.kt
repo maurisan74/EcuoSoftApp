@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.rview.AdapterDetalleComp
+import com.example.ecuosoftapp.vibrate
 import com.example.ecuosoftapp.xml.DetalleComp
 import com.example.ecuosoftapp.xml.ParserHandlerDetalleComp
 import kotlinx.android.synthetic.main.fragment_detalle.*
@@ -50,11 +51,17 @@ class DetalleFragment : Fragment() {
         lista1.adapter = adapter1
         adapter1!!.filter.filter(sDatos)
 
-        btnBack.setOnClickListener {
-            activity?.supportFragmentManager!!.beginTransaction()
-                .replace(R.id.frlayout, CompFragment())
-                .addToBackStack(null)
-                .commit()
+        bottomNavigationDetalle.setOnNavigationItemSelectedListener { item ->
+            activity!!.vibrate(50)
+            if (item.itemId == R.id.btnBack) {
+                activity?.supportFragmentManager!!.beginTransaction()
+                    .replace(R.id.frlayout, CompFragment())
+                    .addToBackStack(null)
+                    .commit()
+
+            }
+            true
         }
+
     }
 }
