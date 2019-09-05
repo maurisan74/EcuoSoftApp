@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">Ecuo App</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">Copyright 2015 - Ecuosoft</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Configuración</string>
+
+    <!--Menu navigation-->
+    <string name="Action">Configuración</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_aut">Autorización de comp.</string>
+    <string name="menu_gallery">Pedidos de Trabajo</string>
+    <string name="menu_gallery2">Ordenes de Trabajo</string>
+    <string name="menu_gallery3">Notificación de Alertas</string>
+    <string name="menu_gallery4">Fichas Técnicas</string>
+    <string name="menu_gallery5">Cotización de Compra</string>
+
+    <string name="btn">Ingresar</string>
+    <string name="noText"> </string>
+    <string name="adv">¡Atención!</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="mensajeError">Mensaje para mostrar las posibles fallas o errores enviados desde el servidor.</string>
+    <string name="comp">Confirmación de comprobantes</string>
+
+    <string name="emp">Empresa:</string>
+    <string name="empl">Empleado:</string>
+    <string name="tes">Comprobantes</string>
+    <string name="suc">Sucursal:</string>
+    <string name="numsuc">9</string>
+
+    <string name="numcomp">NPI : 0001-00001869</string>
+    <string name="Desfec">Fecha:</string>
+    <string name="fec">15/10/2010</string>
+    <string name="tot">99999</string>
+    <string name="peso">$</string>
+    <string name="mot">Motivo:</string>
+    <string name="todo">TODO</string>
+    <string name="codEmp">01</string>
+    <string name="DescSucDep">Suc. Deposito:</string>
+    <string name="SucDep">99999999 y Servicios a Bordo 999999999</string>
+    <string name="server">Nombre del Servidor</string>
+
+
+    <string name="Cargando">Cargando comprobantes</string>
+    <string name="Aguarde">Espere un momento.\n Por favor.</string>
+    <!--item_detalle_comp-->
+    <string name="CodArt">Codigo:</string>
+    <string name="DescArt">Descripción:</string>
+    <string name="Cant">Cantidad:</string>
+    <string name="Precio">Costo:</string>
+    <string name="Tot">Total:</string>
+    <string name="Cant1">jjjj</string>
+    <string name="Precio1">kkkkj</string>
+    <string name="DescArt1">kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</string>
+    <string name="CodArt1">kkkkkk0000000jjj111</string>
+
+    <string name="Tipo">Tipo:</string>
+    <string name="Tipo1">kkkkkk0000000jjj111</string>
+    <string name="Rubro">Rubro:</string>
+    <string name="Rubro1">kkkkkk0000000jjj111</string>
+    <string name="UnidadMedida">U.Medida:</string>
+    <string name="UnidadMedida1">kkkkkk0000000jjj111</string>
+    <string name="Observacion">Observacion:</string>
+
+
+    <string name="mensajeAdv">Primero debe ingresar sus datos en configuraciones.</string>
+
+    <string name="splashTxt2">Mucho mas que un \n software contable</string>
+    <string name="aprobComp">Aprob. Comprobantes</string>
+    <string name="bar_name">Ecuo Software ERP.</string>
+
+
+    <!--fragment_save-->
+    <string name="Ser_Pre">Servidor Predeterminado</string>
+    <string name="Titulo">Configuración de Conexión</string>
+    <string name="usu">Usuario</string>
+    <string name="cont">Contraseña</string>
+
+    <!-- Titulo filtro fragmentSerchComp -->
+    <string name="tit">Filtro de Comprobantes</string>
+    <string name="FilEmp">Empresa:</string>
+    <string name="FilEmple">Empleado</string>
+
+    <!--cargar_datos_ventana-->
+    <string name="dialog_btn_yes">Aceptar</string>
+    <string name="dialog_btn_no">Cancelar</string>
+
+<!--home fragment-->
+    <string name="noti">Notificaciones</string>
+
+    <!--comp fragment-->
+    <string name="ic_back">Volver</string>
+    <string name="ic_send">Enviar</string>
+    <string name="ic_filtrar">Filtrar</string>
+</resources>

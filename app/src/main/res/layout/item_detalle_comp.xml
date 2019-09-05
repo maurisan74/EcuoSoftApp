@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:background="@color/colorAccent"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/LightGray"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="4dp"
+        app:contentPadding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+                android:background="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:cardBackgroundColor="@color/LightGray"
+                android:id="@+id/cvItem1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView android:id="@+id/textView15"
+                          android:layout_width="0dp"
+                          android:layout_height="0dp"
+                          android:text="@string/Observacion"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          android:visibility="invisible"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toBottomOf="@+id/tvUniMedida"
+                          android:layout_marginTop="3dp"/>
+
+                <TextView android:id="@+id/textView14"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/Observacion"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          app:layout_constraintStart_toStartOf="parent"
+                          android:layout_marginTop="3dp" app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+
+                <TextView android:id="@+id/tvObservaciones"
+                          android:layout_width="208dp"
+                          android:layout_height="34dp"
+                          android:text="@string/DescArt1"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          android:textStyle="bold"
+                          app:layout_constraintStart_toEndOf="@+id/textView14"
+                          android:layout_marginStart="3dp"
+                          android:layout_marginTop="3dp" app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/UnidadMedida"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          android:id="@+id/textView13"
+                          app:layout_constraintStart_toStartOf="parent"
+                          android:layout_marginTop="3dp"
+                          app:layout_constraintTop_toBottomOf="@+id/tvDescArt"/>
+                <TextView android:id="@+id/tvUniMedida"
+                          android:layout_width="225dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/UnidadMedida1"
+                          android:textStyle="bold"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          app:layout_constraintStart_toEndOf="@+id/textView13"
+                          android:layout_marginTop="3dp" android:layout_marginStart="3dp"
+                          app:layout_constraintTop_toBottomOf="@+id/tvDescArt"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/Rubro"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          android:id="@+id/textView12"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toBottomOf="@+id/textView6" android:layout_marginTop="3dp"/>
+                <TextView android:id="@+id/tvRubro"
+                          android:layout_width="245dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/Rubro1"
+                          android:textStyle="bold"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          app:layout_constraintStart_toEndOf="@+id/textView12"
+                          app:layout_constraintTop_toBottomOf="@+id/tvTipo" android:layout_marginTop="3dp"
+                          android:layout_marginStart="3dp"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/Tipo"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          android:id="@+id/textView6"
+                          app:layout_constraintStart_toStartOf="parent"
+                          android:layout_marginTop="3dp" app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+                <TextView android:id="@+id/tvTipo"
+                          android:layout_width="255dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/Tipo1"
+                          android:textStyle="bold"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          app:layout_constraintStart_toEndOf="@+id/textView6"
+                          android:layout_marginTop="3dp" app:layout_constraintTop_toBottomOf="@+id/tvCodigoArticulo"
+                          android:layout_marginStart="3dp"/>
+                <TextView
+                        android:text="@string/Cant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="12sp"
+                        android:id="@+id/textView10"
+                        android:layout_marginTop="3dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvUniMedida"/>
+
+                <TextView android:id="@+id/tvCant"
+                          android:layout_width="40dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/Cant1"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          android:textStyle="bold"
+                          app:layout_constraintStart_toEndOf="@+id/textView10"
+                          android:layout_marginTop="3dp"
+                          app:layout_constraintTop_toBottomOf="@+id/tvUniMedida"
+                          android:layout_marginStart="3dp"/>
+
+                <TextView
+                        android:text="@string/Precio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:id="@+id/textView9"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/tvCant"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="3dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvUniMedida"/>
+
+                <TextView android:id="@+id/tvCosto"
+                          android:layout_width="50dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/Precio1"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          app:layout_constraintStart_toEndOf="@+id/textView9"
+                          android:layout_marginStart="3dp"
+                          android:textSize="12sp"
+                          android:textStyle="bold"
+                          android:layout_marginTop="3dp"
+                          app:layout_constraintTop_toBottomOf="@+id/tvUniMedida"/>
+
+                <TextView
+                        android:text="@string/Tot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:id="@+id/textView93"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/tvCosto"
+                        android:layout_marginTop="3dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvUniMedida"/>
+
+                <TextView android:id="@+id/tvTotal"
+                          android:layout_width="50dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/Precio1"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          app:layout_constraintStart_toEndOf="@+id/textView93"
+                          android:textSize="12sp"
+                          android:textStyle="bold"
+                          android:layout_marginStart="3dp"
+                          android:layout_marginTop="3dp"
+                          app:layout_constraintTop_toBottomOf="@+id/tvUniMedida"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/CodArt"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          android:id="@+id/textView2"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView android:id="@+id/textView11"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/DescArt"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toBottomOf="@+id/tvRubro"
+                          android:layout_marginTop="3dp"
+                />
+
+                <TextView android:id="@+id/tvDescArt"
+                          android:layout_width="212dp"
+                          android:layout_height="29dp"
+                          android:text="@string/DescArt1"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          android:textSize="12sp"
+                          android:layout_marginTop="3dp"
+                          android:textStyle="bold"
+                          app:layout_constraintStart_toEndOf="@+id/textView11"
+                          app:layout_constraintTop_toBottomOf="@+id/tvRubro"
+                          android:layout_marginStart="3dp"
+                />
+
+                <TextView android:id="@+id/tvCodigoArticulo"
+                          android:layout_width="214dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/CodArt"
+                          android:textStyle="bold"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                          app:layout_constraintTop_toTopOf="parent"
+                          android:textSize="12sp"
+                          app:layout_constraintStart_toEndOf="@+id/textView2"
+                          android:layout_marginStart="3dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

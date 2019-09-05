@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/btnCancel"
+            android:icon="@drawable/ic_close_red"
+            android:title="@string/dialog_btn_no"/>
+    <item
+            android:id="@+id/btnFilter"
+            android:icon="@drawable/ic_done_green"
+            android:title="@string/dialog_btn_yes"/>
+</menu>

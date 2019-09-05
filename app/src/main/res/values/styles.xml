@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#424242</item>
+        <item name="colorPrimaryDark">#424242</item>
+        <item name="colorAccent">#424242</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+
+    //toast mejorado
+    <style name="GoodTaoast">
+        <item name="stColorBackground">@android:color/holo_orange_dark</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stTextSize">20dp</item>
+        <item name="stTextColor">#FFF</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="stLength">SHORT</item>
+        <item name="stRadius">5dp</item>
+        <item name="stGravity">center</item>
+        <item name="stStrokeWidth">3dp</item>
+    </style>
+</resources>
