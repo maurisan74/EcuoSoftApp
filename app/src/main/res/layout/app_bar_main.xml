@@ -10,23 +10,20 @@
     <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_width="match_parent">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/boton"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/boton"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:popupTheme="@style/AppTheme.AppBarOverlay"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout android:id="@+id/frlayout"
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"
                  android:layout_marginTop="?attr/actionBarSize"/>
-
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

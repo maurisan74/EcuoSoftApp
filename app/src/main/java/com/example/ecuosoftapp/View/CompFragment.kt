@@ -37,6 +37,8 @@ class CompFragment : Fragment() {
 //        fabSerch.alpha = 0f
 //        fabSend.translationY = traslationY
 //        fabSerch.translationY = traslationY
+
+
         if (activity != null) {
             (activity as MainActivity).title = "Autorización de comprobantes"
         }
