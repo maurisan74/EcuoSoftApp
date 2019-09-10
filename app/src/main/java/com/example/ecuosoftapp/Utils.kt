@@ -41,21 +41,21 @@ public fun Context.vibrate(msg:Long){
         }
     }
 }
-
-class BottonNavigationComportamiento(context: Context, attrs: AttributeSet): CoordinatorLayout.Behavior<View>(context,attrs)
-{
-    //Ctrl+o
-    override fun onStartNestedScroll(coordinatorLayout: CoordinatorLayout,child: View,directTargetChild: View,target: View,axes: Int,type: Int): Boolean {
-        return axes==ViewCompat.SCROLL_AXIS_VERTICAL
-    }
-
-    override fun onNestedScroll(coordinatorLayout: CoordinatorLayout, child: View, target: View, dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int, type: Int) {
-        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type)
-        child.translationY= max(0f, min(child.height.toFloat(),child.translationY+dyConsumed))
-    }
-
-
-}
+//
+//class BottonNavigationComportamiento(context: Context, attrs: AttributeSet): CoordinatorLayout.Behavior<View>(context,attrs)
+//{
+//    //Ctrl+o
+//    override fun onStartNestedScroll(coordinatorLayout: CoordinatorLayout,child: View,directTargetChild: View,target: View,axes: Int,type: Int): Boolean {
+//        return axes==ViewCompat.SCROLL_AXIS_VERTICAL
+//    }
+//
+//    override fun onNestedScroll(coordinatorLayout: CoordinatorLayout, child: View, target: View, dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int, type: Int) {
+//        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type)
+//        child.translationY= max(0f, min(child.height.toFloat(),child.translationY+dyConsumed))
+//    }
+//
+//
+//}
 //fun Context.solicitar_Runtime_Permission(){
 //     val VIBRATOR_PERMISSION_REQUEST_CODE=0
 //    if (ActivityCompat.checkSelfPermission(this,android.Manifest.permission.VIBRATE)!=PackageManager.PERMISSION_GRANTED){
