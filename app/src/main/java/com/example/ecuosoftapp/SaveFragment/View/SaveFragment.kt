@@ -9,12 +9,41 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.ecuosoftapp.*
-import com.example.ecuosoftapp.View.CompFragment
+import com.example.ecuosoftapp.SaveFragment.Interfaces.SaveView
 import com.example.ecuosoftapp.View.MainActivity
 import kotlinx.android.synthetic.main.fragment_save.*
 
-class SaveFragment : Fragment() {
-   private var datoCargado=""
+class SaveFragment : SaveView,Fragment() {
+
+    lateinit var servidores: Array<String>
+    override fun LoadServers(servers: Array<String>) {
+        servidores= servers
+        //arrayOf("Primer Servidor", "Segundo Servidor", "Tercer Servidor")
+    }
+
+
+
+    override fun ShowServer(resultado: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun ShowUser(resultado: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun ShowPassword(resultado: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun ShowSerPre(resultado: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun ShowMensaje(resultado: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private var datoCargado=""
    private var serverSel=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,8 +122,8 @@ class SaveFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val sharedPreferences=this.getActivity()?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-        val servidores= arrayOf("Primer Servidor", "Segundo Servidor", "Tercer Servidor")
+        val sharedPreferences=this.activity?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+//        val servidores= arrayOf("Primer Servidor", "Segundo Servidor", "Tercer Servidor")
         spServers.adapter=ArrayAdapter(activity!!, android.R.layout.simple_list_item_1,servidores)
         spServers.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) { }

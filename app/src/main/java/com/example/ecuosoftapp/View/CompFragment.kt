@@ -137,7 +137,7 @@ class CompFragment : Fragment() {
             val sucursal=adapter?.items2!![position].codigoSucursal
             val numero=adapter?.items2!![position].numeroComprobante
 
-            addFragment(activity!!.supportFragmentManager, DetalleFragment(), false, "DetalleFragment",4, DetalleFragment(),
+            addFragment(activity!!.supportFragmentManager, DetalleFragment(), true, "DetalleFragment",3, CompFragment(),
                 empresa+sucursal+numero)
 //            val fragment = DetalleFragment()
 //            val parametro = Bundle()
@@ -205,13 +205,13 @@ class CompFragment : Fragment() {
                            }
                        }).create().show()
                }
-
-//               R.id.btnBack->{
+               R.id.btnBack->{
+                   activity?.onBackPressed()
 //                   activity?.supportFragmentManager!!.beginTransaction()
 //                       .replace(R.id.frlayout, HomeFragment())
 //                       .addToBackStack(null)
 //                       .commit()
-//               }
+               }
            }
             true
         }

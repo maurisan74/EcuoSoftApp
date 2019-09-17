@@ -3,17 +3,15 @@
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" android:background="@color/colorAccent"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_margin="5dp"
-        app:cardBackgroundColor="@color/LightGray"
         app:cardCornerRadius="6dp"
         app:cardElevation="4dp"
         app:contentPadding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
-        android:clickable="true"
-        android:id="@+id/cvVista">
+        android:clickable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

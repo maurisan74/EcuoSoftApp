@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }else {
 
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    addFragment( supportFragmentManager, HomeFragment(), false, "HomeFragment",1)
+                    addFragment( supportFragmentManager, HomeFragment(), true, "HomeFragment",1)
 //                    supportFragmentManager.beginTransaction()
 //                        .replace(R.id.frlayout, HomeFragment())
 //                        .addToBackStack(null)
@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }else {
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
 
-                    addFragment( supportFragmentManager, CompFragment(), false, "CompFragment",2)
+                    addFragment( supportFragmentManager, CompFragment(), true, "CompFragment",2)
 
                 }
             }

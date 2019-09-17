@@ -73,36 +73,60 @@ fun clearStack(manager: FragmentManager) {
 fun addFragment(manager: FragmentManager, fragment: Fragment, addToBackStack: Boolean, tag: String, tipo: Int, fragment2: Fragment= HomeFragment()
                , argumento:String="") {
 
-    val transaction = manager.beginTransaction()
-    when(tipo){
-        1-> transaction.add(R.id.frlayout, fragment,tag)
-        2-> transaction.replace(R.id.frlayout, fragment,tag)
-        3-> {
 
+    when(tipo){
+        1-> {
+            val transaction = manager.beginTransaction()
+            transaction.add(R.id.frlayout, fragment, tag)
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            if (addToBackStack) {
+                transaction.addToBackStack(tag)
+            }
+            transaction.commitAllowingStateLoss()
+        }
+        2-> {
+            val transaction = manager.beginTransaction()
+            transaction.replace(R.id.frlayout, fragment,tag)
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            if (addToBackStack) {
+                transaction.addToBackStack(tag)
+            }
+            transaction.commitAllowingStateLoss()
+        }
+        3-> {
             val transaction = manager.beginTransaction()
             if (fragment.isAdded) {
                 transaction
-                    .hide(fragment2)
-                    .show(fragment)
-            } else {
-                transaction
                     .hide(fragment)
-                    .add(R.id.frlayout, fragment2, tag)
-            }
+                    .show(fragment2)
+            } else {
+                val parametro = Bundle()
+                parametro.putString(tag,argumento)
+                fragment.arguments = parametro
 
-//            transaction.commit()
+                transaction
+                    .hide(fragment2)
+                    .add(R.id.frlayout, fragment, tag)
+            }
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            if (addToBackStack) {
+                transaction.addToBackStack(tag)
+            }
+            transaction.commitAllowingStateLoss()
         }
         4-> {
             val parametro = Bundle()
             parametro.putString(tag,argumento)
-            fragment2.arguments = parametro
-
+            fragment.arguments = parametro
+            val transaction = manager.beginTransaction()
             transaction.replace(R.id.frlayout, fragment,tag)
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            if (addToBackStack) {
+                transaction.addToBackStack(tag)
+            }
+            transaction.commitAllowingStateLoss()
         }
     }
-    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-    if (addToBackStack) {
-        transaction.addToBackStack(tag)
-    }
-    transaction.commitAllowingStateLoss()
+
+
 }

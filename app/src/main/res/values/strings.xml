@@ -52,7 +52,7 @@
     <string name="Cant">Cantidad:</string>
     <string name="Precio">Costo:</string>
     <string name="Tot">Total:</string>
-    <string name="Cant1">jjjj</string>
+    <string name="Cant1">20000.00</string>
     <string name="Precio1">kkkkj</string>
     <string name="DescArt1">kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</string>
     <string name="CodArt1">kkkkkk0000000jjj111</string>
@@ -61,7 +61,7 @@
     <string name="Tipo1">kkkkkk0000000jjj111</string>
     <string name="Rubro">Rubro:</string>
     <string name="Rubro1">kkkkkk0000000jjj111</string>
-    <string name="UnidadMedida">U.Medida:</string>
+    <string name="UnidadMedida">Unidad de Medida:</string>
     <string name="UnidadMedida1">kkkkkk0000000jjj111</string>
     <string name="Observacion">Observacion:</string>
 

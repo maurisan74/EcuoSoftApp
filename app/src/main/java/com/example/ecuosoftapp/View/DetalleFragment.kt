@@ -39,6 +39,9 @@ class DetalleFragment : Fragment() {
             sDatos=arguments!!.getString("DetalleFragment")
 //               MANERJAR CUANDO NO LLEGAN ARGUMENTOS
 
+        }else{
+            sDatos="0103NPI : 0001-00001929"
+
         }
 
         val lista1: RecyclerView
@@ -53,17 +56,17 @@ class DetalleFragment : Fragment() {
         adapter1!!.filter.filter(sDatos)
 
 
-        bottomNavigationDetalle.setOnNavigationItemSelectedListener { item ->
-            activity!!.vibrate(50)
-            if (item.itemId == R.id.btnBack) {
-                activity?.supportFragmentManager!!.beginTransaction()
-                    .replace(R.id.frlayout, CompFragment())
-                    .addToBackStack(null)
-                    .commit()
-
-            }
-            true
-        }
+//        bottomNavigationDetalle.setOnNavigationItemSelectedListener { item ->
+//            activity!!.vibrate(50)
+//            if (item.itemId == R.id.btnBack) {
+//                activity?.supportFragmentManager!!.beginTransaction()
+//                    .replace(R.id.frlayout, CompFragment())
+//                    .addToBackStack(null)
+//                    .commit()
+//
+//            }
+//            true
+//        }
 
     }
 }
