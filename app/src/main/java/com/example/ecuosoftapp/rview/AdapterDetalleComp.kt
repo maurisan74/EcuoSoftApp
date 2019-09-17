@@ -44,7 +44,7 @@ class AdapterDetalleComp(private val itemDetalleComp: ArrayList<DetalleComp>) : 
     }
 
     override fun getItemCount(): Int {
-        return items2?.count()!!
+            return items2!!.count()
     }
 
     class ViewHolder1(vista1: View) : RecyclerView.ViewHolder(vista1){
@@ -100,7 +100,7 @@ class AdapterDetalleComp(private val itemDetalleComp: ArrayList<DetalleComp>) : 
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults?) {
-                items2 = filterResults!!.values as ArrayList<DetalleComp>
+                items2 = filterResults?.values as ArrayList<DetalleComp>
                 notifyDataSetChanged()
             }
 
@@ -134,11 +134,11 @@ class AdapterDetalleComp(private val itemDetalleComp: ArrayList<DetalleComp>) : 
                     val filteredList1 = ArrayList<DetalleComp>()
                     for (row in itemDetalleComp) {
                         if (row.CodigoEmpresa.contains(charString1)&& row.CodigoSucursal.contains(charString2)&& row.NroSerieComprobante.contains(charString3)&& row.NumeroComprobante.contains(charString4)) {
-                            temp1 = row.CodigoEmpresa.toString()
-                            temp2 = row.CodigoSucursal.toString()
-                            temp3 = row.NroSerieComprobante.toString()
-                            temp4 = row.CodigoArticuloServicio.toString()
-                            temp = row.NumeroComprobante.toString()
+                            temp1 = row.CodigoEmpresa
+                            temp2 = row.CodigoSucursal
+                            temp3 = row.NroSerieComprobante
+                            temp4 = row.CodigoArticuloServicio
+                            temp = row.NumeroComprobante
                             filteredList1.add(row)
                         }
                     }

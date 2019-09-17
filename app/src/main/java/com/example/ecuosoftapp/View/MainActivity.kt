@@ -15,9 +15,8 @@ import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import com.example.ecuosoftapp.Msje
-import com.example.ecuosoftapp.R
-import com.example.ecuosoftapp.vibrate
+import com.example.ecuosoftapp.*
+import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -75,16 +74,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
         } else {
-            if (backPressedTime + 3000 > System.currentTimeMillis()) {
-                backToast!!.cancel()
-                //super.onBackPressed()
-                finish()
-                return
-            } else {
-                backToast = Toast.makeText(baseContext, "!Presione dos veces para salir¡", Toast.LENGTH_SHORT)
-                backToast!!.show()
-            }
-            backPressedTime = System.currentTimeMillis()
+//            if (backPressedTime + 3000 > System.currentTimeMillis()) {
+//                backToast!!.cancel()
+                super.onBackPressed()
+//                finish()
+//                return
+//            } else {
+//                backToast = Toast.makeText(baseContext, "!Presione dos veces para salir¡", Toast.LENGTH_SHORT)
+//                backToast!!.show()
+//            }
+//            backPressedTime = System.currentTimeMillis()
         }
     }
 
@@ -111,41 +110,39 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_home -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, SaveFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
+//                    supportFragmentManager.beginTransaction()
+//                        .replace(R.id.frlayout,
+//                            SaveFragment()
+//                        )
+//                        .addToBackStack(null)
+//                        .commit()
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
 
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, HomeFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    addFragment( supportFragmentManager, HomeFragment(), false, "HomeFragment",1)
+//                    supportFragmentManager.beginTransaction()
+//                        .replace(R.id.frlayout, HomeFragment())
+//                        .addToBackStack(null)
+//                        .commit()
                 }
             }
             R.id.nav_aut_comp -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, SaveFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, CompFragment())
-                        .addToBackStack(null)
-                        .commit()
+
+                    addFragment( supportFragmentManager, CompFragment(), false, "CompFragment",2)
+
                 }
             }
             R.id.nav_pedido_trabajo -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, SaveFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
+
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
@@ -153,10 +150,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_ordenes -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, SaveFragment())
-                        .addToBackStack(null)
-                        .commit()
+                        addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
 
@@ -166,10 +160,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_alertas -> {
 
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, SaveFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
 
@@ -178,10 +169,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_fichas -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, SaveFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
 
@@ -190,10 +178,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_pedido_compra -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.frlayout, SaveFragment())
-                    .addToBackStack(null)
-                    .commit()
+                    addFragment( supportFragmentManager, SaveFragment(), false, "null",1)
                 this.Msje( "!No hay ningun Servidor Predeterminado¡")
             }else {
 
@@ -203,18 +188,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.nav_conf -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, SaveFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    addFragment( supportFragmentManager, SaveFragment(), true, "",1)
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
 
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frlayout, SaveFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",2)
                 }
             }
         }

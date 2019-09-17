@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.View
+package com.example.ecuosoftapp.SaveFragment.View
 
 import android.content.Context
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.example.ecuosoftapp.Msje
-import com.example.ecuosoftapp.R
-import com.example.ecuosoftapp.vibrate
+import com.example.ecuosoftapp.*
+import com.example.ecuosoftapp.View.CompFragment
+import com.example.ecuosoftapp.View.MainActivity
 import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveFragment : Fragment() {
@@ -139,15 +139,16 @@ class SaveFragment : Fragment() {
         }
         bottomNavigationSave.setOnNavigationItemSelectedListener { item ->
             activity!!.vibrate(50)
-            val sharedPreferences = this.getActivity()?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-            val editor = sharedPreferences!!.edit()
+            val sharedpreferences = this.activity?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+            val editor = sharedpreferences!!.edit()
             if (item.itemId == R.id.btnBack) {
-                activity?.supportFragmentManager!!.beginTransaction()
-                    .replace(R.id.frlayout, CompFragment())
-                    .addToBackStack(null)
-                    .commit()
-//            val action = SaveFragmentDirections.actionSaveFragmentToCompFragment()
-//            Navigation.findNavController(view!!).navigate(action)
+//
+//                activity?.supportFragmentManager!!.beginTransaction()
+//                    .replace(R.id.frlayout, CompFragment())
+//                    .addToBackStack(null)
+//                    .commit()
+//
+                activity?.onBackPressed()
             }
 
             if (item.itemId == R.id.btnDelete) {

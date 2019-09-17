@@ -36,8 +36,9 @@ class DetalleFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (arguments != null)  {
-            sDatos=arguments!!.getString("detalleComp")
-//                getArguments()!!.getString("detalleComp")
+            sDatos=arguments!!.getString("DetalleFragment")
+//               MANERJAR CUANDO NO LLEGAN ARGUMENTOS
+
         }
 
         val lista1: RecyclerView
@@ -50,6 +51,7 @@ class DetalleFragment : Fragment() {
         adapter1 =  AdapterDetalleComp(adetalleComp)
         lista1.adapter = adapter1
         adapter1!!.filter.filter(sDatos)
+
 
         bottomNavigationDetalle.setOnNavigationItemSelectedListener { item ->
             activity!!.vibrate(50)

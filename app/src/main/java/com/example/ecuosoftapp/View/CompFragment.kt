@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecuosoftapp.Msje
 import com.example.ecuosoftapp.R
+import com.example.ecuosoftapp.addFragment
 import com.example.ecuosoftapp.rview.AdapterLanding
 import com.example.ecuosoftapp.vibrate
 import com.example.ecuosoftapp.xml.Comprobante
@@ -132,18 +133,20 @@ class CompFragment : Fragment() {
         }
 
         fun DetalleComp(position: Int) {
-            val sCodEmp=adapter?.items2!![position].codigoEmpresa
-            val sCodSuc=adapter?.items2!![position].codigoSucursal
-            val sNumComp=adapter?.items2!![position].numeroComprobante
+            val empresa=adapter?.items2!![position].codigoEmpresa
+            val sucursal=adapter?.items2!![position].codigoSucursal
+            val numero=adapter?.items2!![position].numeroComprobante
 
-            val fragment = DetalleFragment()
-            val parametro = Bundle()
-            parametro.putString("detalleComp", sCodEmp+sCodSuc+sNumComp)
-            fragment.arguments = parametro
-            val ft = fragmentManager!!.beginTransaction()
-            ft.replace(R.id.frlayout, fragment, "tag")
-            ft.addToBackStack("tag")
-            ft.commit()
+            addFragment(activity!!.supportFragmentManager, DetalleFragment(), false, "DetalleFragment",4, DetalleFragment(),
+                empresa+sucursal+numero)
+//            val fragment = DetalleFragment()
+//            val parametro = Bundle()
+//            parametro.putString("DetalleFragment", empresa+sucursal+numero)
+//            fragment.arguments = parametro
+//            val ft = fragmentManager!!.beginTransaction()
+//            ft.replace(R.id.frlayout, fragment, "tag")
+//            ft.addToBackStack("tag")
+//            ft.commit()
         }
 
         adapter?.setOnItemClickListener(object : AdapterLanding.OnItemClickListener {
@@ -203,12 +206,12 @@ class CompFragment : Fragment() {
                        }).create().show()
                }
 
-               R.id.btnBack->{
-                   activity?.supportFragmentManager!!.beginTransaction()
-                       .replace(R.id.frlayout, HomeFragment())
-                       .addToBackStack(null)
-                       .commit()
-               }
+//               R.id.btnBack->{
+//                   activity?.supportFragmentManager!!.beginTransaction()
+//                       .replace(R.id.frlayout, HomeFragment())
+//                       .addToBackStack(null)
+//                       .commit()
+//               }
            }
             true
         }
