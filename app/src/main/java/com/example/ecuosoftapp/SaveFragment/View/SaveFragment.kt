@@ -17,33 +17,32 @@ import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveFragment : SaveView,Fragment() {
 
-
     lateinit var presentador: SavePresenter
     lateinit var servidores: Array<String>
     lateinit var servidor: String
     lateinit var usuario: String
     lateinit var clave: String
     var predeterminado: Boolean=false
-
     private var datoCargado=""
     private var serverSel=0
 
-    override fun LoadServers(servers: Array<String>) {
-        servidores= servers
-    }
+    override fun LoadServers(servers: Array<String>) {servidores= servers}
     override fun LoadUser(server: String, user: String, password: String, default: Boolean) {
         servidor=server
         usuario=user
         clave=password
         predeterminado=default
     }
-
+    override fun showMesage(message: String) {activity!!.Msje(message)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
         presentador= SavePresenterImpl(this)
         presentador.SolicitaServersPresenter()
+    }
+    override fun showErrorDatos(error: String) {
+        //.
     }
 
     override fun onCreateView(
@@ -118,7 +117,6 @@ class SaveFragment : SaveView,Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
         spServers.adapter=ArrayAdapter(activity!!, android.R.layout.simple_list_item_1,servidores)
         spServers.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) { }
@@ -137,52 +135,33 @@ class SaveFragment : SaveView,Fragment() {
         }
         bottomNavigationSave.setOnNavigationItemSelectedListener { item ->
             activity!!.vibrate(50)
-            val sharedpreferences = this.activity?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-            val editor = sharedpreferences!!.edit()
-            if (item.itemId == R.id.btnBack) {
-//                activity?.supportFragmentManager!!.beginTransaction()
-//                    .replace(R.id.frlayout, CompFragment())
-//                    .addToBackStack(null)
-//                    .commit()
-                activity?.onBackPressed()
-            }
-
+            if (item.itemId == R.id.btnBack) activity?.onBackPressed()
             if (item.itemId == R.id.btnDelete) {
                 etUsuario.text!!.clear()
                 tvClave.text!!.clear()
                 tvServer.text!!.clear()
-                when (serverSel) {
-                    0 -> {
-                        editor?.putString("a", "")
-                        editor?.putString("b", "")
-                        editor?.putString("c", "")
-                        editor?.putString("x", "")
-                    }
-                    1 -> {
-                        editor?.putString("d", "")
-                        editor?.putString("e", "")
-                        editor?.putString("f", "")
-                        editor?.putString("y", "")
-                    }
-                    2-> {
-                        editor?.putString("g", "")
-                        editor?.putString("h", "")
-                        editor?.putString("i", "")
-                        editor?.putString("z", "")
-                    }
-                }
-                editor?.apply()
-                editor.commit()
-                context!!.Msje("!Datos eliminados¡")
+                cPredeterminado.isChecked=false
+                presentador.DeleteServerPresenter(serverSel,activity!!)
             }
 
             if (item.itemId == R.id.btnSave) {
+                val sharedPreferences=context!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
                 var server=""
                 var us=""
                 var cl=""
                 var usurioOK=false
                 var claveOK=false
                 var serverOK=false
+
+                if (tvServer.text!!.isEmpty() or tvServer.text!!.isBlank()) {
+                    tvServer.error="Server No Valido"
+                    tvServer.requestFocus()
+                    tvServer.hint="server no válido"
+                }else{
+                    server=tvServer.text.toString().trim()
+                    serverOK=true
+                }
 
                 if (etUsuario.text!!.isEmpty() or etUsuario.text!!.isBlank()) {
                     etUsuario.error="Usuario Incorrecto"
@@ -202,14 +181,7 @@ class SaveFragment : SaveView,Fragment() {
                     claveOK=true
                 }
 
-                if (tvServer.text!!.isEmpty() or tvServer.text!!.isBlank()) {
-                    tvServer.error="Email No Valido"
-                    tvServer.requestFocus()
-                    tvServer.hint="Email no válido"
-                }else{
-                    server=tvServer.text.toString().trim()
-                    serverOK=true
-                }
+
 //            val control=activity!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
 //            if (control.getString("x", "")=="" && control.getString("y", "")=="" && control.getString("z", "")=="") {
 //                AlertDialog.Builder(activity!!)
@@ -237,25 +209,31 @@ class SaveFragment : SaveView,Fragment() {
                             editor?.putString("a", server)
                             editor?.putString("b", us)
                             editor?.putString("c", cl)
-                            editor?.putString("x", datoCargado)
-                            editor?.putString("y", "")
-                            editor?.putString("z", "")
+                            if (datoCargado=="OK") {
+                                editor?.putString("x", datoCargado)
+                                editor?.putString("y", "")
+                                editor?.putString("z", "")
+                            }else editor?.putString("x", "")
                         }
                         1 -> {
                             editor?.putString("d", server)
                             editor?.putString("e", us)
                             editor?.putString("f", cl)
+                            if (datoCargado=="OK") {
                             editor?.putString("y", datoCargado)
                             editor?.putString("x", "")
                             editor?.putString("z", "")
+                            }else editor?.putString("y", "")
                         }
                         2-> {
                             editor?.putString("g", server)
                             editor?.putString("h", us)
                             editor?.putString("i", cl)
+                            if (datoCargado=="OK") {
                             editor?.putString("z", datoCargado)
                             editor?.putString("y", "")
                             editor?.putString("x", "")
+                            }else editor?.putString("z", "")
                         }
                     }
                     editor?.apply()
@@ -283,20 +261,4 @@ class SaveFragment : SaveView,Fragment() {
             true
         }
     }
-
-
-
-    override fun ShowPassword(resultado: String) {
-       //nada
-    }
-
-    override fun ShowSerPre(resultado: String) {
-        //nada
-    }
-
-    override fun ShowMensaje(resultado: String) {
-        //nada
-    }
-
-
 }
