@@ -9,46 +9,41 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.ecuosoftapp.*
+import com.example.ecuosoftapp.SaveFragment.Interfaces.SavePresenter
 import com.example.ecuosoftapp.SaveFragment.Interfaces.SaveView
+import com.example.ecuosoftapp.SaveFragment.Presenter.SavePresenterImpl
 import com.example.ecuosoftapp.View.MainActivity
 import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveFragment : SaveView,Fragment() {
 
+
+    lateinit var presentador: SavePresenter
     lateinit var servidores: Array<String>
-    override fun LoadServers(servers: Array<String>) {
-        servidores= servers
-        //arrayOf("Primer Servidor", "Segundo Servidor", "Tercer Servidor")
-    }
-
-
-
-    override fun ShowServer(resultado: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun ShowUser(resultado: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun ShowPassword(resultado: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun ShowSerPre(resultado: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun ShowMensaje(resultado: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    lateinit var servidor: String
+    lateinit var usuario: String
+    lateinit var clave: String
+    var predeterminado: Boolean=false
 
     private var datoCargado=""
-   private var serverSel=""
+    private var serverSel=0
+
+    override fun LoadServers(servers: Array<String>) {
+        servidores= servers
+    }
+    override fun LoadUser(server: String, user: String, password: String, default: Boolean) {
+        servidor=server
+        usuario=user
+        clave=password
+        predeterminado=default
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
+        presentador= SavePresenterImpl(this)
+        presentador.SolicitaServersPresenter()
     }
 
     override fun onCreateView(
@@ -70,6 +65,7 @@ class SaveFragment : SaveView,Fragment() {
 //        fabBack.translationY=traslationY
 //        fabSave.translationY=traslationY
 //        fabDelete.translationY=traslationY
+
 
 
         if (activity != null) {
@@ -122,48 +118,21 @@ class SaveFragment : SaveView,Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val sharedPreferences=this.activity?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-//        val servidores= arrayOf("Primer Servidor", "Segundo Servidor", "Tercer Servidor")
+
         spServers.adapter=ArrayAdapter(activity!!, android.R.layout.simple_list_item_1,servidores)
         spServers.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) { }
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, i: Int, d: Long) {
-                when (i){
-                    0-> {
-                        etUsuario.text!!.clear()
-                        tvClave.text!!.clear()
-                        tvServer.text!!.clear()
-                        cPredeterminado.isChecked=false
-                        if (sharedPreferences!!.contains("a")) tvServer.text!!.insert(0,sharedPreferences.getString("a", ""))
-                        if (sharedPreferences.contains("b")) etUsuario.text!!.insert(0,sharedPreferences.getString("b", ""))
-                        if (sharedPreferences.contains("c")) tvClave.text!!.insert(0, sharedPreferences.getString("c", ""))
-                        if(sharedPreferences.getString("x", "")=="OK")cPredeterminado.isChecked = true
-                        serverSel="a"
-                        }
-                    1-> {
-                        etUsuario.text!!.clear()
-                        tvClave.text!!.clear()
-                        tvServer.text!!.clear()
-                        cPredeterminado.isChecked=false
-                        //if(sharedPreferences.contains("y"))textView21.text=sharedPreferences.getString("y", "")
-                        if (sharedPreferences!!.contains("d")) tvServer.text!!.insert(0,sharedPreferences.getString("d", ""))
-                        if (sharedPreferences.contains("e")) etUsuario.text!!.insert(0,sharedPreferences.getString("e", ""))
-                        if (sharedPreferences.contains("f")) tvClave.text!!.insert(0, sharedPreferences.getString("f", ""))
-                        if(sharedPreferences.getString("y", "")=="OK")cPredeterminado.isChecked = true
-                        serverSel="b"
-                    }
-                    2->{
-                        etUsuario.text!!.clear()
-                        tvClave.text!!.clear()
-                        tvServer.text!!.clear()
-                        cPredeterminado.isChecked=false
-                        if (sharedPreferences!!.contains("g")) tvServer.text!!.insert(0,sharedPreferences.getString("g", ""))
-                        if (sharedPreferences.contains("h")) etUsuario.text!!.insert(0,sharedPreferences.getString("h", ""))
-                        if (sharedPreferences.contains("i")) tvClave.text!!.insert(0, sharedPreferences.getString("i", ""))
-                        if(sharedPreferences.getString("z", "")=="OK")cPredeterminado.isChecked = true
-                        serverSel="c"
-                    }
-                }
+                presentador.GetUserPresenter(i,activity!!)
+                etUsuario.text!!.clear()
+                tvClave.text!!.clear()
+                tvServer.text!!.clear()
+                cPredeterminado.isChecked=false
+                tvServer.text!!.insert(0,servidor)
+                etUsuario.text!!.insert(0,usuario)
+                tvClave.text!!.insert(0,clave)
+                cPredeterminado.isChecked = predeterminado
+                serverSel=i
             }
         }
         bottomNavigationSave.setOnNavigationItemSelectedListener { item ->
@@ -171,12 +140,10 @@ class SaveFragment : SaveView,Fragment() {
             val sharedpreferences = this.activity?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
             val editor = sharedpreferences!!.edit()
             if (item.itemId == R.id.btnBack) {
-//
 //                activity?.supportFragmentManager!!.beginTransaction()
 //                    .replace(R.id.frlayout, CompFragment())
 //                    .addToBackStack(null)
 //                    .commit()
-//
                 activity?.onBackPressed()
             }
 
@@ -185,19 +152,19 @@ class SaveFragment : SaveView,Fragment() {
                 tvClave.text!!.clear()
                 tvServer.text!!.clear()
                 when (serverSel) {
-                    "a" -> {
+                    0 -> {
                         editor?.putString("a", "")
                         editor?.putString("b", "")
                         editor?.putString("c", "")
                         editor?.putString("x", "")
                     }
-                    "b" -> {
+                    1 -> {
                         editor?.putString("d", "")
                         editor?.putString("e", "")
                         editor?.putString("f", "")
                         editor?.putString("y", "")
                     }
-                    "c"-> {
+                    2-> {
                         editor?.putString("g", "")
                         editor?.putString("h", "")
                         editor?.putString("i", "")
@@ -266,7 +233,7 @@ class SaveFragment : SaveView,Fragment() {
                 }
                 if (serverOK && usurioOK && claveOK ){
                     when (serverSel) {
-                        "a" -> {
+                        0 -> {
                             editor?.putString("a", server)
                             editor?.putString("b", us)
                             editor?.putString("c", cl)
@@ -274,7 +241,7 @@ class SaveFragment : SaveView,Fragment() {
                             editor?.putString("y", "")
                             editor?.putString("z", "")
                         }
-                        "b" -> {
+                        1 -> {
                             editor?.putString("d", server)
                             editor?.putString("e", us)
                             editor?.putString("f", cl)
@@ -282,7 +249,7 @@ class SaveFragment : SaveView,Fragment() {
                             editor?.putString("x", "")
                             editor?.putString("z", "")
                         }
-                        "c"-> {
+                        2-> {
                             editor?.putString("g", server)
                             editor?.putString("h", us)
                             editor?.putString("i", cl)
@@ -316,4 +283,20 @@ class SaveFragment : SaveView,Fragment() {
             true
         }
     }
+
+
+
+    override fun ShowPassword(resultado: String) {
+       //nada
+    }
+
+    override fun ShowSerPre(resultado: String) {
+        //nada
+    }
+
+    override fun ShowMensaje(resultado: String) {
+        //nada
+    }
+
+
 }
