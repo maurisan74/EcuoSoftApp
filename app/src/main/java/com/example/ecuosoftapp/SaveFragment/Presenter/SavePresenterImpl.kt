@@ -7,18 +7,27 @@ import com.example.ecuosoftapp.SaveFragment.Interfaces.SavePresenter
 import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
 
 class SavePresenterImpl(var view: SaveFragment): SavePresenter {
-    override fun verificaDatosPresenter(server: String, usuario: String, clave: String) {
-        //.
+    override fun showErrorServidorPresenter(error: String) {
+        view.showErrorServidor(error)
     }
 
-    override fun showErrorDatosPresenter(error: String) {
-        //.
+    override fun showErrorUsuarioPresenter(error: String) {
+        view.showErrorUsuario(error)
     }
 
-    val interactor: SaveInteractor
+    override fun showErrorClavePresenter(error: String) {
+        view.showErrorClave(error)
+    }
+
+    private val interactor: SaveInteractor
     init {
         interactor= SaveInteractorImpl(this)
     }
+
+    override fun guardaDatosPresenter(servidor: String, usuario: String, clave: String,predeterminado: Boolean, context: Context, serverSel: Int) {
+        interactor.guardaDatosInteractor(servidor, usuario, clave,predeterminado, context,serverSel)
+    }
+
     override fun DeleteServerPresenter(serverSel: Int, context: Context) {
         interactor.DeleteServerInteractor(serverSel,  context)
     }

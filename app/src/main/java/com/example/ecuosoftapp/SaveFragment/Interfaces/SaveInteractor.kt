@@ -8,5 +8,5 @@ interface SaveInteractor {
 
     fun DeleteServerInteractor(serverSel: Int, context: Context)
 
-    fun verificaDatosInteractor(server: String, usuario: String, clave: String)
+    fun guardaDatosInteractor(servidor: String, usuario: String, clave: String, predeterminado: Boolean, context: Context, serverSel: Int)
 }

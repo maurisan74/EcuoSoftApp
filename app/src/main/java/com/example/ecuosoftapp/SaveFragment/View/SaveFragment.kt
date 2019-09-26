@@ -1,6 +1,5 @@
 package com.example.ecuosoftapp.SaveFragment.View
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,14 +16,13 @@ import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveFragment : SaveView,Fragment() {
 
+
     lateinit var presentador: SavePresenter
     lateinit var servidores: Array<String>
     lateinit var servidor: String
     lateinit var usuario: String
     lateinit var clave: String
     var predeterminado: Boolean=false
-    private var datoCargado=""
-    private var serverSel=0
 
     override fun LoadServers(servers: Array<String>) {servidores= servers}
     override fun LoadUser(server: String, user: String, password: String, default: Boolean) {
@@ -34,6 +32,7 @@ class SaveFragment : SaveView,Fragment() {
         predeterminado=default
     }
     override fun showMesage(message: String) {activity!!.Msje(message)}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -41,8 +40,23 @@ class SaveFragment : SaveView,Fragment() {
         presentador= SavePresenterImpl(this)
         presentador.SolicitaServersPresenter()
     }
-    override fun showErrorDatos(error: String) {
-        //.
+
+    override fun showErrorServidor(error: String) {
+        tvServer.error=error
+        tvServer.requestFocus()
+        tvServer.hint=error
+    }
+
+    override fun showErrorUsuario(error: String) {
+        etUsuario.error=error
+        etUsuario.requestFocus()
+        etUsuario.hint=error
+    }
+
+    override fun showErrorClave(error: String) {
+        tvClave.error=error
+        tvClave.requestFocus()
+        tvClave.hint=error
     }
 
     override fun onCreateView(
@@ -116,6 +130,7 @@ class SaveFragment : SaveView,Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        var serverSel=0
 
         spServers.adapter=ArrayAdapter(activity!!, android.R.layout.simple_list_item_1,servidores)
         spServers.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -145,43 +160,53 @@ class SaveFragment : SaveView,Fragment() {
             }
 
             if (item.itemId == R.id.btnSave) {
-                val sharedPreferences=context!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit()
-                var server=""
-                var us=""
-                var cl=""
-                var usurioOK=false
-                var claveOK=false
-                var serverOK=false
 
-                if (tvServer.text!!.isEmpty() or tvServer.text!!.isBlank()) {
-                    tvServer.error="Server No Valido"
-                    tvServer.requestFocus()
-                    tvServer.hint="server no válido"
-                }else{
-                    server=tvServer.text.toString().trim()
-                    serverOK=true
-                }
+                presentador.guardaDatosPresenter(
+                    tvServer.text.toString(),
+                    etUsuario.text.toString(),
+                    tvClave.text.toString(),
+                    cPredeterminado.isChecked,
+                    context!!,serverSel
+                )
+            }
 
-                if (etUsuario.text!!.isEmpty() or etUsuario.text!!.isBlank()) {
-                    etUsuario.error="Usuario Incorrecto"
-                    etUsuario.requestFocus()
-                    etUsuario.hint="Usuario Incorrecto"
-                }else{
-                    us = etUsuario.text.toString().trim()
-                    usurioOK=true
-                }
+//                val sharedPreferences=context!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+//                val editor = sharedPreferences.edit()
+//                var server=""
+//                var us=""
+//                var cl=""
+//                var usurioOK=false
+//                var claveOK=false
+//                var serverOK=false
 
-                if (tvClave.text!!.isEmpty() or tvClave.text!!.isBlank()) {
-                    tvClave.error="Clave Incorrecta"
-                    tvClave.requestFocus()
-                    tvClave.hint="Clave Incorrecta"
-                }else{
-                    cl=tvClave.text.toString().trim()
-                    claveOK=true
-                }
+//                if (tvServer.text!!.isEmpty() or tvServer.text!!.isBlank()) {
+//                    tvServer.error="Server No Valido"
+//                    tvServer.requestFocus()
+//                    tvServer.hint="server no válido"
+//                }else{
+//                    server=tvServer.text.toString().trim()
+//                    serverOK=true
+//                }
+
+//                if (etUsuario.text!!.isEmpty() or etUsuario.text!!.isBlank()) {
+//                    etUsuario.error="Usuario Incorrecto"
+//                    etUsuario.requestFocus()
+//                    etUsuario.hint="Usuario Incorrecto"
+//                }else{
+//                    us = etUsuario.text.toString().trim()
+//                    usurioOK=true
+//                }
+//
+//                if (tvClave.text!!.isEmpty() or tvClave.text!!.isBlank()) {
+//                    tvClave.error="Clave Incorrecta"
+//                    tvClave.requestFocus()
+//                    tvClave.hint="Clave Incorrecta"
+//                }else{
+//                    cl=tvClave.text.toString().trim()
+//                    claveOK=true
 
 
+//
 //            val control=activity!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
 //            if (control.getString("x", "")=="" && control.getString("y", "")=="" && control.getString("z", "")=="") {
 //                AlertDialog.Builder(activity!!)
@@ -198,47 +223,47 @@ class SaveFragment : SaveView,Fragment() {
 //                    }).create().show()
 //            }
 
-                if(cPredeterminado.isChecked){
-                    datoCargado="OK"
-                }else{
-                    datoCargado=""
-                }
-                if (serverOK && usurioOK && claveOK ){
-                    when (serverSel) {
-                        0 -> {
-                            editor?.putString("a", server)
-                            editor?.putString("b", us)
-                            editor?.putString("c", cl)
-                            if (datoCargado=="OK") {
-                                editor?.putString("x", datoCargado)
-                                editor?.putString("y", "")
-                                editor?.putString("z", "")
-                            }else editor?.putString("x", "")
-                        }
-                        1 -> {
-                            editor?.putString("d", server)
-                            editor?.putString("e", us)
-                            editor?.putString("f", cl)
-                            if (datoCargado=="OK") {
-                            editor?.putString("y", datoCargado)
-                            editor?.putString("x", "")
-                            editor?.putString("z", "")
-                            }else editor?.putString("y", "")
-                        }
-                        2-> {
-                            editor?.putString("g", server)
-                            editor?.putString("h", us)
-                            editor?.putString("i", cl)
-                            if (datoCargado=="OK") {
-                            editor?.putString("z", datoCargado)
-                            editor?.putString("y", "")
-                            editor?.putString("x", "")
-                            }else editor?.putString("z", "")
-                        }
-                    }
-                    editor?.apply()
-                    editor.commit()
-                    context!!.Msje("!Datos Registrados¡")
+//                if(cPredeterminado.isChecked){
+//                    datoCargado="OK"
+//                }else{
+//                    datoCargado=""
+//                }
+//                if (serverOK && usurioOK && claveOK ){
+//                    when (serverSel) {
+//                        0 -> {
+//                            editor?.putString("a", server)
+//                            editor?.putString("b", us)
+//                            editor?.putString("c", cl)
+//                            if (datoCargado=="OK") {
+//                                editor?.putString("x", datoCargado)
+//                                editor?.putString("y", "")
+//                                editor?.putString("z", "")
+//                            }else editor?.putString("x", "")
+//                        }
+//                        1 -> {
+//                            editor?.putString("d", server)
+//                            editor?.putString("e", us)
+//                            editor?.putString("f", cl)
+//                            if (datoCargado=="OK") {
+//                            editor?.putString("y", datoCargado)
+//                            editor?.putString("x", "")
+//                            editor?.putString("z", "")
+//                            }else editor?.putString("y", "")
+//                        }
+//                        2-> {
+//                            editor?.putString("g", server)
+//                            editor?.putString("h", us)
+//                            editor?.putString("i", cl)
+//                            if (datoCargado=="OK") {
+//                            editor?.putString("z", datoCargado)
+//                            editor?.putString("y", "")
+//                            editor?.putString("x", "")
+//                            }else editor?.putString("z", "")
+//                        }
+//                    }
+//                    editor?.apply()
+//                    editor.commit()
+//                    context!!.Msje("!Datos Registrados¡")
 
 //                    val bac = object  : Thread(){
 //                        override fun run(){
@@ -256,8 +281,8 @@ class SaveFragment : SaveView,Fragment() {
 //                        }
 //                    }
 //                    bac.start()
-                }
-            }
+//                }
+
             true
         }
     }

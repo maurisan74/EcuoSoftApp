@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecuosoftapp.DetalleFragment.View.DetalleFragment
 import com.example.ecuosoftapp.Msje
 import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.addFragment
@@ -137,7 +138,8 @@ class CompFragment : Fragment() {
             val sucursal=adapter?.items2!![position].codigoSucursal
             val numero=adapter?.items2!![position].numeroComprobante
 
-            addFragment(activity!!.supportFragmentManager, DetalleFragment(), true, "DetalleFragment",3, CompFragment(),
+            addFragment(activity!!.supportFragmentManager,
+                DetalleFragment(), true, "DetalleFragment",3, CompFragment(),
                 empresa+sucursal+numero)
 //            val fragment = DetalleFragment()
 //            val parametro = Bundle()

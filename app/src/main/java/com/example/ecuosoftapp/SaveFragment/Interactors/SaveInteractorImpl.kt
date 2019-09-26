@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.example.ecuosoftapp.SaveFragment.Interfaces.SaveInteractor
 import com.example.ecuosoftapp.SaveFragment.Interfaces.SavePresenter
+import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
 
@@ -68,10 +69,86 @@ class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
         editor.commit()
         presenter.showMesagePresenter("¡Datos Eliminados!")
     }
-    override fun verificaDatosInteractor(server: String, usuario: String, clave: String) {
-       //nada
-    }
+    override fun guardaDatosInteractor(servidor: String, usuario: String, clave: String, predeterminado: Boolean, context: Context, serverSel: Int) {
 
+        sharedPreferences=context.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        var server=""
+        var us=""
+        var cl=""
+        var usurioOK=false
+        var claveOK=false
+        var serverOK=false
+        var datoCargado=""
+
+
+        if (servidor.isEmpty() or servidor.isBlank()) {
+                presenter.showErrorServidorPresenter("Server No Valido")
+        }else{
+            server=servidor.trim()
+            serverOK=true
+        }
+
+        if (usuario.isEmpty() or usuario.isBlank()) {
+            presenter.showErrorUsuarioPresenter("Usuario Incorrecto")
+        }else{
+            us = usuario.trim()
+            usurioOK=true
+        }
+
+        if (clave.isEmpty() or clave.isBlank()) {
+            presenter.showErrorClavePresenter("Clave Incorrecta")
+
+        }else{
+            cl=clave.trim()
+            claveOK=true
+        }
+
+        if(predeterminado){
+            datoCargado="OK"
+        }else{
+            datoCargado=""
+        }
+
+        if (serverOK && usurioOK && claveOK ) {
+            when (serverSel) {
+                0 -> {
+                    editor?.putString("a", server)
+                    editor?.putString("b", us)
+                    editor?.putString("c", cl)
+                    if (datoCargado=="OK") {
+                        editor?.putString("x", datoCargado)
+                        editor?.putString("y", "")
+                        editor?.putString("z", "")
+                    }else editor?.putString("x", "")
+                }
+                1 -> {
+                    editor?.putString("d", server)
+                    editor?.putString("e", us)
+                    editor?.putString("f", cl)
+                    if (datoCargado=="OK") {
+                        editor?.putString("y", datoCargado)
+                        editor?.putString("x", "")
+                        editor?.putString("z", "")
+                    }else editor?.putString("y", "")
+                }
+                2-> {
+                    editor?.putString("g", server)
+                    editor?.putString("h", us)
+                    editor?.putString("i", cl)
+                    if (datoCargado=="OK") {
+                        editor?.putString("z", datoCargado)
+                        editor?.putString("y", "")
+                        editor?.putString("x", "")
+                    }else editor?.putString("z", "")
+                }
+
+            }
+            editor?.apply()
+            editor.commit()
+            presenter.showMesagePresenter("!Datos Registrados¡")
+        }
+    }
 
 
 

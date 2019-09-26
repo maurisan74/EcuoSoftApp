@@ -14,6 +14,8 @@ interface SavePresenter {
 
     fun GetUserPresenter(serverSeleccionado: Int, context: Context )
 
-    fun verificaDatosPresenter(server: String, usuario: String, clave: String)
-    fun showErrorDatosPresenter(error: String)
+    fun guardaDatosPresenter(servidor: String, usuario: String, clave: String, predeterminado: Boolean, context: Context, serverSel: Int)
+    fun showErrorServidorPresenter(error: String)
+    fun showErrorUsuarioPresenter(error: String)
+    fun showErrorClavePresenter(error: String)
 }

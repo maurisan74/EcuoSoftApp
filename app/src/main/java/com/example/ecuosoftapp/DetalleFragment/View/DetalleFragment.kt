@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.View
+package com.example.ecuosoftapp.DetalleFragment.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +9,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecuosoftapp.R
-import com.example.ecuosoftapp.rview.AdapterDetalleComp
-import com.example.ecuosoftapp.vibrate
+import com.example.ecuosoftapp.View.MainActivity
 import com.example.ecuosoftapp.xml.DetalleComp
 import com.example.ecuosoftapp.xml.ParserHandlerDetalleComp
-import kotlinx.android.synthetic.main.fragment_detalle.*
 
 class DetalleFragment : Fragment() {
 
@@ -51,7 +49,7 @@ class DetalleFragment : Fragment() {
         lista1 = view!!.findViewById(R.id.rcLandingDetalle)
         lista1.layoutManager = LinearLayoutManager(context)
         lista1.itemAnimator = DefaultItemAnimator()
-        adapter1 =  AdapterDetalleComp(adetalleComp)
+        adapter1 = AdapterDetalleComp(adetalleComp)
         lista1.adapter = adapter1
         adapter1!!.filter.filter(sDatos)
 
