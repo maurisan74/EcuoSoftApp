@@ -1,4 +1,6 @@
 package com.example.ecuosoftapp.DetalleFragment.Interactors
 
-class DetalleInteractorImpl {
+import com.example.ecuosoftapp.DetalleFragment.Interfaces.DetalleInteractor
+
+class DetalleInteractorImpl:DetalleInteractor {
 }

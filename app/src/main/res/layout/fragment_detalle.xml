@@ -15,7 +15,15 @@
             android:id="@+id/rcLandingDetalle"
             android:visibility="visible" />
 
-<!--    <LinearLayout android:layout_width="wrap_content"-->
+    <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+    <!--    <LinearLayout android:layout_width="wrap_content"-->
 <!--                  android:layout_height="wrap_content"-->
 <!--                  android:orientation="vertical"-->
 <!--                  android:gravity="center"-->

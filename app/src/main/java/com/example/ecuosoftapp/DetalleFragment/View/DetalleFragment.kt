@@ -8,12 +8,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecuosoftapp.DetalleFragment.Interfaces.DetalleView
 import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.View.MainActivity
 import com.example.ecuosoftapp.xml.DetalleComp
 import com.example.ecuosoftapp.xml.ParserHandlerDetalleComp
+import kotlinx.android.synthetic.main.fragment_detalle.*
 
-class DetalleFragment : Fragment() {
+class DetalleFragment : DetalleView, Fragment() {
+    override fun ShowProgressBar(mostrar: Boolean) {
+        if(mostrar) progress.visibility=View.VISIBLE else progress.visibility=View.GONE
+    }
+
+    override fun ShowDetalle() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     var sDatos: String?=""
     private lateinit var adetalleComp: ArrayList<DetalleComp>

@@ -70,7 +70,6 @@ class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
         presenter.showMesagePresenter("¡Datos Eliminados!")
     }
     override fun guardaDatosInteractor(servidor: String, usuario: String, clave: String, predeterminado: Boolean, context: Context, serverSel: Int) {
-
         sharedPreferences=context.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         var server=""
@@ -79,7 +78,7 @@ class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
         var usurioOK=false
         var claveOK=false
         var serverOK=false
-        var datoCargado=""
+        var esPredeterminado=""
 
 
         if (servidor.isEmpty() or servidor.isBlank()) {
@@ -104,11 +103,8 @@ class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
             claveOK=true
         }
 
-        if(predeterminado){
-            datoCargado="OK"
-        }else{
-            datoCargado=""
-        }
+        if(predeterminado)esPredeterminado="OK" else esPredeterminado=""
+
 
         if (serverOK && usurioOK && claveOK ) {
             when (serverSel) {
@@ -116,8 +112,8 @@ class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
                     editor?.putString("a", server)
                     editor?.putString("b", us)
                     editor?.putString("c", cl)
-                    if (datoCargado=="OK") {
-                        editor?.putString("x", datoCargado)
+                    if (esPredeterminado=="OK") {
+                        editor?.putString("x", esPredeterminado)
                         editor?.putString("y", "")
                         editor?.putString("z", "")
                     }else editor?.putString("x", "")
@@ -126,8 +122,8 @@ class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
                     editor?.putString("d", server)
                     editor?.putString("e", us)
                     editor?.putString("f", cl)
-                    if (datoCargado=="OK") {
-                        editor?.putString("y", datoCargado)
+                    if (esPredeterminado=="OK") {
+                        editor?.putString("y", esPredeterminado)
                         editor?.putString("x", "")
                         editor?.putString("z", "")
                     }else editor?.putString("y", "")
@@ -136,20 +132,16 @@ class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
                     editor?.putString("g", server)
                     editor?.putString("h", us)
                     editor?.putString("i", cl)
-                    if (datoCargado=="OK") {
-                        editor?.putString("z", datoCargado)
+                    if (esPredeterminado=="OK") {
+                        editor?.putString("z", esPredeterminado)
                         editor?.putString("y", "")
                         editor?.putString("x", "")
                     }else editor?.putString("z", "")
                 }
-
             }
             editor?.apply()
             editor.commit()
             presenter.showMesagePresenter("!Datos Registrados¡")
         }
     }
-
-
-
 }
