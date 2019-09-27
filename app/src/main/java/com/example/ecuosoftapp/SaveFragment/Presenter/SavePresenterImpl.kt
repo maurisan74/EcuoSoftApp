@@ -7,6 +7,10 @@ import com.example.ecuosoftapp.SaveFragment.Interfaces.SavePresenter
 import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
 
 class SavePresenterImpl(var view: SaveFragment): SavePresenter {
+    private val interactor: SaveInteractor
+    init {
+        interactor= SaveInteractorImpl(this)
+    }
     override fun showErrorServidorPresenter(error: String) {
         view.showErrorServidor(error)
     }
@@ -19,10 +23,7 @@ class SavePresenterImpl(var view: SaveFragment): SavePresenter {
         view.showErrorClave(error)
     }
 
-    private val interactor: SaveInteractor
-    init {
-        interactor= SaveInteractorImpl(this)
-    }
+
 
     override fun guardaDatosPresenter(servidor: String, usuario: String, clave: String,predeterminado: Boolean, context: Context, serverSel: Int) {
         interactor.guardaDatosInteractor(servidor, usuario, clave,predeterminado, context,serverSel)

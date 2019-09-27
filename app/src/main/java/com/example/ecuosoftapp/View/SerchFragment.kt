@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import com.example.ecuosoftapp.CompFragment.View.CompFragment
 import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.addFragment
 import kotlinx.android.synthetic.main.fragment_serch.*
@@ -111,7 +112,8 @@ class SerchFragment : Fragment() {
                 ft.commit()
             }
             if (item.itemId == R.id.btnCancel) {
-                addFragment( activity!!.supportFragmentManager, CompFragment(), false, "null",2)
+                addFragment( activity!!.supportFragmentManager,
+                    CompFragment(), false, "null",2)
 
 
 //                activity?.supportFragmentManager!!.beginTransaction()

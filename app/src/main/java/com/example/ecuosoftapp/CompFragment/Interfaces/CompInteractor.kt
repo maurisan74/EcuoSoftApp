@@ -1,7 +1,8 @@
-package com.example.ecuosoftapp.DetalleFragment.Interfaces
+package com.example.ecuosoftapp.CompFragment.Interactors
 
 import android.content.Context
 
-interface DetalleInteractor {
+interface CompInteractor {
     fun BuscarDatosPresenterInteractpr(context: Context)
+
 }

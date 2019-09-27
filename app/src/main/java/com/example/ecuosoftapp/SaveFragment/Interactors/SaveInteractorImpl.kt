@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.example.ecuosoftapp.SaveFragment.Interfaces.SaveInteractor
 import com.example.ecuosoftapp.SaveFragment.Interfaces.SavePresenter
-import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveInteractorImpl(var presenter: SavePresenter): SaveInteractor {
 

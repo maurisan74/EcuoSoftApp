@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.View
+package com.example.ecuosoftapp.CompFragment.View
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -8,20 +8,42 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecuosoftapp.CompFragment.Interactors.CompPresenter
+import com.example.ecuosoftapp.CompFragment.Interactors.CompView
+import com.example.ecuosoftapp.CompFragment.Presenter.CompPresenterImpl
 import com.example.ecuosoftapp.DetalleFragment.View.DetalleFragment
 import com.example.ecuosoftapp.Msje
 import com.example.ecuosoftapp.R
+import com.example.ecuosoftapp.View.MainActivity
+import com.example.ecuosoftapp.View.SerchFragment
 import com.example.ecuosoftapp.addFragment
-import com.example.ecuosoftapp.rview.AdapterLanding
 import com.example.ecuosoftapp.vibrate
 import com.example.ecuosoftapp.xml.Comprobante
 import com.example.ecuosoftapp.xml.ParserHandlerComp
 import kotlinx.android.synthetic.main.fragment_comp.*
 
-class CompFragment : Fragment() {
+class CompFragment : CompView, Fragment() {
 
-    private lateinit var comprobantes: ArrayList<Comprobante>
     private var adapter: AdapterLanding? = null
+    private lateinit var lista: RecyclerView
+    private lateinit var presentador: CompPresenter
+
+    override fun ShowProgressBar(mostrar: Boolean)  { if(mostrar) progress.visibility=View.VISIBLE else progress.visibility=View.GONE }
+    override fun ShowRecyclerView(mostrar: Boolean) { if(mostrar) rcLanding.visibility=View.VISIBLE else rcLanding.visibility=View.GONE }
+
+    override fun ShowdatosRecyclerView(comprobantes: ArrayList<Comprobante>) {
+        lista = view!!.findViewById(R.id.rcLanding)
+        lista.layoutManager = LinearLayoutManager(context)
+        lista.itemAnimator = DefaultItemAnimator()
+        adapter = AdapterLanding(comprobantes)
+        lista.adapter = adapter
+    }
+
+    override fun ShowError(mensaje: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -87,33 +109,23 @@ class CompFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        presentador= CompPresenterImpl(this)
+//        val parser = ParserHandlerComp()
+//        val istream = context!!.assets.open("Planilla.xml")
+//        comprobantes = parser.parse(istream)
 
-        //XmlPullParserHandler()
+//                lista = view!!.findViewById(R.id.rcLanding)
+//                lista?.layoutManager = LinearLayoutManager(context)
+//                lista.itemAnimator = DefaultItemAnimator()
+//                adapter = AdapterLanding(comprobantes)
+//                lista?.adapter = adapter
 
-        //Esta forma de usar el assets es por que esta en un fragment
-
-//            suspend fun carga(): IntArray
-//            {
-                val lista: RecyclerView
-                val parser = ParserHandlerComp()
-                val istream = context!!.assets.open("Planilla.xml")
-                comprobantes = parser.parse(istream)
-                lista = view!!.findViewById(R.id.rcLanding)
-                lista?.layoutManager = LinearLayoutManager(context)
-                lista.itemAnimator = DefaultItemAnimator()
-                adapter = AdapterLanding(comprobantes)
-                lista?.adapter = adapter
-//                return IntArray(lista.getAdapter()!!.getItemCount())
-//            }
-
-
-
+        arguments?.let {
+            adapter!!.filter.filter(getArguments()!!.getString("filtro"))
+        }
         val listEmp = ParserHandlerComp().listaEmpresa()
         val listEmple = ParserHandlerComp().listaEmpleado()
 
-        if (arguments != null)  {
-            adapter!!.filter.filter(getArguments()!!.getString("filtro"))
-        }
         val listNum = IntArray(lista.getAdapter()!!.getItemCount())
         fun changeItem(position: Int) {
             when (listNum[position]) {
@@ -139,16 +151,9 @@ class CompFragment : Fragment() {
             val numero=adapter?.items2!![position].numeroComprobante
 
             addFragment(activity!!.supportFragmentManager,
-                DetalleFragment(), true, "DetalleFragment",3, CompFragment(),
+                DetalleFragment(), true, "DetalleFragment",3,
+                CompFragment(),
                 empresa+sucursal+numero)
-//            val fragment = DetalleFragment()
-//            val parametro = Bundle()
-//            parametro.putString("DetalleFragment", empresa+sucursal+numero)
-//            fragment.arguments = parametro
-//            val ft = fragmentManager!!.beginTransaction()
-//            ft.replace(R.id.frlayout, fragment, "tag")
-//            ft.addToBackStack("tag")
-//            ft.commit()
         }
 
         adapter?.setOnItemClickListener(object : AdapterLanding.OnItemClickListener {

@@ -16,22 +16,12 @@ import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveFragment : SaveView,Fragment() {
 
-
     lateinit var presentador: SavePresenter
     lateinit var servidores: Array<String>
     lateinit var servidor: String
     lateinit var usuario: String
     lateinit var clave: String
     var predeterminado: Boolean=false
-
-    override fun LoadServers(servers: Array<String>) {servidores= servers}
-    override fun LoadUser(server: String, user: String, password: String, default: Boolean) {
-        servidor=server
-        usuario=user
-        clave=password
-        predeterminado=default
-    }
-    override fun showMesage(message: String) {activity!!.Msje(message)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +36,14 @@ class SaveFragment : SaveView,Fragment() {
         tvServer.requestFocus()
         tvServer.hint=error
     }
-
+    override fun LoadServers(servers: Array<String>) {servidores= servers}
+    override fun LoadUser(server: String, user: String, password: String, default: Boolean) {
+        servidor=server
+        usuario=user
+        clave=password
+        predeterminado=default
+    }
+    override fun showMesage(message: String) {activity!!.Msje(message)}
     override fun showErrorUsuario(error: String) {
         etUsuario.error=error
         etUsuario.requestFocus()
@@ -169,43 +166,10 @@ class SaveFragment : SaveView,Fragment() {
                     context!!,serverSel
                 )
             }
-
-//                val sharedPreferences=context!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-//                val editor = sharedPreferences.edit()
-//                var server=""
-//                var us=""
-//                var cl=""
-//                var usurioOK=false
-//                var claveOK=false
-//                var serverOK=false
-
-//                if (tvServer.text!!.isEmpty() or tvServer.text!!.isBlank()) {
-//                    tvServer.error="Server No Valido"
-//                    tvServer.requestFocus()
-//                    tvServer.hint="server no válido"
-//                }else{
-//                    server=tvServer.text.toString().trim()
-//                    serverOK=true
-//                }
-
-//                if (etUsuario.text!!.isEmpty() or etUsuario.text!!.isBlank()) {
-//                    etUsuario.error="Usuario Incorrecto"
-//                    etUsuario.requestFocus()
-//                    etUsuario.hint="Usuario Incorrecto"
-//                }else{
-//                    us = etUsuario.text.toString().trim()
-//                    usurioOK=true
-//                }
-//
-//                if (tvClave.text!!.isEmpty() or tvClave.text!!.isBlank()) {
-//                    tvClave.error="Clave Incorrecta"
-//                    tvClave.requestFocus()
-//                    tvClave.hint="Clave Incorrecta"
-//                }else{
-//                    cl=tvClave.text.toString().trim()
-//                    claveOK=true
-
-
+            true
+        }
+    }
+}
 //
 //            val control=activity!!.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
 //            if (control.getString("x", "")=="" && control.getString("y", "")=="" && control.getString("z", "")=="") {
@@ -223,67 +187,3 @@ class SaveFragment : SaveView,Fragment() {
 //                    }).create().show()
 //            }
 
-//                if(cPredeterminado.isChecked){
-//                    datoCargado="OK"
-//                }else{
-//                    datoCargado=""
-//                }
-//                if (serverOK && usurioOK && claveOK ){
-//                    when (serverSel) {
-//                        0 -> {
-//                            editor?.putString("a", server)
-//                            editor?.putString("b", us)
-//                            editor?.putString("c", cl)
-//                            if (datoCargado=="OK") {
-//                                editor?.putString("x", datoCargado)
-//                                editor?.putString("y", "")
-//                                editor?.putString("z", "")
-//                            }else editor?.putString("x", "")
-//                        }
-//                        1 -> {
-//                            editor?.putString("d", server)
-//                            editor?.putString("e", us)
-//                            editor?.putString("f", cl)
-//                            if (datoCargado=="OK") {
-//                            editor?.putString("y", datoCargado)
-//                            editor?.putString("x", "")
-//                            editor?.putString("z", "")
-//                            }else editor?.putString("y", "")
-//                        }
-//                        2-> {
-//                            editor?.putString("g", server)
-//                            editor?.putString("h", us)
-//                            editor?.putString("i", cl)
-//                            if (datoCargado=="OK") {
-//                            editor?.putString("z", datoCargado)
-//                            editor?.putString("y", "")
-//                            editor?.putString("x", "")
-//                            }else editor?.putString("z", "")
-//                        }
-//                    }
-//                    editor?.apply()
-//                    editor.commit()
-//                    context!!.Msje("!Datos Registrados¡")
-
-//                    val bac = object  : Thread(){
-//                        override fun run(){
-//                            try {
-//                                sleep(3500)
-//                                activity?.supportFragmentManager?.beginTransaction()
-//                                    ?.replace(R.id.fragment, HomeFragment())
-//                                    ?.addToBackStack(null)
-//                                    ?.commit()
-//                                //vuelve atras un fragmento
-//                                //activity?.supportFragmentManager?.popBackStack()
-//                            } catch (e : Exception){
-//                                e.printStackTrace()
-//                            }
-//                        }
-//                    }
-//                    bac.start()
-//                }
-
-            true
-        }
-    }
-}

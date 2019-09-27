@@ -8,72 +8,58 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecuosoftapp.DetalleFragment.Interfaces.DetallePresenter
 import com.example.ecuosoftapp.DetalleFragment.Interfaces.DetalleView
+import com.example.ecuosoftapp.DetalleFragment.Presenter.DetallePresenterImpl
+import com.example.ecuosoftapp.Msje
 import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.View.MainActivity
 import com.example.ecuosoftapp.xml.DetalleComp
-import com.example.ecuosoftapp.xml.ParserHandlerDetalleComp
 import kotlinx.android.synthetic.main.fragment_detalle.*
 
 class DetalleFragment : DetalleView, Fragment() {
-    override fun ShowProgressBar(mostrar: Boolean) {
-        if(mostrar) progress.visibility=View.VISIBLE else progress.visibility=View.GONE
-    }
+    private lateinit var presentador: DetallePresenter
 
-    override fun ShowDetalle() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    var sDatos: String?=""
-    private lateinit var adetalleComp: ArrayList<DetalleComp>
     private var adapter1:  AdapterDetalleComp? = null
+    private var sDatos: String?=""
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presentador= DetallePresenterImpl(this)
+        arguments?.let {
+            sDatos=arguments!!.getString("DetalleFragment")
+
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val v=inflater.inflate(R.layout.fragment_detalle, container, false)
-
         if (activity != null) {
             (activity as MainActivity).title = "Detalle de Comp."
         }
         return v
     }
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
 
-        if (arguments != null)  {
-            sDatos=arguments!!.getString("DetalleFragment")
-//               MANERJAR CUANDO NO LLEGAN ARGUMENTOS
-
-        }else{
-            sDatos="0103NPI : 0001-00001929"
-
-        }
-
+    override fun ShowdatosRecyclerView(adetalleComp: ArrayList<DetalleComp>) {
         val lista1: RecyclerView
-        val parser = ParserHandlerDetalleComp()
-        val istream = context!!.assets.open("Planilla.xml")
-        adetalleComp = parser.parseando(istream)
+
         lista1 = view!!.findViewById(R.id.rcLandingDetalle)
         lista1.layoutManager = LinearLayoutManager(context)
         lista1.itemAnimator = DefaultItemAnimator()
         adapter1 = AdapterDetalleComp(adetalleComp)
         lista1.adapter = adapter1
         adapter1!!.filter.filter(sDatos)
+    }
 
+    override fun ShowError(mensaje: String) {activity!!.Msje(mensaje)}
 
-//        bottomNavigationDetalle.setOnNavigationItemSelectedListener { item ->
-//            activity!!.vibrate(50)
-//            if (item.itemId == R.id.btnBack) {
-//                activity?.supportFragmentManager!!.beginTransaction()
-//                    .replace(R.id.frlayout, CompFragment())
-//                    .addToBackStack(null)
-//                    .commit()
-//
-//            }
-//            true
-//        }
+    override fun ShowProgressBar(mostrar: Boolean) { if(mostrar) progress.visibility=View.VISIBLE else progress.visibility=View.GONE }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presentador.BuscarDatosPresenter(context!!)
     }
 }

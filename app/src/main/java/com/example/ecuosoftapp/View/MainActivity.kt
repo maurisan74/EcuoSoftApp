@@ -16,6 +16,7 @@ import android.view.Menu
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.ecuosoftapp.*
+import com.example.ecuosoftapp.CompFragment.View.CompFragment
 import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -135,7 +136,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }else {
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
 
-                    addFragment( supportFragmentManager, CompFragment(), true, "CompFragment",2)
+                    addFragment( supportFragmentManager,
+                        CompFragment(), true, "CompFragment",2)
 
                 }
             }

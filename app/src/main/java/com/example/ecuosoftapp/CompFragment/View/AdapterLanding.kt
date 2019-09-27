@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.rview
+package com.example.ecuosoftapp.CompFragment.View
 
 import android.view.LayoutInflater
 import android.view.View
