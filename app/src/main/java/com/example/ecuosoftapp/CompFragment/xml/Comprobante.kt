@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.xml
+package com.example.ecuosoftapp.CompFragment.xml
 
 class Comprobante(codigoEmpresa:String,codigoSucursal:String,  numeroComprobante: String,sucursalDeposito:String,
                   empleado:String,motivo: String,fechaComprobante:String, total: Float, imagen: Int) {

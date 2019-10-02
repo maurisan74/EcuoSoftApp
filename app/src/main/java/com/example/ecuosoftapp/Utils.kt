@@ -70,7 +70,7 @@ fun clearStack(manager: FragmentManager) {
     }
 }
 fun addFragment(manager: FragmentManager, fragment: Fragment, addToBackStack: Boolean, tag: String, tipo: Int, fragment2: Fragment= HomeFragment()
-               , argumento:String="") {
+                 , argumento:String="") {
 
 
     when(tipo){
@@ -126,6 +126,25 @@ fun addFragment(manager: FragmentManager, fragment: Fragment, addToBackStack: Bo
             transaction.commitAllowingStateLoss()
         }
     }
+}
+fun addFragmentArgArray(manager: FragmentManager, fragment: Fragment, addToBackStack: Boolean, tag: String, tipo: Int, fragment2: Fragment= HomeFragment()
+                        , argumento1:ArrayList<String>, argumento2:ArrayList<String>,
+                        keys1: String ="", keys2: String="") {
 
 
+    when(tipo){
+        1-> {
+            val parametro = Bundle()
+            parametro.putStringArrayList(keys1,argumento1)
+            parametro.putStringArrayList(keys2,argumento2)
+            fragment.arguments = parametro
+            val transaction = manager.beginTransaction()
+            transaction.replace(R.id.frlayout, fragment,tag)
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            if (addToBackStack) {
+                transaction.addToBackStack(tag)
+            }
+            transaction.commitAllowingStateLoss()
+        }
+    }
 }

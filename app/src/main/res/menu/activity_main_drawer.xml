@@ -3,7 +3,6 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
 
         <item
                 android:id="@+id/nav_home"
@@ -13,31 +12,79 @@
                 android:id="@+id/nav_aut_comp"
                 android:icon="@drawable/ic_comp"
                 android:title="@string/menu_aut"/>
-        <item
-                android:id="@+id/nav_pedido_trabajo"
-                android:icon="@drawable/ic_work_black"
-                android:title="@string/menu_gallery"/>
-        <item
-            android:id="@+id/nav_ordenes"
-            android:icon="@drawable/ic_ballot"
-            android:title="@string/menu_gallery2"/>
-        <item
-                android:id="@+id/nav_alertas"
-                android:icon="@drawable/ic_alert"
-                android:title="@string/menu_gallery3"/>
-        <item
-                android:id="@+id/nav_fichas"
-                android:icon="@drawable/ic_ficha"
-                android:title="@string/menu_gallery4"/>
-        <item
-                android:id="@+id/nav_pedido_compra"
-                android:icon="@drawable/ic_compra"
-                android:title="@string/menu_gallery5"/>
-        <item
-                android:id="@+id/nav_conf"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="@string/Action"/>
 
+    <group android:id="@+id/group2" android:checkableBehavior="single">
+        <item
+                    android:id="@+id/nav_pedido_trabajo"
+                    android:title="@string/menu_gallery">
+            <menu>
+                    <item android:id="@+id/nav_item_six"
+                            android:icon="@drawable/ic_work_black"
+                            android:title="@string/menu_gallery6" />
+                    <item android:id="@+id/nav_item_seven"
+                            android:icon="@drawable/ic_ballot"
+                            android:title="@string/menu_gallery7" />
+                    <item android:id="@+id/nav_item_seve0n"
+                            android:icon="@drawable/ic_done_black"
+                            android:title="@string/menu_gallery8" />
+            </menu>
+        </item>
     </group>
 
+    <group android:id="@+id/group1">
+                    <item
+                        android:id="@+id/nav_ordenes"
+                        android:icon="@drawable/ic_ballot"
+                        android:title="@string/menu_gallery2"/>
+                    <item
+                            android:id="@+id/nav_alertas"
+                            android:icon="@drawable/ic_alert"
+                            android:title="@string/menu_gallery3"/>
+                    <item
+                            android:id="@+id/nav_fichas"
+                            android:icon="@drawable/ic_ficha"
+                            android:title="@string/menu_gallery4"/>
+                    <item
+                            android:id="@+id/nav_pedido_compra"
+                            android:icon="@drawable/ic_compra"
+                            android:title="@string/menu_gallery5"/>
+    </group>
+
+<!--        <item-->
+<!--            android:id="@+id/nav_pedido_trabajo"-->
+<!--            android:icon="@drawable/ic_work_black"-->
+<!--            android:title="@string/menu_gallery"/>-->
+
+<!--        <menu>-->
+<!--                                <item android:id="@+id/nav_item_six"-->
+<!--                                        android:icon="@drawable/ic_work_black"-->
+<!--                                        android:title="Nuevo Pedido" />-->
+<!--                                <item android:id="@+id/nav_item_seven"-->
+<!--                                        android:icon="@drawable/ic_work_black"-->
+<!--                                        android:title="Listar Pedidos" />-->
+<!--                                <item android:id="@+id/nav_item_seve0n"-->
+<!--                                        android:icon="@drawable/ic_work_black"-->
+<!--                                        android:title="Conformidad de Ordenes" />-->
+<!--        </menu>-->
+<!-- -->
+<!--            <item-->
+<!--                android:id="@+id/nav_ordenes"-->
+<!--                android:icon="@drawable/ic_ballot"-->
+<!--                android:title="@string/menu_gallery2"/>-->
+<!--            <item-->
+<!--                    android:id="@+id/nav_alertas"-->
+<!--                    android:icon="@drawable/ic_alert"-->
+<!--                    android:title="@string/menu_gallery3"/>-->
+<!--            <item-->
+<!--                    android:id="@+id/nav_fichas"-->
+<!--                    android:icon="@drawable/ic_ficha"-->
+<!--                    android:title="@string/menu_gallery4"/>-->
+<!--            <item-->
+<!--                    android:id="@+id/nav_pedido_compra"-->
+<!--                    android:icon="@drawable/ic_compra"-->
+<!--                    android:title="@string/menu_gallery5"/>-->
+<!--            <item-->
+<!--                    android:id="@+id/nav_conf"-->
+<!--                    android:icon="@drawable/ic_menu_manage"-->
+<!--                    android:title="@string/Action"/>-->
 </menu>

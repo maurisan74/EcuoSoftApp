@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.xml
+package com.example.ecuosoftapp.DetalleFragment.xml
 
 class DetalleComp(CodigoEmpresa: String, CodigoSucursal: String,NroSerieComprobante: String, NumeroComprobante:String, CodigoArticuloServicio:String,
                   Tipo:String, Rubro:String, ArticuloServicio:String, Cantidad:String, UnidadMedida:String, ValorUnitarioDescuento:String,

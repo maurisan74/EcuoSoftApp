@@ -1,17 +1,18 @@
-package com.example.ecuosoftapp.xml
+package com.example.ecuosoftapp.CompFragment.xml
 
 import org.xmlpull.v1.XmlPullParserException
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
 import java.io.InputStream
 import java.io.IOException
-
-lateinit var emp: ArrayList<String>
-lateinit var empleado: ArrayList<String>
-
+import java.util.*
+import kotlin.collections.ArrayList
+private lateinit var emp: ArrayList<String>
+        //= ArrayList( 15 )
+        private lateinit var empleado: ArrayList<String>
+                //= ArrayList( 80 )
 class ParserHandlerComp {
     private var text: String? = null
-
     fun parse(inputStream: InputStream): ArrayList<Comprobante> {
         var bPaso = false
         var bPaso2 = false
@@ -30,8 +31,8 @@ class ParserHandlerComp {
         var temp=""
 
         try {
-            emp=ArrayList()
-            empleado=ArrayList()
+            emp =ArrayList()
+            empleado =ArrayList()
             val factory = XmlPullParserFactory.newInstance()
             factory.isNamespaceAware = true
             val parser = factory.newPullParser()
@@ -58,20 +59,21 @@ class ParserHandlerComp {
                                 )
                                 employees.add(employee)
                         } else if (tagname.equals("CodigoEmpresa", ignoreCase = true)) {
-                            if(text.toString().length==1){
-                                codEmp ="0"+ text.toString()
-                            }
-                            else{
-                                codEmp = text.toString()
-                            }
+                            codEmp=verificaLargo(text.toString())
+//                            if(text.toString().length==1){
+//                                codEmp ="0"+ text.toString()
+//                            }
+//                            else{
+//                                codEmp = text.toString()
+//                            }
                         } else if (tagname.equals("CodigoSucursal", ignoreCase = true)) {
-
-                            if(text.toString().length==1){
-                                codSuc ="0"+ text.toString()
-                            }
-                            else{
-                                codSuc = text.toString()
-                            }
+                            codSuc=verificaLargo(text.toString())
+//                            if(text.toString().length==1){
+//                                codSuc ="0"+ text.toString()
+//                            }
+//                            else{
+//                                codSuc = text.toString()
+//                            }
                             if (!bPaso){
                                 temp1 = codSuc
                                 emp.add(codSuc)
@@ -85,7 +87,7 @@ class ParserHandlerComp {
                                             break
                                         }
                                     }
-                                    if (encontrada==false){
+                                    if (!encontrada){
                                         temp1 = codSuc
                                         emp.add(codSuc)
                                     }
@@ -97,7 +99,7 @@ class ParserHandlerComp {
                         } else if (tagname.equals("SucursalDeposito", ignoreCase = true)) {
                             sucDep= text.toString()
                         } else if (tagname.equals("Empleado", ignoreCase = true)) {
-                            empl =text!!.toLowerCase()
+                            empl =text!!.toLowerCase(Locale.getDefault())
                             if (!bPaso2){
                                 temp = empl
                                 empleado.add("Todos")
@@ -112,7 +114,7 @@ class ParserHandlerComp {
                                             break
                                         }
                                     }
-                                    if (encontrado==false){
+                                    if (!encontrado){
                                         temp = empl
                                         empleado.add(empl)
                                     }
@@ -145,7 +147,7 @@ class ParserHandlerComp {
             tempEmp.add(emp[i].toInt())
         }
         emp.clear()
-        tempEmp=ordenarMenorEmpresa(tempEmp, tempEmp.size)
+        tempEmp= ordenarMenorEmpresa(tempEmp, tempEmp.size)
         emp.add("Todas")
         for (i in 0 until tempEmp.size) {
             if(tempEmp[i].toString().length==1){
@@ -176,4 +178,10 @@ fun ordenarMenorEmpresa(listNum: ArrayList<Int>, cant: Int) :ArrayList<Int>{
         }
     }
     return listNum
+}
+fun verificaLargo(texto: String): String{
+    when(texto.length==1){
+        true-> return "0${texto}"
+        false-> return texto
+    }
 }

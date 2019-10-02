@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecuosoftapp.R
-import com.example.ecuosoftapp.xml.Comprobante
+import com.example.ecuosoftapp.CompFragment.xml.Comprobante
 import kotlinx.android.synthetic.main.item.view.*
 import kotlin.collections.ArrayList
 

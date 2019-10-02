@@ -29,7 +29,7 @@ class SerchFragment : Fragment() {
     ): View? {
 
         val v = inflater.inflate(R.layout.fragment_serch, container, false)
-        if (activity != null) (activity as MainActivity).title = "Filtro de Comp."
+        if (activity != null) (activity as MainActivity).title = "Filtro de Comprobantes"
 
         return v
     }

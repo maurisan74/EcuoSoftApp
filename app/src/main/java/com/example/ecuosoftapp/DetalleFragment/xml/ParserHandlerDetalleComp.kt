@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.xml
+package com.example.ecuosoftapp.DetalleFragment.xml
 
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException

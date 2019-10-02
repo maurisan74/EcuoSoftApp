@@ -14,10 +14,14 @@ import com.example.ecuosoftapp.DetalleFragment.Presenter.DetallePresenterImpl
 import com.example.ecuosoftapp.Msje
 import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.View.MainActivity
-import com.example.ecuosoftapp.xml.DetalleComp
+import com.example.ecuosoftapp.DetalleFragment.xml.DetalleComp
+import kotlinx.android.synthetic.main.fragment_comp.*
 import kotlinx.android.synthetic.main.fragment_detalle.*
+import kotlinx.android.synthetic.main.fragment_detalle.progress
 
 class DetalleFragment : DetalleView, Fragment() {
+
+
     private lateinit var presentador: DetallePresenter
 
     private var adapter1:  AdapterDetalleComp? = null
@@ -55,7 +59,7 @@ class DetalleFragment : DetalleView, Fragment() {
     }
 
     override fun ShowError(mensaje: String) {activity!!.Msje(mensaje)}
-
+    override fun ShowRecyclerView(mostrar: Boolean)  { if(mostrar) rcLandingDetalle.visibility=View.VISIBLE else rcLandingDetalle.visibility=View.GONE }
     override fun ShowProgressBar(mostrar: Boolean) { if(mostrar) progress.visibility=View.VISIBLE else progress.visibility=View.GONE }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

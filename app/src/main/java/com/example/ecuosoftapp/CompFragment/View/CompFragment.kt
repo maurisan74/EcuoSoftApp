@@ -8,41 +8,39 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecuosoftapp.*
 import com.example.ecuosoftapp.CompFragment.Interactors.CompPresenter
 import com.example.ecuosoftapp.CompFragment.Interactors.CompView
 import com.example.ecuosoftapp.CompFragment.Presenter.CompPresenterImpl
 import com.example.ecuosoftapp.DetalleFragment.View.DetalleFragment
-import com.example.ecuosoftapp.Msje
-import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.View.MainActivity
 import com.example.ecuosoftapp.View.SerchFragment
-import com.example.ecuosoftapp.addFragment
-import com.example.ecuosoftapp.vibrate
-import com.example.ecuosoftapp.xml.Comprobante
-import com.example.ecuosoftapp.xml.ParserHandlerComp
+import com.example.ecuosoftapp.CompFragment.xml.Comprobante
+import com.example.ecuosoftapp.CompFragment.xml.ParserHandlerComp
 import kotlinx.android.synthetic.main.fragment_comp.*
 
 class CompFragment : CompView, Fragment() {
 
+
     private var adapter: AdapterLanding? = null
     private lateinit var lista: RecyclerView
     private lateinit var presentador: CompPresenter
+    private lateinit var sListaEmpleados: ArrayList<String>
+    private lateinit var sListaEmpresas: ArrayList<String>
 
     override fun ShowProgressBar(mostrar: Boolean)  { if(mostrar) progress.visibility=View.VISIBLE else progress.visibility=View.GONE }
     override fun ShowRecyclerView(mostrar: Boolean) { if(mostrar) rcLanding.visibility=View.VISIBLE else rcLanding.visibility=View.GONE }
 
-    override fun ShowdatosRecyclerView(comprobantes: ArrayList<Comprobante>) {
+    override fun LoadDatosRecyclerView(comprobantes: ArrayList<Comprobante>) {
         lista = view!!.findViewById(R.id.rcLanding)
         lista.layoutManager = LinearLayoutManager(context)
         lista.itemAnimator = DefaultItemAnimator()
         adapter = AdapterLanding(comprobantes)
         lista.adapter = adapter
     }
-
-    override fun ShowError(mensaje: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
+    override fun ShowError(mensaje: String) {activity!!.Msje(mensaje)}
+    override fun ListaEmpleados(listEmple: ArrayList<String>) {sListaEmpleados=listEmple }
+    override fun ListaEmpresas(listEmp: ArrayList<String>) {sListaEmpresas=listEmp }
 
 
     override fun onCreateView(
@@ -113,20 +111,20 @@ class CompFragment : CompView, Fragment() {
 //        val parser = ParserHandlerComp()
 //        val istream = context!!.assets.open("Planilla.xml")
 //        comprobantes = parser.parse(istream)
-
+//
 //                lista = view!!.findViewById(R.id.rcLanding)
 //                lista?.layoutManager = LinearLayoutManager(context)
 //                lista.itemAnimator = DefaultItemAnimator()
 //                adapter = AdapterLanding(comprobantes)
 //                lista?.adapter = adapter
-
+        presentador.BuscarDatosPresenter(context!!)
         arguments?.let {
-            adapter!!.filter.filter(getArguments()!!.getString("filtro"))
+            adapter!!.filter.filter(arguments!!.getString("filtro"))
         }
-        val listEmp = ParserHandlerComp().listaEmpresa()
-        val listEmple = ParserHandlerComp().listaEmpleado()
+//        val listEmp = ParserHandlerComp().listaEmpresa()
+//        val listEmple = ParserHandlerComp().listaEmpleado()
 
-        val listNum = IntArray(lista.getAdapter()!!.getItemCount())
+        val listNum = IntArray(lista.adapter!!.itemCount)
         fun changeItem(position: Int) {
             when (listNum[position]) {
                 0 -> {
@@ -170,15 +168,20 @@ class CompFragment : CompView, Fragment() {
            when (item.itemId){
 
                R.id.btnFilter->{
-                   val fragment = SerchFragment()
-                   val parametro = Bundle()
-                   parametro.putStringArrayList("key", listEmp)
-                   parametro.putStringArrayList("key2", listEmple)
-                   fragment.arguments = parametro
-                   val ft = fragmentManager!!.beginTransaction()
-                   ft.replace(R.id.frlayout, fragment, "tag")
-                   ft.addToBackStack("tag")
-                   ft.commit()
+                   addFragmentArgArray(activity!!.supportFragmentManager,
+                       SerchFragment(), false, "SerchFragment",1,
+                       CompFragment(),
+                       sListaEmpresas,sListaEmpleados,"key","key2" )
+
+                  // val fragment = SerchFragment()
+                  // val parametro = Bundle()
+                   //parametro.putStringArrayList("key", sListaEmpresas)
+                 //  parametro.putStringArrayList("key2", sListaEmpleados)
+//                   fragment.arguments = parametro
+//                   val ft = fragmentManager!!.beginTransaction()
+//                   ft.replace(R.id.frlayout, fragment, "tag")
+//                   ft.addToBackStack("tag")
+//                   ft.commit()
                }
 
                R.id.btnSend->{

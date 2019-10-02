@@ -12,6 +12,9 @@
     <string name="menu_home">Home</string>
     <string name="menu_aut">Autorización de comp.</string>
     <string name="menu_gallery">Pedidos de Trabajo</string>
+    <string name="menu_gallery6">Nuevo Pedido</string>
+    <string name="menu_gallery7">Listar Pedidos</string>
+    <string name="menu_gallery8">Conformidad de Ordenes</string>
     <string name="menu_gallery2">Ordenes de Trabajo</string>
     <string name="menu_gallery3">Notificación de Alertas</string>
     <string name="menu_gallery4">Fichas Técnicas</string>

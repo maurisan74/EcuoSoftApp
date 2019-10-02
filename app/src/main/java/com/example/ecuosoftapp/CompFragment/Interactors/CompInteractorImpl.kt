@@ -1,18 +1,23 @@
 package com.example.ecuosoftapp.CompFragment.Interactors
 
 import android.content.Context
-import com.example.ecuosoftapp.xml.ParserHandlerComp
+import com.example.ecuosoftapp.CompFragment.xml.ParserHandlerComp
 
 
 class CompInteractorImpl(var presenter: CompPresenter): CompInteractor {
 
-    override fun BuscarDatosPresenterInteractpr(context: Context) {
-        presenter.ShowProgressBarPresenter(true)
-        presenter.ShowRecyclerViewPresenter(false)
-        val parser = ParserHandlerComp()
-        val istream = context.assets.open("Planilla.xml")
-        presenter.ShowdatosRecyclerViewPresenter(parser.parse(istream))
+    override fun BuscarDatosInteractor(context: Context) {
 
+        with(presenter){
+            ShowProgressBarPresenter(true)
+            ShowRecyclerViewPresenter(false)
+            val parser = ParserHandlerComp()
+            val istream = context.assets.open("Planilla.xml")
+            LoadDatosRecyclerViewPresenter( parser.parse(istream))
+            ListaEmpleadosPresenter(ParserHandlerComp().listaEmpleado())
+            ListaEmpresasPresenter(ParserHandlerComp().listaEmpresa())
+            ShowProgressBarPresenter(false)
+            ShowRecyclerViewPresenter(true)
+        }
     }
-
 }

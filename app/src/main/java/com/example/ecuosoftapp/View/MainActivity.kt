@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -13,20 +14,16 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.ecuosoftapp.*
 import com.example.ecuosoftapp.CompFragment.View.CompFragment
+import com.example.ecuosoftapp.DetalleFragment.View.DetalleFragment
 import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private var backPressedTime: Long = 0
-    private var backToast: Toast? = null
-
     companion object {
-
         var VIBRATOR_PERMISSION_REQUEST_CODE=0
     }
 
@@ -44,6 +41,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
+        toolbar.setTitleTextColor(Color.WHITE)
         setSupportActionBar(toolbar)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -62,10 +60,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
             if (savedInstanceState == null) this.onNavigationItemSelected(nav_view.menu.getItem(7))
             this.Msje( "!No hay ningun Servidor Predeterminado¡")
-
         }
-        else
-        {
+        else{
             if (savedInstanceState == null) this.onNavigationItemSelected(nav_view.menu.getItem(0))
             //Esta linea es para que al iniciar el main activity se cargue el primer fragment, o sea el home
         }
@@ -95,10 +91,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frlayout, SaveFragment())
-            .addToBackStack(null)
-            .commit()
+        addFragment(supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.frlayout, SaveFragment())
+//            .addToBackStack(null)
+//            .commit()
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
@@ -112,21 +109,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_home -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
                     addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.frlayout,
-//                            SaveFragment()
-//                        )
-//                        .addToBackStack(null)
-//                        .commit()
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
 
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
                     addFragment( supportFragmentManager, HomeFragment(), true, "HomeFragment",1)
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.frlayout, HomeFragment())
-//                        .addToBackStack(null)
-//                        .commit()
                 }
             }
             R.id.nav_aut_comp -> {
@@ -138,7 +125,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                     addFragment( supportFragmentManager,
                         CompFragment(), true, "CompFragment",2)
-
                 }
             }
             R.id.nav_pedido_trabajo -> {
@@ -146,28 +132,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
 
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {
-                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                }
+                }else {if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)}
             }
             R.id.nav_ordenes -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
                         addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {
-
-                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                }
+                }else {if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)}
             }
             R.id.nav_alertas -> {
 
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
                     addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {
-
-                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                }
+                }else {if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)}
             }
             R.id.nav_fichas -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
@@ -187,17 +165,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
                 }
             }
-
-            R.id.nav_conf -> {
-                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    addFragment( supportFragmentManager, SaveFragment(), true, "",1)
-                    this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {
-
-                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",2)
-                }
-            }
+//            R.id.nav_conf -> {
+//                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
+//                    addFragment( supportFragmentManager, SaveFragment(), true, "",1)
+//                    this.Msje( "!No hay ningun Servidor Predeterminado¡")
+//                }else {
+//
+//                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
+//                    addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",2)
+//                }
+//            }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
