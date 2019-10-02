@@ -93,11 +93,15 @@
     <string name="dialog_btn_yes">Aceptar</string>
     <string name="dialog_btn_no">Cancelar</string>
 
-<!--home fragment-->
+    <!--home fragment-->
     <string name="noti">Notificaciones</string>
 
     <!--comp fragment-->
     <string name="ic_back">Volver</string>
     <string name="ic_send">Enviar</string>
     <string name="ic_filtrar">Filtrar</string>
+    <string name="title_activity_pedidos">Pedidos de Trabajos</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
 </resources>

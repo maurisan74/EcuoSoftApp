@@ -18,13 +18,13 @@
                     android:id="@+id/nav_pedido_trabajo"
                     android:title="@string/menu_gallery">
             <menu>
-                    <item android:id="@+id/nav_item_six"
+                    <item android:id="@+id/nav_nuevo_pedido"
                             android:icon="@drawable/ic_work_black"
                             android:title="@string/menu_gallery6" />
-                    <item android:id="@+id/nav_item_seven"
+                    <item android:id="@+id/nav_listar_pedido"
                             android:icon="@drawable/ic_ballot"
                             android:title="@string/menu_gallery7" />
-                    <item android:id="@+id/nav_item_seve0n"
+                    <item android:id="@+id/nav_conformidad"
                             android:icon="@drawable/ic_done_black"
                             android:title="@string/menu_gallery8" />
             </menu>

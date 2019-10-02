@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.ecuosoftapp">
+        package="com.example.ecuosoftapp">
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.Vibrate"/>
-
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.Vibrate" />
 
     <application
             android:allowBackup="true"
@@ -14,18 +13,25 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
+        <activity
+                android:name=".PedidosActivity.View.PedidosActivity"
+                android:label="@string/title_activity_pedidos"
+                android:parentActivityName=".View.MainActivity"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.example.ecuosoftapp.View.MainActivity" />
+        </activity>
         <activity android:name=".View.SplashActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
                 android:name=".View.MainActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+                android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

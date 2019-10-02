@@ -2,6 +2,7 @@ package com.example.ecuosoftapp.View
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -17,7 +18,7 @@ import android.view.Menu
 import androidx.core.app.ActivityCompat
 import com.example.ecuosoftapp.*
 import com.example.ecuosoftapp.CompFragment.View.CompFragment
-import com.example.ecuosoftapp.DetalleFragment.View.DetalleFragment
+import com.example.ecuosoftapp.PedidosActivity.View.PedidosActivity
 import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -91,7 +92,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        addFragment(supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
+        addFragment(supportFragmentManager, SaveFragment(), true, "SaveFragment",2)
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.frlayout, SaveFragment())
 //            .addToBackStack(null)
@@ -113,7 +114,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }else {
 
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    addFragment( supportFragmentManager, HomeFragment(), true, "HomeFragment",1)
+                    addFragment( supportFragmentManager, HomeFragment(), false, "HomeFragment",1)
                 }
             }
             R.id.nav_aut_comp -> {
@@ -123,16 +124,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }else {
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
 
-                    addFragment( supportFragmentManager,
-                        CompFragment(), true, "CompFragment",2)
+                    addFragment( supportFragmentManager, CompFragment(), true, "CompFragment",2)
                 }
             }
-            R.id.nav_pedido_trabajo -> {
+            R.id.nav_nuevo_pedido -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
                     addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
 
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)}
+                }else {
+                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
+                    val intent = Intent(baseContext, PedidosActivity:: class.java)
+                    startActivity(intent)
+
+                }
             }
             R.id.nav_ordenes -> {
                 if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
