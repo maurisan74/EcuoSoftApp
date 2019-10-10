@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/btnBack"
-            android:icon="@drawable/ic_back_black"
-            android:title="@string/ic_back"/>
+        android:id="@+id/btnBack"
+        android:icon="@drawable/ic_back_black"
+        android:title="@string/ic_back"/>
     <item
-            android:id="@+id/btnFilter"
-            android:icon="@drawable/ic_search"
-            android:title="@string/ic_filtrar"/>
+        android:id="@+id/btnFilter"
+        android:icon="@drawable/ic_search"
+        android:title="@string/ic_filtrar"/>
     <item
-            android:id="@+id/btnSend"
-            android:icon="@drawable/ic_send"
-            android:title="@string/ic_send"/>
+        android:id="@+id/btnSend"
+        android:icon="@drawable/ic_send"
+        android:title="@string/ic_send"/>
 </menu>

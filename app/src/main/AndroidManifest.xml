@@ -17,7 +17,7 @@
                 android:name=".PedidosActivity.View.PedidosActivity"
                 android:label="@string/title_activity_pedidos"
                 android:parentActivityName=".View.MainActivity"
-                android:theme="@style/AppTheme">
+                android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.example.ecuosoftapp.View.MainActivity" />

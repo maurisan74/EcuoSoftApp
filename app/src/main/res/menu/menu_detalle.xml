@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/btnBack"
-            android:icon="@drawable/ic_back_black"
-            android:title="@string/ic_back"/>
+        android:id="@+id/btnBack"
+        android:icon="@drawable/ic_back_black"
+        android:title="@string/ic_back"/>
     <item
-            android:id="@+id/btnBack1"
+        android:id="@+id/btnBack1"
 
-            android:title=" "/>
+        android:title=" "/>
     <item
-            android:id="@+id/btnBack2"
+        android:id="@+id/btnBack2"
 
-            android:title=" "/>
+        android:title=" "/>
 </menu>

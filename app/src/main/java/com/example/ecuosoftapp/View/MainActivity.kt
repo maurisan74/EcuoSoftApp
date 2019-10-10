@@ -18,7 +18,7 @@ import android.view.Menu
 import androidx.core.app.ActivityCompat
 import com.example.ecuosoftapp.*
 import com.example.ecuosoftapp.CompFragment.View.CompFragment
-import com.example.ecuosoftapp.PedidosActivity.View.PedidosActivity
+import com.example.ecuosoftapp.PedidosActivity.View.TabFragment
 import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -56,10 +56,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+        navView.itemIconTintList=null
 
         val sharedPreferences = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
         if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-            if (savedInstanceState == null) this.onNavigationItemSelected(nav_view.menu.getItem(7))
+            if (savedInstanceState == null) addFragment( supportFragmentManager, SaveFragment(), true, "",1)
             this.Msje( "!No hay ningun Servidor Predeterminado¡")
         }
         else{
@@ -92,7 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        addFragment(supportFragmentManager, SaveFragment(), true, "SaveFragment",2)
+        addFragment( supportFragmentManager, SaveFragment(), true, "",1)
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.frlayout, SaveFragment())
 //            .addToBackStack(null)
@@ -134,9 +135,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     this.Msje( "!No hay ningun Servidor Predeterminado¡")
                 }else {
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    val intent = Intent(baseContext, PedidosActivity:: class.java)
-                    startActivity(intent)
-
+                    addFragment( supportFragmentManager, TabFragment(), true, "TabFragment",2)
                 }
             }
             R.id.nav_ordenes -> {
