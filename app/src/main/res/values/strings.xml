@@ -109,16 +109,23 @@
     <string name="tipo">Tipo de Trabajo</string>
     <string name="fecha">Fecha hora</string>
     <string name="prioridad">Prioridad</string>
+    <string name="solicitante">Solicitante:</string>
     <string name="empleado">Empleado</string>
     <string name="cliente">Cliente</string>
-    <string name="solicitante">C.C. Solicitante</string>
+    <string name="solicitantecc">C.C. Solicitante</string>
     <string name="desc">Descripción</string>
     <string name="noAsociado">No Asociado</string>
     <string name="equipo">Equipo</string>
     <string name="instalacion">Proyecto</string>
     <string name="proyecto">Proyecto</string>
+    <string name="nroPT">000001001001</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+<!--    spinner prioridad-Fragment Datos -->
+    <string-array name="prioridad">
+        <item>Urgente</item>
+        <item>Media-Alta</item>
+        <item>Normal</item>
+        <item>Baja</item>
+        <item>Muy Baja</item>
+    </string-array>
 </resources>

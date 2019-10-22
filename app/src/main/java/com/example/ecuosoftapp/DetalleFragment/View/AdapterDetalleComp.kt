@@ -68,9 +68,9 @@ class AdapterDetalleComp(private val itemDetalleComp: ArrayList<DetalleComp>) : 
             CodigoSucursal=vista1.textView15
             NroSerieComprobante=vista1.textView15
             NumeroComprobante=vista1.textView15
-            CodigoArticuloServicio=vista1.tvCodigoArticulo
+            CodigoArticuloServicio=vista1.tvCodigo
             Tipo=vista1.tvTipo
-            Rubro=vista1.tvRubro
+            Rubro=vista1.tvtime
             ArticuloServicio=vista1.tvDescArt
             Cantidad=vista1.tvCant
             UnidadMedida=vista1.tvUniMedida

@@ -147,4 +147,5 @@ fun addFragmentArgArray(manager: FragmentManager, fragment: Fragment, addToBackS
             transaction.commitAllowingStateLoss()
         }
     }
+
 }
