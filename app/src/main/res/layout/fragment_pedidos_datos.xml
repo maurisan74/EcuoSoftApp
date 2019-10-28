@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="5dp"
-    android:background="@color/colorPrimary"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="4dp"
-    app:contentPadding="5dp">
+    android:layout_height="match_parent">
 
 
     <androidx.cardview.widget.CardView
@@ -32,247 +27,308 @@
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="3dp">
 
+            <TextView
+                android:id="@+id/tvProyecto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/proyecto"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <Spinner
+                android:id="@+id/spSolicitanteCc5"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvProyecto" />
+
+            <Spinner
+                android:id="@+id/spSolicitanteCc4"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="258dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/radioGroup"
+                app:layout_constraintTop_toBottomOf="@+id/spSolicitanteCc3" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView21">
+
+                <RadioButton
+                    android:id="@+id/rbNoAsociadoA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/noAsociado"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/rbEmpleadoA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empleado"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/rbEquipoA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/equipo"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/rbInstalacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instalacion"
+                    android:textSize="18sp" />
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/spSolicitanteCc3"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="258dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/radioGroup"
+                app:layout_constraintTop_toBottomOf="@+id/spSolicitanteCc2" />
+
+            <Spinner
+                android:id="@+id/spSolicitanteCc2"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="258dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="65dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/radioGroup"
+                app:layout_constraintTop_toBottomOf="@+id/etDescTrabajo" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/asociado"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etDescTrabajo" />
+
             <Spinner
                 android:id="@+id/spSolicitanteCc"
                 style="@android:style/Widget.Holo.Light.Spinner"
-                android:layout_width="276dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/textView13"
-                app:layout_constraintTop_toBottomOf="@+id/spSolicitanteCliente" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:text="@string/tipo"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/tvCodigo"
-                app:layout_constraintStart_toEndOf="@+id/tvCodigo" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
             <Spinner
                 android:id="@+id/spPrioridad"
                 style="@android:style/Widget.Holo.Light.Spinner"
-                android:layout_width="166dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="3dp"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/spTipoTrabajo" />
-
-            <TextView
-                android:id="@+id/textView15"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:text="@string/Observacion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:textSize="12sp"
-                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="196dp" />
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/solicitantecc"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
 
             <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/desc"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/fecha"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <TextView
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
-                android:layout_height="16dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/solicitante"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-            <TextView
-                android:id="@+id/tvtime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="8dp"
-                android:text="01/01/2001 08:30"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textView12"
-                app:layout_constraintTop_toBottomOf="@+id/tvCodigo" />
+                app:layout_constraintTop_toBottomOf="@+id/spPrioridad" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/prioridad"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/tvtime"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spTipoTrabajo" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/CodArt"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/fecha"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/tvtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="01/01/2001 08:30"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <TextView
                 android:id="@+id/tvCodigo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/nroPT"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="12sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/textView2"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/tipo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
             <Spinner
                 android:id="@+id/spTipoTrabajo"
                 style="@android:style/Widget.Holo.Light.Spinner"
-                android:layout_width="166dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="0dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/textView17"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
             <RadioGroup
                 android:id="@+id/radioGroup3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView18"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintTop_toBottomOf="@+id/textView18">
 
                 <RadioButton
                     android:id="@+id/rbEmpleado"
                     style="@android:style/Widget.Holo.Light.CompoundButton.RadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/empleado"
-                    android:textSize="12sp" />
+                    android:textSize="18sp" />
 
                 <RadioButton
                     android:id="@+id/rbCliente"
                     style="@android:style/Widget.Holo.Light.CompoundButton.RadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/cliente"
-                    android:textSize="12sp" />
+                    android:textSize="18sp" />
 
             </RadioGroup>
 
             <Spinner
                 android:id="@+id/spSolicitanteEmpleado"
                 style="@android:style/Widget.Holo.Light.Spinner"
-                android:layout_width="276dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="3dp"
+                android:layout_width="248dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/radioGroup3"
-                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                app:layout_constraintTop_toBottomOf="@+id/spPrioridad" />
 
             <Spinner
                 android:id="@+id/spSolicitanteCliente"
                 style="@android:style/Widget.Holo.Light.Spinner"
-                android:layout_width="276dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="2dp"
-                android:textSize="12sp"
+                android:layout_width="248dp"
+                android:layout_height="30dp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/radioGroup3"
                 app:layout_constraintTop_toBottomOf="@+id/spSolicitanteEmpleado" />
 
             <EditText
                 android:id="@+id/etDescTrabajo"
-                android:layout_width="310dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="5dp"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="5dp"
+                android:textSize="18sp"
                 android:ems="10"
                 android:gravity="start|top"
+                android:hint="@string/desc"
                 android:inputType="textMultiLine"
-                app:layout_constraintStart_toEndOf="@+id/textView19"
-                app:layout_constraintTop_toBottomOf="@+id/spSolicitanteCc" />
-
-            <RadioGroup
-                android:layout_width="186dp"
-                android:layout_height="149dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="76dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.011"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19">
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:text="RadioButton" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="RadioButton" />
-            </RadioGroup>
+                app:layout_constraintTop_toBottomOf="@+id/spSolicitanteCc" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-</androidx.cardview.widget.CardView>
+</androidx.core.widget.NestedScrollView>

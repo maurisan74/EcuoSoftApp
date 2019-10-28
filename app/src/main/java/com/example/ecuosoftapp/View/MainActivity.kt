@@ -18,6 +18,8 @@ import android.view.Menu
 import androidx.core.app.ActivityCompat
 import com.example.ecuosoftapp.*
 import com.example.ecuosoftapp.CompFragment.View.CompFragment
+import com.example.ecuosoftapp.PedidosActivity.View.ConformidadFragment
+import com.example.ecuosoftapp.PedidosActivity.View.ListarPedidosFragment
 import com.example.ecuosoftapp.PedidosActivity.View.TabFragment
 import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -136,6 +138,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }else {
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
                     addFragment( supportFragmentManager, TabFragment(), true, "TabFragment",2)
+                }
+            }
+            R.id.nav_listar_pedido -> {
+                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
+                    addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
+
+                    this.Msje( "!No hay ningun Servidor Predeterminado¡")
+                }else {
+                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
+                    addFragment( supportFragmentManager, ListarPedidosFragment(), true, "ListarPedidosFragment",2)
+                }
+            }
+            R.id.nav_conformidad -> {
+                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
+                    addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
+
+                    this.Msje( "!No hay ningun Servidor Predeterminado¡")
+                }else {
+                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
+                    addFragment( supportFragmentManager, ConformidadFragment(), true, "ConformidadFragment",2)
                 }
             }
             R.id.nav_ordenes -> {

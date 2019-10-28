@@ -16,7 +16,6 @@ import com.example.ecuosoftapp.DetalleFragment.View.DetalleFragment
 import com.example.ecuosoftapp.View.MainActivity
 import com.example.ecuosoftapp.View.SerchFragment
 import com.example.ecuosoftapp.CompFragment.xml.Comprobante
-import com.example.ecuosoftapp.CompFragment.xml.ParserHandlerComp
 import kotlinx.android.synthetic.main.fragment_comp.*
 
 class CompFragment : CompView, Fragment() {
@@ -163,7 +162,7 @@ class CompFragment : CompView, Fragment() {
                 DetalleComp(position)
             }
         })
-        bottomNavigationComp.setOnNavigationItemSelectedListener { item ->
+        bNavigationPTD.setOnNavigationItemSelectedListener { item ->
                    activity!!.vibrate(50)
            when (item.itemId){
 

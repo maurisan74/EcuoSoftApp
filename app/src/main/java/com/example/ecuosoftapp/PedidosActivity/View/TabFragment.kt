@@ -41,18 +41,17 @@ class TabFragment : Fragment() {
             when (position) {
                 0 -> return PedidosDatosFragment()
                 1 -> return PedidosDetalleFragment()
-                else -> return PedidosArchivoFragment()
+                else -> return PedidosDetalleFragment()
             }
         }
 
         override fun getCount(): Int {
-            return 3
+            return 2
         }
         override fun getPageTitle(position: Int): CharSequence? {
             when(position){
                 0-> return "Datos del Pedido"
                 1-> return "Detalle del trabajo"
-                2-> return "Archivos"
                 else -> return null
             }
         }

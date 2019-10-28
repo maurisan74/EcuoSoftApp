@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btnBack"
+        android:icon="@drawable/ic_back_black"
+        android:title="@string/ic_back"/>
+    <item
+        android:id="@+id/btnBack1"
+
+        android:title=" "/>
+    <item
+        android:id="@+id/btnSend"
+        android:icon="@drawable/ic_send"
+        android:title="@string/ic_send"/>
+</menu>

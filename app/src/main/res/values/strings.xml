@@ -106,21 +106,22 @@
 
     <!--Pedidos de trabajo-Fragment Datos -->
     <string name="nro">Nro PT</string>
-    <string name="tipo">Tipo de Trabajo</string>
-    <string name="fecha">Fecha hora</string>
-    <string name="prioridad">Prioridad</string>
+    <string name="tipo">Tipo de Trabajo:</string>
+    <string name="fecha">Fecha y Hora: </string>
+    <string name="prioridad">Prioridad:</string>
     <string name="solicitante">Solicitante:</string>
     <string name="empleado">Empleado</string>
     <string name="cliente">Cliente</string>
-    <string name="solicitantecc">C.C. Solicitante</string>
-    <string name="desc">Descripción</string>
+    <string name="solicitantecc">C.C. Solicitante:</string>
+    <string name="desc">Ingrese una descripción del trabajo.</string>
+    <string name="asociado">Asociado a:</string>
     <string name="noAsociado">No Asociado</string>
     <string name="equipo">Equipo</string>
-    <string name="instalacion">Proyecto</string>
-    <string name="proyecto">Proyecto</string>
-    <string name="nroPT">000001001001</string>
+    <string name="instalacion">Instalación</string>
+    <string name="proyecto">Proyecto:</string>
+    <string name="nroPT">00000100100100</string>
 
-<!--    spinner prioridad-Fragment Datos -->
+    <!--    spinner prioridad-Fragment Datos -->
     <string-array name="prioridad">
         <item>Urgente</item>
         <item>Media-Alta</item>
@@ -128,4 +129,10 @@
         <item>Baja</item>
         <item>Muy Baja</item>
     </string-array>
+
+    <!--Pedidos de trabajo-Fragment Detalle -->
+    <string name="detalle">Ingrese aquí el detalle del pedido de trabajo.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
