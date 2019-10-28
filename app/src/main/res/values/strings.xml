@@ -121,7 +121,7 @@
     <string name="proyecto">Proyecto:</string>
     <string name="nroPT">00000100100100</string>
 
-    <!--    spinner prioridad-Fragment Datos -->
+    <!--spinner prioridad-Fragment Datos -->
     <string-array name="prioridad">
         <item>Urgente</item>
         <item>Media-Alta</item>
@@ -135,4 +135,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--spinner Listar Pedidos de Trabajo-->
+    <string-array name="filtroPT">
+        <item>Todos los Pedidos de Trabajo</item>
+        <item>Pedidos de Últimos meses</item>
+        <item>Esperando Autorización</item>
+        <item>Rechazados</item>
+        <item>No asignados a Orden de Trabajo</item>
+        <item>Asignados no Finalizados</item>
+        <item>Esperando Conformidad</item>
+    </string-array>
 </resources>

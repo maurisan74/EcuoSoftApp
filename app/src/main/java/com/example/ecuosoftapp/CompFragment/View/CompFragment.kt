@@ -209,7 +209,7 @@ class CompFragment : CompView, Fragment() {
                            //                        Toast.makeText(activity, "Cancelado", Toast.LENGTH_SHORT).show()
                            for (i in 0..listNum.size - 1) {
                                listNum[i] = 0
-                               adapter?.items2!![i].imagen = R.drawable.ic_noimage
+                               adapter?.items2!![i].imagen = R.drawable.ic_noimage1
                                adapter?.notifyItemChanged(i)
                            }
                        }).create().show()
