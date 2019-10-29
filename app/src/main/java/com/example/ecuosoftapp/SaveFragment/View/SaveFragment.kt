@@ -31,31 +31,6 @@ class SaveFragment : SaveView,Fragment() {
         presentador.SolicitaServersPresenter()
     }
 
-    override fun showErrorServidor(error: String) {
-        tvServer.error=error
-        tvServer.requestFocus()
-        tvServer.hint=error
-    }
-    override fun LoadServers(servers: Array<String>) {servidores= servers}
-    override fun LoadUser(server: String, user: String, password: String, default: Boolean) {
-        servidor=server
-        usuario=user
-        clave=password
-        predeterminado=default
-    }
-    override fun showMesage(message: String) {activity!!.Msje(message)}
-    override fun showErrorUsuario(error: String) {
-        etUsuario.error=error
-        etUsuario.requestFocus()
-        etUsuario.hint=error
-    }
-
-    override fun showErrorClave(error: String) {
-        tvClave.error=error
-        tvClave.requestFocus()
-        tvClave.hint=error
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -168,6 +143,30 @@ class SaveFragment : SaveView,Fragment() {
             }
             true
         }
+    }
+    override fun showErrorServidor(error: String) {
+        tvServer.error=error
+        tvServer.requestFocus()
+        tvServer.hint=error
+    }
+    override fun LoadServers(servers: Array<String>) {servidores= servers}
+    override fun LoadUser(server: String, user: String, password: String, default: Boolean) {
+        servidor=server
+        usuario=user
+        clave=password
+        predeterminado=default
+    }
+    override fun showMesage(message: String) {activity!!.Msje(message)}
+    override fun showErrorUsuario(error: String) {
+        etUsuario.error=error
+        etUsuario.requestFocus()
+        etUsuario.hint=error
+    }
+
+    override fun showErrorClave(error: String) {
+        tvClave.error=error
+        tvClave.requestFocus()
+        tvClave.hint=error
     }
 }
 //

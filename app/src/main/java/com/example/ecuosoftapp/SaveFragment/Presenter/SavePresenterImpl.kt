@@ -23,8 +23,6 @@ class SavePresenterImpl(var view: SaveFragment): SavePresenter {
         view.showErrorClave(error)
     }
 
-
-
     override fun guardaDatosPresenter(servidor: String, usuario: String, clave: String,predeterminado: Boolean, context: Context, serverSel: Int) {
         interactor.guardaDatosInteractor(servidor, usuario, clave,predeterminado, context,serverSel)
     }

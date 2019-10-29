@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.ecuosoftapp.R
+import com.example.ecuosoftapp.View.MainActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -18,7 +19,9 @@ class ConformidadFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        if (activity != null) {
+            (activity as MainActivity).title = "Conformidad a Ordenes de Trabajo"
+        }
         return inflater.inflate(R.layout.fragment_conformidad, container, false)
     }
 

@@ -133,10 +133,6 @@
     <!--Pedidos de trabajo-Fragment Detalle -->
     <string name="detalle">Ingrese aquí el detalle del pedido de trabajo.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
     <!--spinner Listar Pedidos de Trabajo-->
     <string-array name="filtroPT">
         <item>Todos los Pedidos de Trabajo</item>
@@ -147,4 +143,17 @@
         <item>Asignados no Finalizados</item>
         <item>Esperando Conformidad</item>
     </string-array>
+
+
+    <!--Listar Pedidos de Trabajo -->
+    <string name="nroL">Nro</string>
+    <string name="tipoL">Tipo de Trabajo:</string>
+    <string name="fechaL">Fecha: </string>
+    <string name="solicitanteL">Solicitante:</string>
+    <string name="empleadoL">Empleado</string>
+    <string name="solicitanteccL">C.C. Solicitante:</string>
+    <string name="descL">Descripción:</string>
+    <string name="filtroL">Proyecto:</string>
+    <string name="nroPTL">00000100100100</string>
+
 </resources>
