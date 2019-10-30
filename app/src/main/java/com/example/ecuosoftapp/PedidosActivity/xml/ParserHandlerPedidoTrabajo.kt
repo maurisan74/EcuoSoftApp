@@ -1,5 +1,6 @@
-package com.example.ecuosoftapp.CompFragment.xml
+package com.example.ecuosoftapp.PedidosActivity.xml
 
+import com.example.ecuosoftapp.DetalleFragment.xml.TiposTrabajos
 import org.xmlpull.v1.XmlPullParserException
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
@@ -7,15 +8,16 @@ import java.io.InputStream
 import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
-private lateinit var emp: ArrayList<String>
+private lateinit var proyectos: ArrayList<String>
 private lateinit var empleado: ArrayList<String>
+
 class ParserHandlerComp {
     private var text: String? = null
-    fun parse(inputStream: InputStream): ArrayList<Comprobante> {
+    fun parse(inputStream: InputStream): ArrayList<TiposTrabajos> {
         var bPaso = false
         var bPaso2 = false
-        val employees = ArrayList<Comprobante>()
-        var codEmp ="0"
+        val employees = ArrayList<TiposTrabajos>()
+        var DetalleTrabajo =""
         var codSuc ="0"
         var numComp=""
         var sucDep = ""
@@ -23,13 +25,13 @@ class ParserHandlerComp {
         var motivo = ""
         var fecComp = ""
         var tot: Float = 0.toFloat()
-        var employee: Comprobante
+        var employee: TiposTrabajos
         val imagen = 0
         var temp1=""
         var temp=""
 
         try {
-            emp =ArrayList()
+            proyectos =ArrayList()
             empleado =ArrayList()
             val factory = XmlPullParserFactory.newInstance()
             factory.isNamespaceAware = true
@@ -44,8 +46,8 @@ class ParserHandlerComp {
                     XmlPullParser.TEXT -> text = parser.text
                     XmlPullParser.END_TAG ->
                         if (tagname.equals("vtAutorizacionComprobantes", ignoreCase = true)) {
-                                employee = Comprobante(
-                                    codEmp,
+                                employee = TiposTrabajos(
+                                    DetalleTrabajo,
                                     codSuc,
                                     numComp,
                                     sucDep,
@@ -56,15 +58,15 @@ class ParserHandlerComp {
                                     imagen
                                 )
                                 employees.add(employee)
-                        } else if (tagname.equals("CodigoEmpresa", ignoreCase = true)) {
-                            codEmp=verificaLargo(text.toString())
+                        } else if (tagname.equals("DetalleTrabajo", ignoreCase = true)) {
+                            DetalleTrabajo=verificaLargo(text.toString())
 //                            if(text.toString().length==1){
 //                                codEmp ="0"+ text.toString()
 //                            }
 //                            else{
 //                                codEmp = text.toString()
 //                            }
-                        } else if (tagname.equals("CodigoSucursal", ignoreCase = true)) {
+                        } else if (tagname.equals("Proyectos", ignoreCase = true)) {
                             codSuc=verificaLargo(text.toString())
 //                            if(text.toString().length==1){
 //                                codSuc ="0"+ text.toString()
@@ -74,20 +76,20 @@ class ParserHandlerComp {
 //                            }
                             if (!bPaso){
                                 temp1 = codSuc
-                                emp.add(codSuc)
+                                proyectos.add(codSuc)
                                 bPaso = true
                             } else{
                                 if (temp1!=codSuc){
                                     var encontrada=false
-                                    for (i in 0 until emp.size) {
-                                        if (emp[i]==codSuc) {
+                                    for (i in 0 until proyectos.size) {
+                                        if (proyectos[i]==codSuc) {
                                             encontrada=true
                                             break
                                         }
                                     }
                                     if (!encontrada){
                                         temp1 = codSuc
-                                        emp.add(codSuc)
+                                        proyectos.add(codSuc)
                                     }
                                 }
                             }
@@ -141,23 +143,23 @@ class ParserHandlerComp {
     fun listaEmpresa(): ArrayList <String> {
         var tempEmp=ArrayList<Int>()
 
-        for (i in 0 until emp.size) {
-            tempEmp.add(emp[i].toInt())
+        for (i in 0 until proyectos.size) {
+            tempEmp.add(proyectos[i].toInt())
         }
-        emp.clear()
+        proyectos.clear()
         tempEmp= ordenarMenorEmpresa(tempEmp, tempEmp.size)
-        emp.add("Todas")
+        proyectos.add("Todas")
         for (i in 0 until tempEmp.size) {
             if(tempEmp[i].toString().length==1){
-                emp.add("0"+ tempEmp[i].toString())
+                proyectos.add("0"+ tempEmp[i].toString())
             }
             else{
-                emp.add(tempEmp[i].toString())
+                proyectos.add(tempEmp[i].toString())
             }
 
         }
         tempEmp.clear()
-        return emp
+        return proyectos
     }
     fun listaEmpleado(): ArrayList <String> {
 

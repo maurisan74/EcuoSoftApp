@@ -8,27 +8,19 @@ import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.View.PedidosDatosFragment
 
 class PedidosDatosPresenterImpl(var view: PedidosDatosFragment) : PedidosDatosPresenter {
-
     private val interactor: PedidosDatosInteractor
 
-    init {
-        interactor= PedidosDatosInteractorImpl(this)
-    }
+    init { interactor= PedidosDatosInteractorImpl(this) }
 
-    override fun SolicitarFechaHoraActualPresenter() {
-        interactor.CargarFechaHoraInteractor()
-    }
+    override fun SolicitarMaestrosPTPresenter() {interactor.SolicitarMaestrosPTInteractor()}
 
-    override fun CargarFechaHoraActualPresenter(sFechaHora: String) {
-        view.CargarFechaHoraActual(sFechaHora)
-    }
-    override fun SolicitarPrioridadPTPresenter(context: Context) {
-        interactor.BuscarPrioridadesPT(context)
-    }
+    override fun ShowProgressBarPresenter(mostrar: Boolean) {view.ShowProgressBar(mostrar) }
 
-    override fun CargarPrioridadPTPresenter(listaDePrioridades: ArrayAdapter<CharSequence>) {
-        view.CargarPrioridadPT(listaDePrioridades)
-    }
+    override fun SolicitarFechaHoraActualPresenter() { interactor.CargarFechaHoraInteractor()}
+    override fun CargarFechaHoraActualPresenter(sFechaHora: String) {view.CargarFechaHoraActual(sFechaHora)}
+
+    override fun SolicitarPrioridadPTPresenter(context: Context) {interactor.BuscarPrioridadesPT(context)}
+    override fun CargarPrioridadPTPresenter(listaDePrioridades: ArrayAdapter<CharSequence>) {view.CargarPrioridadPT(listaDePrioridades)}
 
 
 

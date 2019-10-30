@@ -21,7 +21,7 @@ class SaveFragment : SaveView,Fragment() {
     lateinit var servidor: String
     lateinit var usuario: String
     lateinit var clave: String
-    var predeterminado: Boolean=false
+    var predeterminado=false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

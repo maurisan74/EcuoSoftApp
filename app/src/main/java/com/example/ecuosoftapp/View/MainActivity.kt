@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        addFragment( supportFragmentManager, SaveFragment(), true, "",1)
+        addFragment( supportFragmentManager, SaveFragment(), true, "",2)
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.frlayout, SaveFragment())
 //            .addToBackStack(null)
