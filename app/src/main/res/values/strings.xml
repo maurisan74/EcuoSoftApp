@@ -105,7 +105,6 @@
     <string name="tab_text_2">Tab 2</string>
 
     <!--Pedidos de trabajo-Fragment Datos -->
-    <string name="nro">Nro PT</string>
     <string name="tipo">Tipo de Trabajo:</string>
     <string name="fecha">Fecha y Hora: </string>
     <string name="prioridad">Prioridad:</string>
@@ -119,7 +118,6 @@
     <string name="equipo">Equipo</string>
     <string name="instalacion">Instalación</string>
     <string name="proyecto">Proyecto:</string>
-    <string name="nroPT">00000100100100</string>
 
     <!--spinner prioridad-Fragment Datos -->
     <string-array name="prioridad">

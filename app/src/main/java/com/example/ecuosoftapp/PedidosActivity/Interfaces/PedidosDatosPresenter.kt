@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter
 
 interface PedidosDatosPresenter {
     fun ShowProgressBarPresenter(mostrar: Boolean)
+    fun ShowNestedScrollViewPresenter(mostrar: Boolean)
 
     fun SolicitarFechaHoraActualPresenter()
     fun CargarFechaHoraActualPresenter(sFechaHora: String)
@@ -12,5 +13,6 @@ interface PedidosDatosPresenter {
     fun SolicitarPrioridadPTPresenter(context: Context)
     fun CargarPrioridadPTPresenter(listaDePrioridades: ArrayAdapter<CharSequence>)
 
-    fun SolicitarMaestrosPTPresenter()
+    fun SolicitarPedidoTrabajoPresenter(context: Context)
+    fun CargarPedidoTrabajoPresenter(listaPedidos: ArrayAdapter<CharSequence>)
 }

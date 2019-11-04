@@ -6,13 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.fragment.app.FragmentActivity
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosView
 import com.example.ecuosoftapp.PedidosActivity.Presenters.PedidosDatosPresenterImpl
 import kotlinx.android.synthetic.main.fragment_pedidos_datos.*
 
 class PedidosDatosFragment : PedidosDatosView, Fragment() {
-        lateinit var presentador: PedidosDatosPresenter
+    override fun CargarPedidosTrabajo(listaPedidos: ArrayAdapter<CharSequence>) {
+        //nn
+    }
+
+
+    lateinit var presentador: PedidosDatosPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,19 +34,23 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        SolicitarFechaHoraActual()
-        SolicitarPrioridadPT()
-        SolicitarMaestrosPT()
+
+        presentador.SolicitarFechaHoraActualPresenter()
+        presentador.SolicitarPedidoTrabajoPresenter(context!!)
+        presentador.SolicitarPrioridadPTPresenter(activity!!)
+
+
     }
     override fun ShowProgressBar(mostrar: Boolean) {
        if (mostrar) pbPrevio.visibility=View.VISIBLE
        else  pbPrevio.visibility=View.GONE
     }
-    override fun SolicitarFechaHoraActual() {presentador.SolicitarFechaHoraActualPresenter()}
+    override fun ShowNestedScrollView(mostrar: Boolean) {
+        if (mostrar) nsPedidosDatos.visibility=View.VISIBLE
+        else  nsPedidosDatos.visibility=View.GONE
+    }
     override fun CargarFechaHoraActual(sFechaHora: String) {tvtime.text=sFechaHora}
-
-    override fun SolicitarPrioridadPT() { presentador.SolicitarPrioridadPTPresenter(activity!!) }
     override fun CargarPrioridadPT(listaDePrioridades: ArrayAdapter<CharSequence>) {spPrioridad.adapter=listaDePrioridades}
 
-    override fun SolicitarMaestrosPT() { presentador.SolicitarMaestrosPTPresenter()}
+
 }

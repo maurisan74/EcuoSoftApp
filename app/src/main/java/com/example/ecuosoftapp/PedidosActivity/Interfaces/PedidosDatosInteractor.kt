@@ -5,6 +5,6 @@ import android.content.Context
 interface PedidosDatosInteractor {
     fun CargarFechaHoraInteractor()
     fun BuscarPrioridadesPT(context: Context)
-    fun SolicitarMaestrosPTInteractor()
+    fun SolicitarPedidoTrabajoInteractor(context: Context)
 
 }
