@@ -1,10 +1,3 @@
 package com.example.ecuosoftapp.DetalleFragment.xml
 
-class Proyectos(CodigoCompuesto: String, NombreProyecto: String) {
-    var CodigoCompuesto=""
-    var NombreProyecto=""
-    init{
-        this.CodigoCompuesto=CodigoCompuesto
-        this.NombreProyecto=NombreProyecto
-    }
-}
+data class Proyectos(var CodigoCompuesto: String, var NombreProyecto: String)

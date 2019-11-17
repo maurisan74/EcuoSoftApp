@@ -6,6 +6,7 @@ import com.example.ecuosoftapp.PedidosActivity.Interactors.PedidosDatosInteracto
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosInteractor
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.View.PedidosDatosFragment
+import com.example.ecuosoftapp.PedidosActivity.xml.TiposdeTrabajos
 
 class PedidosDatosPresenterImpl(var view: PedidosDatosFragment) : PedidosDatosPresenter {
 
@@ -15,10 +16,11 @@ class PedidosDatosPresenterImpl(var view: PedidosDatosFragment) : PedidosDatosPr
     init { interactor= PedidosDatosInteractorImpl(this) }
 
     override fun SolicitarPedidoTrabajoPresenter(context: Context) {interactor.SolicitarPedidoTrabajoInteractor(context)}
-    override fun CargarPedidoTrabajoPresenter(listaPedidos: ArrayAdapter<CharSequence>) {view.CargarPedidosTrabajo(listaPedidos)}
+    override fun CargarPedidoTrabajoPresenter(arraySpinner: ArrayAdapter<String>) {view.CargarPedidosTrabajo(arraySpinner)}
 
-    override fun ShowProgressBarPresenter(mostrar: Boolean) {view.ShowProgressBar(mostrar) }
-    override fun ShowNestedScrollViewPresenter(mostrar: Boolean) {view.ShowNestedScrollView(mostrar) }
+    override fun OcultarElementosPresenter() {view.OcultarElementos()}
+    override fun VisualizarElementosPresenter(){view.VisualizarElementos()}
+
     override fun SolicitarFechaHoraActualPresenter() { interactor.CargarFechaHoraInteractor()}
     override fun CargarFechaHoraActualPresenter(sFechaHora: String) {view.CargarFechaHoraActual(sFechaHora)}
 

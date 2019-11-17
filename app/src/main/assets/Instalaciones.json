@@ -1,0 +1,181 @@
+
+
+[
+   {
+      "CodigoEquipoInstalacion": "deppesca",
+      "Nombre": "Deposito de pesca Mendoza Huincan SRL",
+      "CodigoEquipoInstalacionPadre": "depcent",
+      "CentroCostoActual": "(bohme) Base operativa Mendoza - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "depmecan",
+      "Nombre": "Deposito de Mecanizado Petromac SRL",
+      "CodigoEquipoInstalacionPadre": "tmpme",
+      "CentroCostoActual": "(bopme) Base Operativa Mendoza - Petromac SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "depcent",
+      "Nombre": "Deposito Central Mendoza Huincan SRL",
+      "CodigoEquipoInstalacionPadre": "basemend",
+      "CentroCostoActual": "(bohme) Base operativa Mendoza - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "basepride",
+      "Nombre": "Base Operativa Pride International S.R.L.",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(depositopride) Deposito Pride International S.R.L. - Pride International S.R.L.",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "depopride",
+      "Nombre": "Deposito Pride International S.R.L.",
+      "CodigoEquipoInstalacionPadre": "basepride",
+      "CentroCostoActual": "(depositopride) Deposito Pride International S.R.L. - Pride International S.R.L.",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "depherram",
+      "Nombre": "Deposito Taller de Herramientas Mza Huincan SRL",
+      "CodigoEquipoInstalacionPadre": "thhme",
+      "CentroCostoActual": "(bohme) Base operativa Mendoza - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "basemend",
+      "Nombre": "Base Operativa Mendoza Huincan SRL",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(bohme) Base operativa Mendoza - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "baseeltreb",
+      "Nombre": "Base Operativa El Trebol S.A.",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(bameeltrebol) Base Mendoza - Petrolera El Trebol S.A.",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "depsold",
+      "Nombre": "Deposito de Soldadura",
+      "CodigoEquipoInstalacionPadre": "thhme",
+      "CentroCostoActual": "(bohme) Base operativa Mendoza - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "den",
+      "Nombre": "Deposito Neuquen Ensign Argentina",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(boen) Base Operativa Neuquen Ensign Argentina - Ensign Argentina",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "bochme",
+      "Nombre": "Base Mendoza Chanares Herrados",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(bochme) Base Mendoza - Chañares Energia S.A.",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "dtn",
+      "Nombre": "Deposito Tacker Neuquen",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(botn) Base Operativa Neuquen - Tacker SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "barn",
+      "Nombre": "Base Operativa Rio Negro Huincan SRL",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(bohrn) Base operativa Rio Negro - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "bmous",
+      "Nombre": "Base Mendoza (Cabañas OUS S.A.)",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(cobm) Base Mendoza (Cabañas OUS S.A.) - Cabañas OUS S.A.",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "tmpme",
+      "Nombre": "Taller de mecanizado Petromac SRL",
+      "CodigoEquipoInstalacionPadre": "bapeme",
+      "CentroCostoActual": "(bopme) Base Operativa Mendoza - Petromac SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "thhme",
+      "Nombre": "Taller de Herramientas Mendoza Huincan SRL",
+      "CodigoEquipoInstalacionPadre": "basemend",
+      "CentroCostoActual": "(bohme) Base operativa Mendoza - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "depne",
+      "Nombre": "Deposito Neuquen Huincan SRL",
+      "CodigoEquipoInstalacionPadre": "bane",
+      "CentroCostoActual": "(bohn) Base operativa Neuquen - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "bane",
+      "Nombre": "Base Operativa Neuquen Huincan SRL",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(bohn) Base operativa Neuquen - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "bapeme",
+      "Nombre": "Base Operativa Mendoza Petromac SRL",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(bopme) Base Operativa Mendoza - Petromac SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "bafme",
+      "Nombre": "Base Operativa Mendoza Finansur SRL",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(bofme) Base operativa Mendoza - Finansur SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "bahcr",
+      "Nombre": "Base Operativa Comodoro Rivadavia Huincan SRL",
+      "CodigoEquipoInstalacionPadre": [],
+      "CentroCostoActual": "(bohcr) Base operativa Comodoro Rivadavia - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   },
+   {
+      "CodigoEquipoInstalacion": "bacu",
+      "Nombre": "Base Operativa Cutral Co",
+      "CodigoEquipoInstalacionPadre": "bane",
+      "CentroCostoActual": "(bohn) Base operativa Neuquen - Huincan SRL",
+      "Activo": "true",
+      "EsEquipo": "false"
+   }
+]
+

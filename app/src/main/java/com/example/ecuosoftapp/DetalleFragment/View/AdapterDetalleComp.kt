@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecuosoftapp.DetalleFragment.xml.DetalleComp
 import com.example.ecuosoftapp.R
-import com.example.ecuosoftapp.DetalleFragment.xml.TiposTrabajos
 import kotlinx.android.synthetic.main.item_detalle_comp.view.*
 import kotlin.collections.ArrayList
 

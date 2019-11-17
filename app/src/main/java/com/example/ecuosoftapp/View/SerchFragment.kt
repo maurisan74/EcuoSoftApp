@@ -14,6 +14,10 @@ import com.example.ecuosoftapp.CompFragment.View.CompFragment
 import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.addFragment
 import kotlinx.android.synthetic.main.fragment_serch.*
+import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.stream.JsonReader
+import java.io.FileReader
 
 class SerchFragment : Fragment() {
 
@@ -44,6 +48,8 @@ class SerchFragment : Fragment() {
         var sEmpresa=""
         var bEmpleadoTodos=false
         var bEmpresaTodos=false
+
+
 
         array=getArguments()!!.getStringArrayList("key")!!.toMutableList()
         val spArreglo = ArrayAdapter(activity!!, android.R.layout.simple_spinner_item, array)
@@ -125,4 +131,13 @@ class SerchFragment : Fragment() {
         }
     }
 
+}
+public class Clientes {
+
+    var CodigoPersona: Long = 0
+    var Nombre: String? = null
+
+    override fun toString(): String {
+        return "User [CodigoPersona=$CodigoPersona, Nombre=$Nombre]"
+    }
 }

@@ -22,7 +22,7 @@ class DetalleInteractorImpl(var presenter: DetalleFragment):DetalleInteractor {
             presenter.ShowProgressBar(false)
             presenter.ShowRecyclerView(true)
         }catch (e: Exception ){
-            presenter.ShowError("No se pudo conectar al servidor, Intente de nuevo")
+            presenter.ShowError("No se pudo conectar al servidor, Intente de nuevamente.")
         }
 
     }

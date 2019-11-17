@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.ecuosoftapp.View.HomeFragment
 import com.muddzdev.styleabletoast.StyleableToast
+import androidx.annotation.Keep
+
 
 fun Context.Msje(mensaje: String)=
     StyleableToast.makeText(this,mensaje, R.style.GoodTaoast).show()

@@ -20,27 +20,11 @@ import kotlinx.android.synthetic.main.fragment_comp.*
 
 class CompFragment : CompView, Fragment() {
 
-
     private var adapter: AdapterLanding? = null
     private lateinit var lista: RecyclerView
     private lateinit var presentador: CompPresenter
     private lateinit var sListaEmpleados: ArrayList<String>
     private lateinit var sListaEmpresas: ArrayList<String>
-
-    override fun ShowProgressBar(mostrar: Boolean)  { if(mostrar) progress.visibility=View.VISIBLE else progress.visibility=View.GONE }
-    override fun ShowRecyclerView(mostrar: Boolean) { if(mostrar) rcLanding.visibility=View.VISIBLE else rcLanding.visibility=View.GONE }
-
-    override fun LoadDatosRecyclerView(comprobantes: ArrayList<Comprobante>) {
-        lista = view!!.findViewById(R.id.rcLanding)
-        lista.layoutManager = LinearLayoutManager(context)
-        lista.itemAnimator = DefaultItemAnimator()
-        adapter = AdapterLanding(comprobantes)
-        lista.adapter = adapter
-    }
-    override fun ShowError(mensaje: String) {activity!!.Msje(mensaje)}
-    override fun ListaEmpleados(listEmple: ArrayList<String>) {sListaEmpleados=listEmple }
-    override fun ListaEmpresas(listEmp: ArrayList<String>) {sListaEmpresas=listEmp }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -225,4 +209,17 @@ class CompFragment : CompView, Fragment() {
             true
         }
     }
+    override fun ShowProgressBar(mostrar: Boolean)  { if(mostrar) progress.visibility=View.VISIBLE else progress.visibility=View.GONE }
+    override fun ShowRecyclerView(mostrar: Boolean) { if(mostrar) rcLanding.visibility=View.VISIBLE else rcLanding.visibility=View.GONE }
+
+    override fun LoadDatosRecyclerView(comprobantes: ArrayList<Comprobante>) {
+        lista = view!!.findViewById(R.id.rcLanding)
+        lista.layoutManager = LinearLayoutManager(context)
+        lista.itemAnimator = DefaultItemAnimator()
+        adapter = AdapterLanding(comprobantes)
+        lista.adapter = adapter
+    }
+    override fun ShowError(mensaje: String) {activity!!.Msje(mensaje)}
+    override fun ListaEmpleados(listEmple: ArrayList<String>) {sListaEmpleados=listEmple }
+    override fun ListaEmpresas(listEmp: ArrayList<String>) {sListaEmpresas=listEmp }
 }

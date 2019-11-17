@@ -2,10 +2,11 @@ package com.example.ecuosoftapp.PedidosActivity.Interfaces
 
 import android.content.Context
 import android.widget.ArrayAdapter
+import com.example.ecuosoftapp.PedidosActivity.xml.TiposdeTrabajos
 
 interface PedidosDatosPresenter {
-    fun ShowProgressBarPresenter(mostrar: Boolean)
-    fun ShowNestedScrollViewPresenter(mostrar: Boolean)
+    fun OcultarElementosPresenter()
+    fun VisualizarElementosPresenter()
 
     fun SolicitarFechaHoraActualPresenter()
     fun CargarFechaHoraActualPresenter(sFechaHora: String)
@@ -14,5 +15,5 @@ interface PedidosDatosPresenter {
     fun CargarPrioridadPTPresenter(listaDePrioridades: ArrayAdapter<CharSequence>)
 
     fun SolicitarPedidoTrabajoPresenter(context: Context)
-    fun CargarPedidoTrabajoPresenter(listaPedidos: ArrayAdapter<CharSequence>)
+    fun CargarPedidoTrabajoPresenter(arraySpinner: ArrayAdapter<String>)
 }

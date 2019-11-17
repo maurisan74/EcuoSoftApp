@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    def nav_version = '2.2.0-beta01'
+    def nav_version = '2.2.0-rc02'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -41,11 +41,18 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+
     //Toast Mejorado
     implementation 'com.muddzdev:styleabletoast:2.2.2'
 
     //Navigation Drawer
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //ViewModelProviders
+    implementation "android.arch.lifecycle:extensions:1.1.1"
 
 }

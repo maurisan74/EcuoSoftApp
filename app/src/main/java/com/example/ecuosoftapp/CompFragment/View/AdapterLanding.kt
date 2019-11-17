@@ -123,13 +123,13 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
 
                         for (row in items) {
                             if (sEmpTemp!="00" && sEmpleTemp!="00") {
-                                if (row.empleado!!.toLowerCase().contains(charString) && row.codigoSucursal.toLowerCase().contains(charString2)) filteredList.add(row)
+                                if (row.empleado!!.toLowerCase().contains(charString) && row.codigoSucursal?.toLowerCase()!!.contains(charString2)) filteredList.add(row)
                             }
                             if (sEmpTemp=="00" && sEmpleTemp!="00"){
                                 if (row.empleado!!.toLowerCase().contains(charString)) filteredList.add(row)
                             }
                             if (sEmpTemp!="00" && sEmpleTemp=="00") {
-                                if (row.codigoSucursal.toLowerCase().contains(charString2)) filteredList.add(row)
+                                if (row.codigoSucursal!!.toLowerCase().contains(charString2)) filteredList.add(row)
                             }
                         }
                         items2=filteredList

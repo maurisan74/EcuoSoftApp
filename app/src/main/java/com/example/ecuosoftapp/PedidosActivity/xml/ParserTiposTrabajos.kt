@@ -1,6 +1,5 @@
 package com.example.ecuosoftapp.PedidosActivity.xml
 
-import com.example.ecuosoftapp.DetalleFragment.xml.TiposTrabajos
 import org.xmlpull.v1.XmlPullParserException
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
@@ -12,10 +11,11 @@ private lateinit var empleado: ArrayList<String>
 
 class ParserTiposTrabajos {
     private var text: String? = null
-    fun parse(inputStream: InputStream): ArrayList<TiposTrabajos> {
-        val employees = ArrayList<TiposTrabajos>()
+
+    fun parse(inputStream: InputStream): ArrayList<TiposdeTrabajos> {
+        val trabajos = ArrayList<TiposdeTrabajos>()
         var detalleTrabajo =""
-        var employee: TiposTrabajos
+        var trabajo: TiposdeTrabajos
 
         try {
             proyectos =ArrayList()
@@ -33,12 +33,11 @@ class ParserTiposTrabajos {
                     XmlPullParser.TEXT -> text = parser.text
                     XmlPullParser.END_TAG ->
                         if (tagname.equals("TiposTrabajos", ignoreCase = true)) {
-                                employee = TiposTrabajos(
-                                    detalleTrabajo
-                                )
-                                employees.add(employee)
-                        } else if (tagname.equals("DetalleTrabajo", ignoreCase = true)) {
-                            detalleTrabajo=text.toString()
+                            trabajo = TiposdeTrabajos(
+                                detalleTrabajo)
+                            trabajos.add(trabajo)
+                        }else if (tagname.equals("DetalleTrabajo", ignoreCase = true)) {
+                            detalleTrabajo = text.toString()
                         }
                 }
                 eventType = parser.next()
@@ -48,7 +47,7 @@ class ParserTiposTrabajos {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-        return employees
+        return trabajos
     }
 
 }

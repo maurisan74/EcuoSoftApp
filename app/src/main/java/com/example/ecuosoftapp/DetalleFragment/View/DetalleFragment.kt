@@ -20,9 +20,7 @@ import kotlinx.android.synthetic.main.fragment_detalle.progress
 
 class DetalleFragment : DetalleView, Fragment() {
 
-
     private lateinit var presentador: DetallePresenter
-
     private var adapter1:  AdapterDetalleComp? = null
     private var sDatos: String?=""
 
