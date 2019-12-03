@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +26,7 @@ class CompFragment : CompView, Fragment() {
     private lateinit var presentador: CompPresenter
     private lateinit var sListaEmpleados: ArrayList<String>
     private lateinit var sListaEmpresas: ArrayList<String>
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -91,50 +93,36 @@ class CompFragment : CompView, Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         presentador= CompPresenterImpl(this)
-//        val parser = ParserHandlerComp()
-//        val istream = context!!.assets.open("Planilla.xml")
-//        comprobantes = parser.parse(istream)
-//
-//                lista = view!!.findViewById(R.id.rcLanding)
-//                lista?.layoutManager = LinearLayoutManager(context)
-//                lista.itemAnimator = DefaultItemAnimator()
-//                adapter = AdapterLanding(comprobantes)
-//                lista?.adapter = adapter
         presentador.BuscarDatosPresenter(context!!)
-        arguments?.let {
-            adapter!!.filter.filter(arguments!!.getString("filtro"))
-        }
-//        val listEmp = ParserHandlerComp().listaEmpresa()
-//        val listEmple = ParserHandlerComp().listaEmpleado()
+        arguments?.let {adapter!!.filter.filter(arguments!!.getString("filtro")) }
 
         val listNum = IntArray(lista.adapter!!.itemCount)
         fun changeItem(position: Int) {
             when (listNum[position]) {
                 0 -> {
                     adapter?.items2!![position].imagen = R.drawable.ic_done_green
-                    listNum[position] = 2
-                }
+                    listNum[position] = 2 }
                 2 -> {
                     adapter?.items2!![position].imagen = R.drawable.ic_close_red
-                    listNum[position] = 1
-                }
+                    listNum[position] = 1 }
                 1 -> {
                     adapter?.items2!![position].imagen = R.drawable.ic_noimage
-                    listNum[position] = 0
-                }
+                    listNum[position] = 0 }
             }
             adapter?.notifyItemChanged(position)
         }
 
         fun DetalleComp(position: Int) {
-            val empresa=adapter?.items2!![position].codigoEmpresa
-            val sucursal=adapter?.items2!![position].codigoSucursal
-            val numero=adapter?.items2!![position].numeroComprobante
+            adapter?.let {adapter ->
+                val empresa=adapter.items2!![position].codigoEmpresa
+                val sucursal=adapter.items2!![position].codigoSucursal
+                val numero=adapter.items2!![position].numeroComprobante
+                addFragment(activity!!.supportFragmentManager,
+                    DetalleFragment(), true, "DetalleFragment",3,
+                    CompFragment(),
+                    empresa+sucursal+numero)
+            }
 
-            addFragment(activity!!.supportFragmentManager,
-                DetalleFragment(), true, "DetalleFragment",3,
-                CompFragment(),
-                empresa+sucursal+numero)
         }
 
         adapter?.setOnItemClickListener(object : AdapterLanding.OnItemClickListener {

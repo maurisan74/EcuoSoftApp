@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import com.example.ecuosoftapp.PedidosActivity.Models.TiposdeTrabajos
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosView
 import com.example.ecuosoftapp.PedidosActivity.Presenters.PedidosDatosPresenterImpl
 import com.example.ecuosoftapp.R
+import com.example.ecuosoftapp.View.Clientes
 import kotlinx.android.synthetic.main.fragment_pedidos_datos.*
 
 class PedidosDatosFragment : PedidosDatosView, Fragment() {
@@ -32,7 +34,6 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        presentador.SolicitarFechaHoraActualPresenter()
         presentador.SolicitarPedidoTrabajoPresenter(context!!)
         presentador.SolicitarPrioridadPTPresenter(activity!!)
     }
@@ -89,13 +90,12 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
         cvItem1.cardElevation=4f
     }
 
-    override fun CargarFechaHoraActual(sFechaHora: String) {
+    override fun CargarPedidosTrabajo(arraySpinner: ArrayAdapter<Clientes>) {
+        spSolicitanteCliente.adapter = arraySpinner
+    }
+    override fun CargarPrioridadPT(listaDePrioridades: ArrayAdapter<CharSequence>, sFechaHora: String) {
         tvtime.text = sFechaHora
-    }
-    override fun CargarPedidosTrabajo(arraySpinner: ArrayAdapter<String>) {
-        spTipoTrabajo.adapter = arraySpinner
-    }
-    override fun CargarPrioridadPT(listaDePrioridades: ArrayAdapter<CharSequence>) {
+
         spPrioridad.adapter = listaDePrioridades
         spPrioridad.setSelection(2)
     }

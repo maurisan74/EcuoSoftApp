@@ -1,6 +1,5 @@
 package com.example.ecuosoftapp.CompFragment.xml
 
-
 data class Comprobante(
     var codigoEmpresa : String? = null,
     var codigoSucursal : String? = null,
