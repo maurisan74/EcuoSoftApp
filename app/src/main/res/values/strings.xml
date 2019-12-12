@@ -141,7 +141,7 @@
         <item>Asignados no Finalizados</item>
         <item>Esperando Conformidad</item>
     </string-array>
-
+    <string name="msje">Seleccione Prioridad</string>
 
     <!--Listar Pedidos de Trabajo -->
     <string name="nroL">Nro</string>

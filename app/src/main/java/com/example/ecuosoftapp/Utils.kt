@@ -8,9 +8,8 @@ import android.os.Vibrator
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.example.ecuosoftapp.View.HomeFragment
+import com.example.ecuosoftapp.HomeFragment.HomeFragment
 import com.muddzdev.styleabletoast.StyleableToast
-import androidx.annotation.Keep
 
 
 fun Context.Msje(mensaje: String)=

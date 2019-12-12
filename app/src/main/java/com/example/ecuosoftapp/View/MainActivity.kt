@@ -2,7 +2,6 @@ package com.example.ecuosoftapp.View
 
 import android.Manifest
 import android.content.Context
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -18,6 +17,7 @@ import android.view.Menu
 import androidx.core.app.ActivityCompat
 import com.example.ecuosoftapp.*
 import com.example.ecuosoftapp.CompFragment.View.CompFragment
+import com.example.ecuosoftapp.HomeFragment.HomeFragment
 import com.example.ecuosoftapp.PedidosActivity.View.ConformidadFragment
 import com.example.ecuosoftapp.PedidosActivity.View.ListarPedidosFragment
 import com.example.ecuosoftapp.PedidosActivity.View.TabFragment
@@ -117,7 +117,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }else {
 
                     if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    addFragment( supportFragmentManager, HomeFragment(), false, "HomeFragment",1)
+                    addFragment( supportFragmentManager,
+                        HomeFragment(), false, "HomeFragment",1)
                 }
             }
             R.id.nav_aut_comp -> {

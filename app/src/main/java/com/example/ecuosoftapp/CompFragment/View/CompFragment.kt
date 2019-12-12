@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +14,7 @@ import com.example.ecuosoftapp.CompFragment.Interactors.CompView
 import com.example.ecuosoftapp.CompFragment.Presenter.CompPresenterImpl
 import com.example.ecuosoftapp.DetalleFragment.View.DetalleFragment
 import com.example.ecuosoftapp.View.MainActivity
-import com.example.ecuosoftapp.View.SerchFragment
+import com.example.ecuosoftapp.SearchFragment.SerchFragment
 import com.example.ecuosoftapp.CompFragment.xml.Comprobante
 import kotlinx.android.synthetic.main.fragment_comp.*
 

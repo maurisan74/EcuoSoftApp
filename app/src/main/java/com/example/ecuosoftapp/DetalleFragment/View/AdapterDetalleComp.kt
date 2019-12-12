@@ -23,18 +23,18 @@ class AdapterDetalleComp(private val itemDetalleComp: ArrayList<DetalleComp>) : 
     override fun onBindViewHolder(holder: ViewHolder1, position: Int) {
         val itemDetalleComp=items2?.get(position)
 
-        holder.CodigoEmpresa!!.text=itemDetalleComp!!.CodigoEmpresa
-        holder.CodigoSucursal!!.text=itemDetalleComp.CodigoSucursal
-        holder.NroSerieComprobante!!.text=itemDetalleComp.NroSerieComprobante
-        holder.NumeroComprobante!!.text=itemDetalleComp.NumeroComprobante
-        holder.CodigoArticuloServicio!!.text=itemDetalleComp.CodigoArticuloServicio
-        holder.Tipo!!.text=itemDetalleComp.Tipo
-        holder.Rubro!!.text=itemDetalleComp.Rubro
-        holder.ArticuloServicio!!.text=itemDetalleComp.ArticuloServicio
-        holder.Cantidad!!.text=itemDetalleComp.Cantidad
-        holder.UnidadMedida!!.text=itemDetalleComp.UnidadMedida
-        holder.TotalLineaDescuento!!.text=itemDetalleComp.TotalLineaDescuento
-        holder.Observacion!!.text=itemDetalleComp.Observacion
+        holder.codigoEmpresa!!.text=itemDetalleComp!!.CodigoEmpresa
+        holder.codigoSucursal!!.text=itemDetalleComp.CodigoSucursal
+        holder.nroSerieComprobante!!.text=itemDetalleComp.NroSerieComprobante
+        holder.numeroComprobante!!.text=itemDetalleComp.NumeroComprobante
+        holder.codigoArticuloServicio!!.text=itemDetalleComp.CodigoArticuloServicio
+        holder.tipo!!.text=itemDetalleComp.Tipo
+        holder.rubro!!.text=itemDetalleComp.Rubro
+        holder.articuloServicio!!.text=itemDetalleComp.ArticuloServicio
+        holder.cantidad!!.text=itemDetalleComp.Cantidad
+        holder.unidadMedida!!.text=itemDetalleComp.UnidadMedida
+        holder.totalLineaDescuento!!.text=itemDetalleComp.TotalLineaDescuento
+        holder.observacion!!.text=itemDetalleComp.Observacion
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder1 {
@@ -49,34 +49,34 @@ class AdapterDetalleComp(private val itemDetalleComp: ArrayList<DetalleComp>) : 
 
     class ViewHolder1(vista1: View) : RecyclerView.ViewHolder(vista1){
 
-        var CodigoEmpresa: TextView?=null
-        var CodigoSucursal: TextView?=null
-        var NroSerieComprobante: TextView?=null
-        var NumeroComprobante: TextView?=null
-        var CodigoArticuloServicio: TextView?=null
-        var Tipo: TextView?=null
-        var Rubro: TextView?=null
-        var ArticuloServicio: TextView?=null
-        var Cantidad: TextView?=null
-        var UnidadMedida: TextView?=null
-        var ValorUnitarioDescuento: TextView?=null
-        var TotalLineaDescuento: TextView?=null
-        var Observacion: TextView?=null
+        var codigoEmpresa: TextView?=null
+        var codigoSucursal: TextView?=null
+        var nroSerieComprobante: TextView?=null
+        var numeroComprobante: TextView?=null
+        var codigoArticuloServicio: TextView?=null
+        var tipo: TextView?=null
+        var rubro: TextView?=null
+        var articuloServicio: TextView?=null
+        var cantidad: TextView?=null
+        var unidadMedida: TextView?=null
+        var valorUnitarioDescuento: TextView?=null
+        var totalLineaDescuento: TextView?=null
+        var observacion: TextView?=null
 
         init {
-            CodigoEmpresa=vista1.textView15
-            CodigoSucursal=vista1.textView15
-            NroSerieComprobante=vista1.textView15
-            NumeroComprobante=vista1.textView15
-            CodigoArticuloServicio=vista1.tvCodigo
-            Tipo=vista1.tvTipo
-            Rubro=vista1.tvtime
-            ArticuloServicio=vista1.tvDescArt
-            Cantidad=vista1.tvCant
-            UnidadMedida=vista1.tvUniMedida
-            ValorUnitarioDescuento=vista1.tvCosto
-            TotalLineaDescuento=vista1.tvTotal
-            Observacion=vista1.tvObservaciones
+            codigoEmpresa=vista1.textView15
+            codigoSucursal=vista1.textView15
+            nroSerieComprobante=vista1.textView15
+            numeroComprobante=vista1.textView15
+            codigoArticuloServicio=vista1.tvCodigo
+            tipo=vista1.tvTipo
+            rubro=vista1.tvtime
+            articuloServicio=vista1.tvDescArt
+            cantidad=vista1.tvCant
+            unidadMedida=vista1.tvUniMedida
+            valorUnitarioDescuento=vista1.tvCosto
+            totalLineaDescuento=vista1.tvTotal
+            observacion=vista1.tvObservaciones
 
 //            vista.setOnClickListener {
 //                if (listener != null) {

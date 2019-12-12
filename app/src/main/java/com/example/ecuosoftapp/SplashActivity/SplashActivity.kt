@@ -1,9 +1,10 @@
-package com.example.ecuosoftapp.View
+package com.example.ecuosoftapp.SplashActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.ecuosoftapp.R
+import com.example.ecuosoftapp.View.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 

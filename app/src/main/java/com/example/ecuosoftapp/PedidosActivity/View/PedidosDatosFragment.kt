@@ -7,12 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import com.example.ecuosoftapp.PedidosActivity.Models.TiposdeTrabajos
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosView
 import com.example.ecuosoftapp.PedidosActivity.Presenters.PedidosDatosPresenterImpl
 import com.example.ecuosoftapp.R
-import com.example.ecuosoftapp.View.Clientes
+import com.example.ecuosoftapp.SearchFragment.Clientes
 import kotlinx.android.synthetic.main.fragment_pedidos_datos.*
 
 class PedidosDatosFragment : PedidosDatosView, Fragment() {

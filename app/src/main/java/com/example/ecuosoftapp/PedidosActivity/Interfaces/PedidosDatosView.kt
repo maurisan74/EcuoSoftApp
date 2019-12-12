@@ -1,8 +1,7 @@
 package com.example.ecuosoftapp.PedidosActivity.Interfaces
 
 import android.widget.ArrayAdapter
-import com.example.ecuosoftapp.PedidosActivity.Models.TiposdeTrabajos
-import com.example.ecuosoftapp.View.Clientes
+import com.example.ecuosoftapp.SearchFragment.Clientes
 
 
 interface PedidosDatosView {

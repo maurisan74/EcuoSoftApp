@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.View
+package com.example.ecuosoftapp.SearchFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,12 +12,9 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.example.ecuosoftapp.CompFragment.View.CompFragment
 import com.example.ecuosoftapp.R
+import com.example.ecuosoftapp.View.MainActivity
 import com.example.ecuosoftapp.addFragment
 import kotlinx.android.synthetic.main.fragment_serch.*
-import com.google.gson.Gson
-import com.google.gson.JsonArray
-import com.google.gson.stream.JsonReader
-import java.io.FileReader
 
 class SerchFragment : Fragment() {
 

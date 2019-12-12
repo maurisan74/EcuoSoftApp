@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.View
+package com.example.ecuosoftapp.HomeFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.ecuosoftapp.R
+import com.example.ecuosoftapp.View.MainActivity
 
 class HomeFragment : Fragment() {
     //private var listener: OnFragmentInteractionListener? = null

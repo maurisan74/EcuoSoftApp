@@ -2,12 +2,11 @@ package com.example.ecuosoftapp.PedidosActivity.Presenters
 
 import android.content.Context
 import android.widget.ArrayAdapter
-import com.example.ecuosoftapp.PedidosActivity.Models.TiposdeTrabajos
 import com.example.ecuosoftapp.PedidosActivity.Interactors.PedidosDatosInteractorImpl
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosInteractor
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.View.PedidosDatosFragment
-import com.example.ecuosoftapp.View.Clientes
+import com.example.ecuosoftapp.SearchFragment.Clientes
 
 class PedidosDatosPresenterImpl(var view: PedidosDatosFragment) : PedidosDatosPresenter {
 
