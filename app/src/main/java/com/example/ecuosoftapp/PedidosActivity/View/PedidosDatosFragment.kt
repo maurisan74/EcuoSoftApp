@@ -2,17 +2,25 @@ package com.example.ecuosoftapp.PedidosActivity.View
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosView
+import com.example.ecuosoftapp.PedidosActivity.PojosRetrofit.ResponseClientes
 import com.example.ecuosoftapp.PedidosActivity.Presenters.PedidosDatosPresenterImpl
 import com.example.ecuosoftapp.R
 import com.example.ecuosoftapp.SearchFragment.Clientes
 import kotlinx.android.synthetic.main.fragment_pedidos_datos.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 class PedidosDatosFragment : PedidosDatosView, Fragment() {
     lateinit var presentador: PedidosDatosPresenter
@@ -27,8 +35,39 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presentador = PedidosDatosPresenterImpl(this)
+        var responseClientes: ArrayList<ResponseClientes> = ArrayList()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:3000/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val request = retrofit.create(EndPoints::class.java)
+        try {
+            val call: Call<List<ResponseClientes>> = request.getClientes()
+            call.enqueue(object : Callback<List<ResponseClientes>> {
+                override fun onFailure(call: Call<List<ResponseClientes>>, t: Throwable) {
+                    Log.e("Error", t.message)
+                    //Toast.makeText(activity!!,t.message, Toast.LENGTH_LONG).show()
+                }
 
+                override fun onResponse(call: Call<List<ResponseClientes>>,response: Response<List<ResponseClientes>>) {
+                    if (response.code()==200){
+                        responseClientes = ArrayList(response.body()!!)
+                        val adapter: SpinnerAdapter = SpinnerAdapter(activity!!, responseClientes);
+
+                        spSolicitanteCliente.adapter=adapter
+                        //spSolicitanteCliente
+                        //Log.e("OK", response.body().toString())
+                    }
+                    //Toast.makeText(activity!!,response.body().toString(), Toast.LENGTH_LONG).show()
+                }
+            })
+        } catch (e: Exception) {
+            Log.e("Error", "catch")
+
+        }
     }
+
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -60,7 +99,7 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
         spSolicitanteCliente.visibility = View.GONE
         etDescTrabajo.visibility = View.GONE
         cvItem1.setBackgroundColor(Color.parseColor("#E0E0E0"))
-        cvItem1.cardElevation=0f
+        cvItem1.cardElevation = 0f
     }
 
     override fun VisualizarElementos() {
@@ -86,13 +125,17 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
         spSolicitanteCliente.visibility = View.VISIBLE
         etDescTrabajo.visibility = View.VISIBLE
         cvItem1.setBackgroundColor(Color.parseColor("#DADADA"))
-        cvItem1.cardElevation=4f
+        cvItem1.cardElevation = 4f
     }
 
     override fun CargarPedidosTrabajo(arraySpinner: ArrayAdapter<Clientes>) {
         spSolicitanteCliente.adapter = arraySpinner
     }
-    override fun CargarPrioridadPT(listaDePrioridades: ArrayAdapter<CharSequence>, sFechaHora: String) {
+
+    override fun CargarPrioridadPT(
+        listaDePrioridades: ArrayAdapter<CharSequence>,
+        sFechaHora: String
+    ) {
         tvtime.text = sFechaHora
 
         spPrioridad.adapter = listaDePrioridades
