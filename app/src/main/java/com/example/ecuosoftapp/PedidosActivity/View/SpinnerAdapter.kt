@@ -1,6 +1,7 @@
 package com.example.ecuosoftapp.PedidosActivity.View
 
 import android.content.Context
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,9 +32,7 @@ class SpinnerAdapter internal constructor(internal var context: Context, interna
         }
 
         val textView = view!!.findViewById<TextView>(R.id.textView)
-
         textView.text = list[i].nombre
-
         return textView
 
     }

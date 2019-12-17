@@ -171,13 +171,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
+                android:entries="@array/prioridad"
+                android:orientation="horizontal"
+                android:prompt="@string/msje"
+                android:spinnerMode="dialog"
+                android:splitMotionEvents="false"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
-                android:spinnerMode="dialog"
-                android:entries="@array/prioridad"
-                android:prompt="@string/msje"/>
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -312,6 +314,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:textSize="18sp"
+                android:prompt="@string/msje"
+                android:textAlignment="center"
+                android:spinnerMode="dialog"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/radioGroup3"
                 app:layout_constraintTop_toBottomOf="@+id/spSolicitanteEmpleado" />

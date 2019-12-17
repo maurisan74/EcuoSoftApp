@@ -18,13 +18,10 @@ class PedidosDatosPresenterImpl(var view: PedidosDatosFragment) : PedidosDatosPr
     override fun CargarPedidoTrabajoPresenter(arraySpinner: ArrayAdapter<Clientes>) {view.CargarPedidosTrabajo(arraySpinner)}
 
     override fun OcultarElementosPresenter() {view.OcultarElementos()}
-    override fun VisualizarElementosPresenter(){view.VisualizarElementos()}
-
-
-    override fun SolicitarPrioridadPTPresenter(context: Context) {interactor.BuscarPrioridadesPT(context)}
-    override fun CargarPrioridadPTPresenter(listaDePrioridades: ArrayAdapter<CharSequence>, sFechaHora: String) {view.CargarPrioridadPT(listaDePrioridades, sFechaHora)}
-
-
+    override fun VisualizarElementosPresenter(sFechaHora: String){view.VisualizarElementos( sFechaHora)}
+    override fun SolicitarPrioridadPTPresenter(context: Context) {
+        //55
+    }
 
 
 }

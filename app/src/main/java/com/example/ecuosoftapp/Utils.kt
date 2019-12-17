@@ -154,8 +154,8 @@ fun addFragmentArgArray(manager: FragmentManager, fragment: Fragment, addToBackS
 
 object ApiUtils {
 
-    val BASE_URL = "http://192.168.0.101:3000/api/"
-    //"http://10.0.2.2:3000/api/"
+    val BASE_URL = "http://10.0.2.2:3000/api/"
+    //"http://192.168.0.101:3000/api/"
 
 //    val apiService: APIService
 //        get() = RetrofitClient.getClient(BASE_URL)!!.create(APIService::class.java)

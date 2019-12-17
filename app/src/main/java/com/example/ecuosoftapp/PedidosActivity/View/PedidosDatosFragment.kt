@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import com.example.ecuosoftapp.ApiUtils.BASE_URL
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosView
+import com.example.ecuosoftapp.PedidosActivity.PojosRetrofit.EndPoints
 import com.example.ecuosoftapp.PedidosActivity.PojosRetrofit.ResponseClientes
 import com.example.ecuosoftapp.PedidosActivity.Presenters.PedidosDatosPresenterImpl
 import com.example.ecuosoftapp.R
@@ -35,9 +37,10 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presentador = PedidosDatosPresenterImpl(this)
-        var responseClientes: ArrayList<ResponseClientes> = ArrayList()
+
+        var responseClientes: ArrayList<ResponseClientes>
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:3000/api/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val request = retrofit.create(EndPoints::class.java)
@@ -45,20 +48,14 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
             val call: Call<List<ResponseClientes>> = request.getClientes()
             call.enqueue(object : Callback<List<ResponseClientes>> {
                 override fun onFailure(call: Call<List<ResponseClientes>>, t: Throwable) {
-                    Log.e("Error", t.message)
-                    //Toast.makeText(activity!!,t.message, Toast.LENGTH_LONG).show()
                 }
 
                 override fun onResponse(call: Call<List<ResponseClientes>>,response: Response<List<ResponseClientes>>) {
                     if (response.code()==200){
                         responseClientes = ArrayList(response.body()!!)
                         val adapter: SpinnerAdapter = SpinnerAdapter(activity!!, responseClientes);
-
                         spSolicitanteCliente.adapter=adapter
-                        //spSolicitanteCliente
-                        //Log.e("OK", response.body().toString())
                     }
-                    //Toast.makeText(activity!!,response.body().toString(), Toast.LENGTH_LONG).show()
                 }
             })
         } catch (e: Exception) {
@@ -102,7 +99,7 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
         cvItem1.cardElevation = 0f
     }
 
-    override fun VisualizarElementos() {
+    override fun VisualizarElementos(sFechaHora: String) {
         pbPrevio.visibility = View.GONE
         tvProyecto.visibility = View.VISIBLE
         spSolicitanteCc5.visibility = View.VISIBLE
@@ -126,21 +123,16 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
         etDescTrabajo.visibility = View.VISIBLE
         cvItem1.setBackgroundColor(Color.parseColor("#DADADA"))
         cvItem1.cardElevation = 4f
+
+        tvtime.text = sFechaHora
+//        spPrioridad.adapter = listaDePrioridades
+//        spPrioridad.setSelection(2)
     }
 
     override fun CargarPedidosTrabajo(arraySpinner: ArrayAdapter<Clientes>) {
         spSolicitanteCliente.adapter = arraySpinner
     }
 
-    override fun CargarPrioridadPT(
-        listaDePrioridades: ArrayAdapter<CharSequence>,
-        sFechaHora: String
-    ) {
-        tvtime.text = sFechaHora
-
-        spPrioridad.adapter = listaDePrioridades
-        spPrioridad.setSelection(2)
-    }
 
 
 }
