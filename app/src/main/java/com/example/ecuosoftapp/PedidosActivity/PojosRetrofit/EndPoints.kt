@@ -1,6 +1,5 @@
 package com.example.ecuosoftapp.PedidosActivity.PojosRetrofit
 
-import com.example.ecuosoftapp.PedidosActivity.PojosRetrofit.ResponseClientes
 import retrofit2.Call
 import retrofit2.http.GET
 

@@ -20,13 +20,13 @@
     <string name="menu_gallery4">Fichas Técnicas</string>
     <string name="menu_gallery5">Cotización de Compra</string>
 
-    <string name="btn">Ingresar</string>
-    <string name="noText"> </string>
-    <string name="adv">¡Atención!</string>
-    <string name="aceptar">Aceptar</string>
+<!--    <string name="btn">Ingresar</string>-->
+<!--    <string name="noText"> </string>-->
+<!--    <string name="adv">¡Atención!</string>-->
+<!--    <string name="aceptar">Aceptar</string>-->
     <string name="cancelar">Cancelar</string>
-    <string name="mensajeError">Mensaje para mostrar las posibles fallas o errores enviados desde el servidor.</string>
-    <string name="comp">Confirmación de comprobantes</string>
+<!--    <string name="mensajeError">Mensaje para mostrar las posibles fallas o errores enviados desde el servidor.</string>-->
+<!--    <string name="comp">Confirmación de comprobantes</string>-->
 
     <string name="emp">Empresa:</string>
     <string name="empl">Empleado:</string>
@@ -47,8 +47,8 @@
     <string name="server">Nombre del Servidor</string>
 
 
-    <string name="Cargando">Cargando comprobantes</string>
-    <string name="Aguarde">Espere un momento.\n Por favor.</string>
+    <string name="Cargando">Obteniendo Componentes del Servidor.</string>
+    <string name="Aguarde">Por favor, Aguade un instante.</string>
     <!--item_detalle_comp-->
     <string name="CodArt">Código:</string>
     <string name="DescArt">Descripción:</string>
@@ -70,7 +70,6 @@
 
 
     <string name="mensajeAdv">Primero debe ingresar sus datos en configuraciones.</string>
-
     <string name="splashTxt2">Mucho mas que un \n software contable</string>
     <string name="aprobComp">Aprob. Comprobantes</string>
     <string name="bar_name">Ecuo Software ERP.</string>

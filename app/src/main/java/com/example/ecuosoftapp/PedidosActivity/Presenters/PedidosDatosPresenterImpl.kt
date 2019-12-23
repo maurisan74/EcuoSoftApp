@@ -6,6 +6,7 @@ import com.example.ecuosoftapp.PedidosActivity.Interactors.PedidosDatosInteracto
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosInteractor
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.View.PedidosDatosFragment
+import com.example.ecuosoftapp.PedidosActivity.View.SpinnerAdapter
 import com.example.ecuosoftapp.SearchFragment.Clientes
 
 class PedidosDatosPresenterImpl(var view: PedidosDatosFragment) : PedidosDatosPresenter {
@@ -14,14 +15,9 @@ class PedidosDatosPresenterImpl(var view: PedidosDatosFragment) : PedidosDatosPr
 
     init { interactor= PedidosDatosInteractorImpl(this) }
 
-    override fun SolicitarPedidoTrabajoPresenter(context: Context) {interactor.SolicitarPedidoTrabajoInteractor(context)}
-    override fun CargarPedidoTrabajoPresenter(arraySpinner: ArrayAdapter<Clientes>) {view.CargarPedidosTrabajo(arraySpinner)}
+    override fun interacturServerInteractor(context: Context) {interactor.interacturServerInteractor(context)}
+    override fun cargarDatosPresenter(visibilidad: Boolean,sFechaHora: String, adapter: SpinnerAdapter) {view.cargarDatos(visibilidad, sFechaHora, adapter)}
 
-    override fun OcultarElementosPresenter() {view.OcultarElementos()}
-    override fun VisualizarElementosPresenter(sFechaHora: String){view.VisualizarElementos( sFechaHora)}
-    override fun SolicitarPrioridadPTPresenter(context: Context) {
-        //55
-    }
-
+   override fun obtenerDatosPresenter(visibilidad: Boolean) {view.obtenerDatos(visibilidad)}
 
 }

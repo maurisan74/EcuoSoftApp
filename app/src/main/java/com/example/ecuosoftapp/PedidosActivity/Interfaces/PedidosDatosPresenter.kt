@@ -1,16 +1,11 @@
 package com.example.ecuosoftapp.PedidosActivity.Interfaces
 
 import android.content.Context
-import android.widget.ArrayAdapter
-import com.example.ecuosoftapp.SearchFragment.Clientes
+import com.example.ecuosoftapp.PedidosActivity.View.SpinnerAdapter
 
 interface PedidosDatosPresenter {
-    fun OcultarElementosPresenter()
-    fun VisualizarElementosPresenter( sFechaHora: String)
+    fun obtenerDatosPresenter(visibilidad: Boolean)
 
-    fun SolicitarPrioridadPTPresenter(context: Context)
-
-
-    fun SolicitarPedidoTrabajoPresenter(context: Context)
-    fun CargarPedidoTrabajoPresenter(arraySpinner: ArrayAdapter<Clientes>)
+    fun interacturServerInteractor(context: Context)
+    fun cargarDatosPresenter(visibilidad: Boolean, sFechaHora: String, adapter: SpinnerAdapter)
 }
