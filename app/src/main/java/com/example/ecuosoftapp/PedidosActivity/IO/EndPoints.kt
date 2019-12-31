@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.PedidosActivity.PojosRetrofit
+package com.example.ecuosoftapp.PedidosActivity.IO
 
 import retrofit2.Call
 import retrofit2.http.GET

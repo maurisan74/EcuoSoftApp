@@ -1,20 +1,15 @@
 package com.example.ecuosoftapp
 
-import android.app.Dialog
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.ecuosoftapp.HomeFragment.HomeFragment
 import com.muddzdev.styleabletoast.StyleableToast
-
 
 fun Context.Msje(mensaje: String)=
     StyleableToast.makeText(this,mensaje, R.style.GoodTaoast).show()
@@ -155,12 +150,3 @@ fun addFragmentArgArray(manager: FragmentManager, fragment: Fragment, addToBackS
 
 }
 
-
-object ApiUtils {
-
-    val BASE_URL ="http://192.168.0.101:3000/api/"
-    //"http://10.0.2.2:3000/api/"
-
-//    val apiService: APIService
-//        get() = RetrofitClient.getClient(BASE_URL)!!.create(APIService::class.java)
-}
