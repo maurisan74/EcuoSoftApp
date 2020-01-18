@@ -16,7 +16,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (activity != null) {
-            (activity as MainActivity).title = "Panel de Notificaciones"
+            (activity as MainActivity).title = "Panel Inicial"
+
 
         }
         return inflater.inflate(R.layout.fragment_home, container, false)

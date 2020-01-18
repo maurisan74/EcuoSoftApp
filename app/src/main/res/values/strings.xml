@@ -9,16 +9,23 @@
 
     <!--Menu navigation-->
     <string name="Action">Configuración</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_aut">Autorización de comp.</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_aut">Autorización de Comp.</string>
     <string name="menu_gallery">Pedidos de Trabajo</string>
     <string name="menu_gallery6">Nuevo Pedido</string>
     <string name="menu_gallery7">Listar Pedidos</string>
-    <string name="menu_gallery8">Conformidad de Ordenes</string>
     <string name="menu_gallery2">Ordenes de Trabajo</string>
-    <string name="menu_gallery3">Notificación de Alertas</string>
-    <string name="menu_gallery4">Fichas Técnicas</string>
+    <string name="menu_gallery12">Nueva Orden</string>
+    <string name="menu_gallery13">Listar Ordenes</string>
     <string name="menu_gallery5">Cotización de Compra</string>
+    <string name="menu_gallery11">Fichas Técnicas</string>
+    <string name="menu_gallery9">Nueva Ficha</string>
+    <string name="menu_gallery10">Listar Fichas</string>
+    <string name="menu_gallery3">Notificación de Alertas</string>
+    <string name="menu_gallery14">Listado</string>
+    <string name="menu_gallery15">Informe</string>
+
+
 
 <!--    <string name="btn">Ingresar</string>-->
 <!--    <string name="noText"> </string>-->
@@ -87,6 +94,7 @@
     <string name="FilEmple">Empleado</string>
     <string name="ic_guardar">Guardar</string>
     <string name="ic_borrar">Eliminar</string>
+    <string name="ic_borrar_All">Eliminar Todo</string>
 
     <!--cargar_datos_ventana-->
     <string name="dialog_btn_yes">Aceptar</string>

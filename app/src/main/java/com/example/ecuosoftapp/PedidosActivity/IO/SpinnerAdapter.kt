@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.PedidosActivity.View
+package com.example.ecuosoftapp.PedidosActivity.IO
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import com.example.ecuosoftapp.PedidosActivity.IO.ResponseClientes
 import com.example.ecuosoftapp.PedidosActivity.IO.ResponseTiposTrabajos
 import com.example.ecuosoftapp.R
 
-class SpinnerAdapterClientes internal constructor(internal var context: Context, internal var list: List<ResponseClientes>) : BaseAdapter() {
+class SpinnerAdapterClientes internal constructor(internal var context: Context, var list: List<ResponseClientes>) : BaseAdapter() {
     override fun getCount(): Int {
         return list.size
     }
@@ -39,7 +39,7 @@ class SpinnerAdapterClientes internal constructor(internal var context: Context,
 }
 
 
-class SpinnerAdapterTrabajos internal constructor(internal var context: Context, internal var list: List<ResponseTiposTrabajos>) : BaseAdapter() {
+class SpinnerAdapterTrabajos internal constructor(internal var context: Context, var list: List<ResponseTiposTrabajos>) : BaseAdapter() {
     override fun getCount(): Int {
         return list.size
     }
@@ -62,6 +62,35 @@ class SpinnerAdapterTrabajos internal constructor(internal var context: Context,
 
         val textView = view!!.findViewById<TextView>(R.id.textView)
         textView.text = list[i].detalleTrabajo
+        return textView
+
+    }
+}
+
+
+class SpinnerAdapterEmpleados internal constructor(internal var context: Context, var list: List<ResponseEmpleados>) : BaseAdapter() {
+    override fun getCount(): Int {
+        return list.size
+    }
+
+    override fun getItem(i: Int): Any? {
+        return null
+    }
+
+    override fun getItemId(i: Int): Long {
+        return 0
+    }
+
+    override fun getView(i: Int, view3: View?, viewGroup: ViewGroup): View {
+        var view=view3
+        if (view == null) {
+            val inflater = LayoutInflater.from(context)
+
+            view = inflater.inflate(R.layout.item_spinner, viewGroup, false)
+        }
+
+        val textView = view!!.findViewById<TextView>(R.id.textView)
+        textView.text = list[i].nombre
         return textView
 
     }

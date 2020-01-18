@@ -5,12 +5,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.SystemClock.sleep
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.Fragment
+import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterClientes
+import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterEmpleados
+import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterTrabajos
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosView
 import com.example.ecuosoftapp.PedidosActivity.Presenters.PedidosDatosPresenterImpl
@@ -45,12 +47,13 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
         ventanaEmergente(visibilidad, context!!)
     }
 
-
-    override fun cargarDatos(visibilidad: Boolean, sFechaHora: String, adapterClientes: SpinnerAdapterClientes, adapterTrabajos: SpinnerAdapterTrabajos) {
+//    override fun cargarDatos(visibilidad: Boolean, sFechaHora: String, adapterClientes: SpinnerAdapterClientes, adapterTrabajos: SpinnerAdapterTrabajos, adapterEmpleados: SpinnerAdapterEmpleados) {
+    override fun cargarDatos(visibilidad: Boolean, sFechaHora: String, adapterTrabajos: SpinnerAdapterTrabajos, adapterEmpleados: SpinnerAdapterEmpleados) {
         ventanaEmergente(visibilidad, context!!)
         tvtime.text = sFechaHora
-        spSolicitanteCliente.adapter = adapterClientes
+//        spSolicitanteCliente.adapter = adapterClientes
         spTipoTrabajo.adapter=adapterTrabajos
+        spSolicitanteEmpleado.adapter=adapterEmpleados
     }
     fun ventanaEmergente(visibilidad: Boolean, context: Context) {
         if (visibilidad) {

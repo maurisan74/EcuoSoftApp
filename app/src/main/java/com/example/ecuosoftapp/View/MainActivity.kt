@@ -18,7 +18,6 @@ import androidx.core.app.ActivityCompat
 import com.example.ecuosoftapp.*
 import com.example.ecuosoftapp.CompFragment.View.CompFragment
 import com.example.ecuosoftapp.HomeFragment.HomeFragment
-import com.example.ecuosoftapp.PedidosActivity.View.ConformidadFragment
 import com.example.ecuosoftapp.PedidosActivity.View.ListarPedidosFragment
 import com.example.ecuosoftapp.PedidosActivity.View.TabFragment
 import com.example.ecuosoftapp.SaveFragment.View.SaveFragment
@@ -151,47 +150,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     addFragment( supportFragmentManager, ListarPedidosFragment(), true, "ListarPedidosFragment",2)
                 }
             }
-            R.id.nav_conformidad -> {
-                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
 
-                    this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {
-                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                    addFragment( supportFragmentManager, ConformidadFragment(), true, "ConformidadFragment",2)
-                }
-            }
-            R.id.nav_ordenes -> {
-                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                        addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
-                    this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)}
-            }
-            R.id.nav_alertas -> {
 
-                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    addFragment( supportFragmentManager, SaveFragment(), true, "SaveFragment",1)
-                    this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)}
-            }
-            R.id.nav_fichas -> {
-                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    addFragment( supportFragmentManager, SaveFragment(), true, "null",1)
-                    this.Msje( "!No hay ningun Servidor Predeterminado¡")
-                }else {
-
-                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                }
-            }
-            R.id.nav_pedido_compra -> {
-                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
-                    addFragment( supportFragmentManager, SaveFragment(), false, "null",1)
-                this.Msje( "!No hay ningun Servidor Predeterminado¡")
-            }else {
-
-                    if (VIBRATOR_PERMISSION_REQUEST_CODE == 1) vibrate(50)
-                }
-            }
 //            R.id.nav_conf -> {
 //                if (sharedPreferences.getString("x", "") == "" && sharedPreferences.getString("y","") == "" && sharedPreferences.getString("z", "") == "") {
 //                    addFragment( supportFragmentManager, SaveFragment(), true, "",1)
