@@ -6,7 +6,9 @@ data class Comprobante(
     var numeroComprobante : String? = null,
     var sucursalDeposito : String? = null,
     var empleado: String? = null,
-    var motivo: String? = null,
+    var opotunidad: String? = null,
+    var proyecto: String? = null,
+    var contrato: String? = null,
     var fechaComprobante: String? = null,
     var total: Float = 0.toFloat(),
     var imagen: Int = 0

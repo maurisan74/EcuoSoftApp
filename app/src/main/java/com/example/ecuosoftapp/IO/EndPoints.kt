@@ -1,5 +1,8 @@
-package com.example.ecuosoftapp.PedidosActivity.IO
+package com.example.ecuosoftapp.IO
 
+import com.example.ecuosoftapp.CompFragment.ModeloCompHead.ResponseCompBody
+import com.example.ecuosoftapp.CompFragment.ModeloCompHead.ResponseCompHead
+import com.example.ecuosoftapp.PedidosActivity.ModeloPedidos.*
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -22,5 +25,11 @@ interface EndPoints {
 
     @GET ("equipos")
     fun getEquipos():Call<List<ResponseEquipos>>
+
+    @GET ("comp_head")
+    fun getCompHead():Call<List<ResponseCompHead>>
+
+    @GET ("comp_body")
+    fun getCompBody():Call<List<ResponseCompBody>>
 
 }

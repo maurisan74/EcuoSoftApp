@@ -10,9 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.Fragment
-import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterClientes
-import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterEmpleados
-import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterTrabajos
+import com.example.ecuosoftapp.PedidosActivity.ModeloPedidos.SpinnerAdapterEmpleados
+import com.example.ecuosoftapp.PedidosActivity.ModeloPedidos.SpinnerAdapterTrabajos
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosView
 import com.example.ecuosoftapp.PedidosActivity.Presenters.PedidosDatosPresenterImpl

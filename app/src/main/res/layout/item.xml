@@ -18,196 +18,262 @@
 
         <ImageView
 
+            android:id="@+id/ivHolder"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/ivHolder"
-            app:layout_constraintStart_toEndOf="@+id/tvtotal"
             android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.968"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            android:visibility="visible"
+            app:layout_constraintStart_toEndOf="@+id/tvtotal"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintVertical_bias="0.0" />
+
         <TextView
-            android:text="@string/codEmp"
+            android:id="@+id/tvEmpresa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvEmpresa"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:layout_marginStart="3dp"
+            android:text="@string/codEmp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColorHint="@android:color/black"
-            app:layout_constraintStart_toEndOf="@+id/textView23" android:layout_marginStart="3dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView23"/>
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView23"
+            app:layout_constraintStart_toEndOf="@+id/textView23" />
 
         <TextView
             android:id="@+id/tvcodigoSucursal"
             android:layout_width="20dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:gravity="center_horizontal|left"
             android:text="@string/numsuc"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center_horizontal|left"
             android:textSize="14sp"
-            android:textStyle="bold" app:layout_constraintStart_toEndOf="@+id/textView5"
-            android:layout_marginStart="3dp"/>
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:text="@string/suc"
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/suc"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:id="@+id/textView5"
-            app:layout_constraintTop_toTopOf="parent"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/tvEmpresa"
-            android:layout_marginStart="10dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView android:id="@+id/tvnumeroComprobante"
-            android:layout_width="166dp"
-            android:layout_height="20dp"
+        <TextView
+            android:id="@+id/tvnumeroComprobante"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center|left"
             android:text="@string/numcomp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent"
             android:textSize="14sp"
-            android:gravity="center|left"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
-            android:text="@string/empl"
+            android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/empl"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:id="@+id/textView8"
-            app:layout_constraintStart_toStartOf="parent"
             android:textSize="14sp"
-            android:layout_marginTop="5dp" app:layout_constraintTop_toBottomOf="@+id/textView25"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
 
-        <TextView android:id="@+id/tvempleado"
-            android:layout_width="240dp"
+        <TextView
+            android:id="@+id/tvempleado"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="5dp"
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvSucDep"/>
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
         <TextView
-            android:text="@string/mot"
+            android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:id="@+id/textView9"
             android:layout_marginTop="5dp"
+            android:text="@string/opo"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            android:textSize="14sp" app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-        <TextView android:id="@+id/tvmotivo"
-            android:layout_width="250dp"
+        <TextView
+            android:id="@+id/tvOportunidad"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="5dp"
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_marginTop="5dp"
-            app:layout_constraintStart_toEndOf="@+id/textView9"
             android:textSize="14sp"
-            android:textStyle="bold" app:layout_constraintTop_toBottomOf="@+id/tvempleado"
-            android:layout_marginStart="3dp"/>
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-        <TextView android:id="@+id/tvfechaComprobante"
-            android:layout_width="82dp"
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/con"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/tvContrato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/tvProyecto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/pro"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/tvfechaComprobante"
+            android:layout_width="wrap_content"
             android:layout_height="17dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
             android:text="@string/fec"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textSize="14sp" android:gravity="center"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView29"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@string/peso"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvcodigoSucursal"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
-            android:text="@string/peso"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvtotal"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:id="@+id/textView7"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvcodigoSucursal"
-            android:textSize="14sp"
-            android:textColor="@android:color/holo_red_light" android:gravity="center" android:textStyle="bold"
-            android:layout_marginStart="8dp"/>
-
-
-        <TextView android:id="@+id/tvtotal"
-            android:layout_width="74dp"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="40dp"
+            android:gravity="center_horizontal|left|center_vertical"
             android:text="@string/tot"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textSize="14sp"
             android:textColor="@android:color/holo_red_light"
-            android:gravity="center_horizontal|left|center_vertical"
-            android:textStyle="bold" android:layout_marginStart="2dp" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"/>
-        <TextView
-            android:text="@string/emp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView23"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-        <TextView
-            android:text="@string/DescSucDep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView25"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvnumeroComprobante"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
-            android:textSize="14sp"/>
-        <TextView
-            android:text="@string/SucDep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvSucDep"
-            app:layout_constraintStart_toEndOf="@+id/textView25"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="7dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvfechaComprobante"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
             app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/emp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/DescSucDep"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
             android:textSize="14sp"
-            android:textStyle="bold"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvnumeroComprobante" />
+
         <TextView
-            android:text="@string/Desfec"
+            android:id="@+id/tvSucDep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/SucDep"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/tvnumeroComprobante" />
+
+        <TextView
+            android:id="@+id/textView29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView29" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/tvnumeroComprobante"
-            android:layout_marginStart="3dp"/>
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="5dp"
+            android:text="@string/Desfec"
+            app:layout_constraintEnd_toStartOf="@+id/tvfechaComprobante"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

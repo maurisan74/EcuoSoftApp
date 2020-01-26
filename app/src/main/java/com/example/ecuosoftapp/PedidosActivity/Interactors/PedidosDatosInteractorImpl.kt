@@ -1,11 +1,11 @@
 package com.example.ecuosoftapp.PedidosActivity.Interactors
 
-import android.app.Activity
 import android.content.Context
 import com.example.ecuosoftapp.Msje
-import com.example.ecuosoftapp.PedidosActivity.IO.*
+import com.example.ecuosoftapp.PedidosActivity.ModeloPedidos.*
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosInteractor
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
+import com.example.ecuosoftapp.IO.ApiAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,7 +49,7 @@ class PedidosDatosInteractorImpl(var presenter: PedidosDatosPresenter) : Pedidos
 
 
 
-                val call01: Call<List<ResponseEmpleados>> = PedidosApiAdapter.request.getEmpleados()
+                val call01: Call<List<ResponseEmpleados>> = ApiAdapter.request.getEmpleados()
                 call01.enqueue(object : Callback<List<ResponseEmpleados>> {
                     override fun onResponse(
                         call01: Call<List<ResponseEmpleados>>,
@@ -71,7 +71,7 @@ class PedidosDatosInteractorImpl(var presenter: PedidosDatosPresenter) : Pedidos
 
 
 
-                val call2: Call<List<ResponseTiposTrabajos>> = PedidosApiAdapter.request.getTiposTrabajos()
+                val call2: Call<List<ResponseTiposTrabajos>> = ApiAdapter.request.getTiposTrabajos()
                 call2.enqueue(object : Callback<List<ResponseTiposTrabajos>> {
                     override fun onResponse(
                         call2: Call<List<ResponseTiposTrabajos>>,

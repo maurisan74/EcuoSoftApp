@@ -5,9 +5,8 @@ import com.example.ecuosoftapp.PedidosActivity.Interactors.PedidosDatosInteracto
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosInteractor
 import com.example.ecuosoftapp.PedidosActivity.Interfaces.PedidosDatosPresenter
 import com.example.ecuosoftapp.PedidosActivity.View.PedidosDatosFragment
-import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterClientes
-import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterEmpleados
-import com.example.ecuosoftapp.PedidosActivity.IO.SpinnerAdapterTrabajos
+import com.example.ecuosoftapp.PedidosActivity.ModeloPedidos.SpinnerAdapterEmpleados
+import com.example.ecuosoftapp.PedidosActivity.ModeloPedidos.SpinnerAdapterTrabajos
 
 class PedidosDatosPresenterImpl(var view: PedidosDatosFragment) : PedidosDatosPresenter {
 

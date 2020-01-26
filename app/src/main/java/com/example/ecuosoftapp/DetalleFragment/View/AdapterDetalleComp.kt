@@ -35,6 +35,8 @@ class AdapterDetalleComp(private val itemDetalleComp: ArrayList<DetalleComp>) : 
         holder.unidadMedida!!.text=itemDetalleComp.UnidadMedida
         holder.totalLineaDescuento!!.text=itemDetalleComp.TotalLineaDescuento
         holder.observacion!!.text=itemDetalleComp.Observacion
+        holder.observacion!!.text=itemDetalleComp.Observacion
+        holder.observacion!!.text=itemDetalleComp.Observacion
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder1 {

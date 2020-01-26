@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
     val bac = object  : Thread(){
       override fun run(){
         try {
-          sleep(500)
+          sleep(200)
           val intent = Intent(baseContext, MainActivity:: class.java)
           startActivity(intent)
           finish()

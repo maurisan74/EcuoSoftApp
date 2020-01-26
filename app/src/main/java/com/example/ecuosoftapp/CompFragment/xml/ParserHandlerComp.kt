@@ -20,7 +20,9 @@ class ParserHandlerComp {
         var numComp=""
         var sucDep = ""
         var empl = ""
-        var motivo = ""
+        var oportunidad = ""
+        var contrato = ""
+        var proyecto = ""
         var fecComp = ""
         var tot: Float = 0.toFloat()
         var employee: Comprobante
@@ -50,7 +52,9 @@ class ParserHandlerComp {
                                     numComp,
                                     sucDep,
                                     empl,
-                                    motivo,
+                                    oportunidad,
+                                    contrato,
+                                    proyecto,
                                     fecComp,
                                     tot,
                                     imagen
@@ -118,8 +122,12 @@ class ParserHandlerComp {
                                     }
                                 }
                             }
-                        } else if (tagname.equals("Motivo", ignoreCase = true)) {
-                            motivo = text.toString()
+                        } else if (tagname.equals("Oportunidad", ignoreCase = true)) {
+                            oportunidad = text.toString()
+                        } else if (tagname.equals("Contrato", ignoreCase = true)) {
+                            contrato = text.toString()
+                        } else if (tagname.equals("Proyecto", ignoreCase = true)) {
+                            proyecto = text.toString()
                         } else if (tagname.equals("FechaComprobante", ignoreCase = true)) {
                             val dia=text!!.substring(8,10)
                             val mes=text!!.substring(5,7)

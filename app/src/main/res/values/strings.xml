@@ -46,7 +46,9 @@
     <string name="fec">15/10/2010</string>
     <string name="tot">99999</string>
     <string name="peso">$</string>
-    <string name="mot">Motivo:</string>
+    <string name="opo">Oportunidad:</string>
+    <string name="con">Contrato:</string>
+    <string name="pro">Proyecto:</string>
     <string name="todo">TODO</string>
     <string name="codEmp">01</string>
     <string name="DescSucDep">Suc. Deposito:</string>

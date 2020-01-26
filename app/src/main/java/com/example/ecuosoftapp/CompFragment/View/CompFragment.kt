@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import com.example.ecuosoftapp.View.MainActivity
 import com.example.ecuosoftapp.SearchFragment.SerchFragment
 import com.example.ecuosoftapp.CompFragment.xml.Comprobante
 import kotlinx.android.synthetic.main.fragment_comp.*
+import kotlinx.android.synthetic.main.item.view.*
 
 class CompFragment : CompView, Fragment() {
 
@@ -205,6 +207,10 @@ class CompFragment : CompView, Fragment() {
         lista.itemAnimator = DefaultItemAnimator()
         adapter = AdapterLanding(comprobantes)
         lista.adapter = adapter
+        if (comprobantes[1].proyecto.toString().isNullOrEmpty()){
+           lista[1].textView11.visibility=View.GONE
+            lista[1].tvProyecto.visibility=View.GONE
+        }
     }
     override fun ShowError(mensaje: String) {activity!!.Msje(mensaje)}
     override fun ListaEmpleados(listEmple: ArrayList<String>) {sListaEmpleados=listEmple }

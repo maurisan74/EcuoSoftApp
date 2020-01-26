@@ -40,7 +40,9 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
         holder.numeroComprobante?.text=item.numeroComprobante
         holder.sucursalDeposito!!.text=item.sucursalDeposito
         holder.empleado?.text=item.empleado
-        holder.motivo?.text=item.motivo
+        holder.oportunidad?.text = item.opotunidad
+        holder.proyecto?.text=item.proyecto
+        holder.contrato?.text=item.contrato
         holder.fechaComprobante?.text=item.fechaComprobante
         holder.total?.text=item.total.toString()
         holder.imagen?.setImageResource(item.imagen)
@@ -63,7 +65,9 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
         var numeroComprobante: TextView?=null
         var sucursalDeposito: TextView?=null
         var empleado: TextView?=null
-        var motivo: TextView?=null
+        var oportunidad: TextView?=null
+        var contrato: TextView?=null
+        var proyecto: TextView?=null
         var fechaComprobante: TextView?=null
         var total: TextView?=null
         var imagen: ImageView?=null
@@ -74,7 +78,9 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
             numeroComprobante=vista.tvnumeroComprobante
             sucursalDeposito=vista.tvSucDep
             empleado=vista.tvempleado
-            motivo=vista.tvmotivo
+            oportunidad=vista.tvOportunidad
+            contrato=vista.tvContrato
+            proyecto=vista.tvProyecto
             fechaComprobante=vista.tvfechaComprobante
             total=vista.tvtotal
             imagen=vista.ivHolder

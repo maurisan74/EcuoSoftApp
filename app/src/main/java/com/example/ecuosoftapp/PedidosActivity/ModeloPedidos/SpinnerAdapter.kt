@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.PedidosActivity.IO
+package com.example.ecuosoftapp.PedidosActivity.ModeloPedidos
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.example.ecuosoftapp.PedidosActivity.IO.ResponseClientes
-import com.example.ecuosoftapp.PedidosActivity.IO.ResponseTiposTrabajos
 import com.example.ecuosoftapp.R
 
 class SpinnerAdapterClientes internal constructor(internal var context: Context, var list: List<ResponseClientes>) : BaseAdapter() {

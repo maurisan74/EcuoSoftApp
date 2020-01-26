@@ -1,4 +1,4 @@
-package com.example.ecuosoftapp.PedidosActivity.IO
+package com.example.ecuosoftapp.PedidosActivity.ModeloPedidos
 
 import com.google.gson.annotations.SerializedName
 

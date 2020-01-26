@@ -1,6 +1,5 @@
-package com.example.ecuosoftapp.PedidosActivity.IO
+package com.example.ecuosoftapp.IO
 
-import android.content.Context
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -44,7 +43,7 @@ import java.util.concurrent.TimeUnit
 //        .build()
 //    val request = retrofit.create(EndPoints::class.java)
 //}
-object PedidosApiAdapter {
+object ApiAdapter {
 
 val BASE_URL = "http://10.0.2.2:3000/api/"
     //"http://192.168.0.101:3000/api/"
@@ -84,5 +83,6 @@ val BASE_URL = "http://10.0.2.2:3000/api/"
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    val request = retrofit.create(EndPoints::class.java)
+    val request = retrofit.create(
+        EndPoints::class.java)
 }
