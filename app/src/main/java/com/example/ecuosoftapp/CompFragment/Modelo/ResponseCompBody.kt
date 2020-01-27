@@ -1,8 +1,8 @@
-package com.example.ecuosoftapp.CompFragment.ModeloCompHead
+package com.example.ecuosoftapp.CompFragment.Modelo
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseCompHead(
+data class ResponseCompBody(
 
 	@field:SerializedName("Nombre")
 	val nombre: String? = null,

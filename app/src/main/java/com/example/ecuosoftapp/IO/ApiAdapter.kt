@@ -45,8 +45,8 @@ import java.util.concurrent.TimeUnit
 //}
 object ApiAdapter {
 
-val BASE_URL = "http://10.0.2.2:3000/api/"
-    //"http://192.168.0.101:3000/api/"
+val BASE_URL = "http://192.168.0.101:3000/api/"
+    //"http://10.0.2.2:3000/api/"
 //    private var BASE_URL = run {
 //        sharedPreferences=getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
 //        if (sharedPreferences.getString("x", "") == "OK") {

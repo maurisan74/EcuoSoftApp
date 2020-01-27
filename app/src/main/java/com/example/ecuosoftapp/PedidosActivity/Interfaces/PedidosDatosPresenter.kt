@@ -10,5 +10,7 @@ interface PedidosDatosPresenter {
     fun interacturServerInteractor(context: Context)
 //    fun cargarDatosPresenter(visibilidad: Boolean, sFechaHora: String, adapterClientes: SpinnerAdapterClientes, adapterTrabajos: SpinnerAdapterTrabajos, adapterEmpleados: SpinnerAdapterEmpleados)
     fun cargarDatosPresenter(visibilidad: Boolean, sFechaHora: String,  adapterTrabajos: SpinnerAdapterTrabajos, adapterEmpleados: SpinnerAdapterEmpleados)
-
+    fun onDestroy(){
+       // PedidosDatosView=null
+    }
 }

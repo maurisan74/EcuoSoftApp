@@ -8,15 +8,15 @@ import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecuosoftapp.CompFragment.Modelo.ResponseCompHead
 import com.example.ecuosoftapp.R
-import com.example.ecuosoftapp.CompFragment.xml.Comprobante
 import kotlinx.android.synthetic.main.item.view.*
 import kotlin.collections.ArrayList
 
 
-class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.Adapter<AdapterLanding.ViewHolder>(), Filterable {
+class AdapterLanding(private val items: ArrayList<ResponseCompHead>) : RecyclerView.Adapter<AdapterLanding.ViewHolder>(), Filterable {
 
-    internal var items2 : ArrayList<Comprobante>?=null
+    internal var items2 : ArrayList<ResponseCompHead>?=null
     private var mListener: OnItemClickListener? = null
 
     init {
@@ -37,14 +37,14 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
 
         holder.codigoEmpresa?.text=item!!.codigoEmpresa
         holder.codigoSucursal?.text=item.codigoSucursal
-        holder.numeroComprobante?.text=item.numeroComprobante
-        holder.sucursalDeposito!!.text=item.sucursalDeposito
+        holder.nroComprobanteCompleto?.text=item.nroComprobanteCompleto
         holder.empleado?.text=item.empleado
-        holder.oportunidad?.text = item.opotunidad
-        holder.proyecto?.text=item.proyecto
-        holder.contrato?.text=item.contrato
+        holder.sucursalDeposito?.text=item.sucursalDeposito
+        holder.oportunidad?.text = item.oportunidad.toString()
+        holder.proyecto?.text=item.proyecto.toString()
+        holder.contrato?.text=item.contrato.toString()
         holder.fechaComprobante?.text=item.fechaComprobante
-        holder.total?.text=item.total.toString()
+        holder.total?.text=item.total
         holder.imagen?.setImageResource(item.imagen)
         }
 
@@ -62,7 +62,7 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
 
         var codigoEmpresa: TextView?=null
         var codigoSucursal: TextView?=null
-        var numeroComprobante: TextView?=null
+        var nroComprobanteCompleto: TextView?=null
         var sucursalDeposito: TextView?=null
         var empleado: TextView?=null
         var oportunidad: TextView?=null
@@ -75,7 +75,7 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
         init {
             codigoEmpresa=vista.tvEmpresa
             codigoSucursal=vista.tvcodigoSucursal
-            numeroComprobante=vista.tvnumeroComprobante
+            nroComprobanteCompleto=vista.tvnumeroComprobante
             sucursalDeposito=vista.tvSucDep
             empleado=vista.tvempleado
             oportunidad=vista.tvOportunidad
@@ -107,7 +107,7 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
     override fun getFilter(): Filter {
             return object : Filter() {
                 override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults?) {
-                    items2 = filterResults!!.values as ArrayList<Comprobante>
+                    items2 = filterResults!!.values as ArrayList<ResponseCompHead>
                     notifyDataSetChanged()
                 }
 
@@ -125,7 +125,7 @@ class AdapterLanding(private val items: ArrayList<Comprobante>) : RecyclerView.A
                     if (charString.isEmpty() || (sEmpTemp=="00" && sEmpleTemp=="00")) {
                         items2 = items
                     } else {
-                        val filteredList = ArrayList<Comprobante>()
+                        val filteredList = ArrayList<ResponseCompHead>()
 
                         for (row in items) {
                             if (sEmpTemp!="00" && sEmpleTemp!="00") {

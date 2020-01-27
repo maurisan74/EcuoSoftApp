@@ -19,22 +19,19 @@ import com.example.ecuosoftapp.R
 import kotlinx.android.synthetic.main.fragment_pedidos_datos.*
 
 class PedidosDatosFragment : PedidosDatosView, Fragment() {
-    lateinit var presentador: PedidosDatosPresenter
+    private lateinit var presentador: PedidosDatosPresenter
     lateinit var dialog: Dialog
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_pedidos_datos, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         presentador = PedidosDatosPresenterImpl(this)
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -45,7 +42,6 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
     override fun obtenerDatos(visibilidad: Boolean) {
         ventanaEmergente(visibilidad, context!!)
     }
-
 //    override fun cargarDatos(visibilidad: Boolean, sFechaHora: String, adapterClientes: SpinnerAdapterClientes, adapterTrabajos: SpinnerAdapterTrabajos, adapterEmpleados: SpinnerAdapterEmpleados) {
     override fun cargarDatos(visibilidad: Boolean, sFechaHora: String, adapterTrabajos: SpinnerAdapterTrabajos, adapterEmpleados: SpinnerAdapterEmpleados) {
         ventanaEmergente(visibilidad, context!!)
@@ -54,6 +50,7 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
         spTipoTrabajo.adapter=adapterTrabajos
         spSolicitanteEmpleado.adapter=adapterEmpleados
     }
+
     fun ventanaEmergente(visibilidad: Boolean, context: Context) {
         if (visibilidad) {
             dialog= Dialog(context)
@@ -84,6 +81,11 @@ class PedidosDatosFragment : PedidosDatosView, Fragment() {
         } else {
             dialog.dismiss()
         }
+    }
+
+    override fun onDestroy() {
+        presentador.onDestroy()
+        super.onDestroy()
     }
 }
 

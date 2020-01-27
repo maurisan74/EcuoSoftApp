@@ -1,7 +1,7 @@
 package com.example.ecuosoftapp.IO
 
-import com.example.ecuosoftapp.CompFragment.ModeloCompHead.ResponseCompBody
-import com.example.ecuosoftapp.CompFragment.ModeloCompHead.ResponseCompHead
+import com.example.ecuosoftapp.CompFragment.Modelo.ResponseCompBody
+import com.example.ecuosoftapp.CompFragment.Modelo.ResponseCompHead
 import com.example.ecuosoftapp.PedidosActivity.ModeloPedidos.*
 import retrofit2.Call
 import retrofit2.http.GET
